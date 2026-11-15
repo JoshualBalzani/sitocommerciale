@@ -15,7 +15,7 @@ export function mountMotion() {
    main.classList.add('section-stack-active');
    const markers=sections.map((section,index)=>{const marker=document.createElement('span');marker.className='section-marker';marker.setAttribute('aria-hidden','true');main.insertBefore(marker,section);section.classList.add('section-sheet');section.style.setProperty('--section-layer',index+1);return marker;});
    let frame=0,alive=true;
-   const header=()=>Math.ceil(document.querySelector('.site-header')?.getBoundingClientRect().height||76)+14;
+   const header=()=>14;
    const measure=()=>sections.forEach(section=>section.style.setProperty('--section-top',Math.min(header(),innerHeight-section.offsetHeight-22)+'px'));
    const refresh=()=>{if(frame||!alive)return;frame=requestAnimationFrame(()=>{frame=0;if(!alive)return;measure();ScrollTrigger.refresh();});};
    measure();
