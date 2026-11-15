@@ -1,0 +1,51 @@
+﻿name: Publish GitHub Pages
+on:
+  push:
+    # The build job publishes only the repository default branch.
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  build:
+    if: github.event_name == 'workflow_dispatch' || github.ref_name == github.event.repository.default_branch
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Read GitHub Pages URL
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Build site for the actual Pages address
+        run: node scripts/build-github-pages.cjs
+        env:
+          PAGES_SITE_URL: ${{ steps.pages.outputs.base_url }}
+      - name: Check public output
+        run: node scripts/check-github-pages.cjs
+      - name: Upload only public site
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist-github
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

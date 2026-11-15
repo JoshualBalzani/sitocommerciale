@@ -1,0 +1,29 @@
+﻿/* Scroll animation only, with no product scene or WebGL library. */
+(() => {
+  const scriptBase=new URL('.',document.currentScript.src);
+  const root=document.querySelector('.cinema');
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+  const key='ccp_motion_reduced_v1';let manual=false,version=0,motion,loading;
+  try{manual=sessionStorage.getItem(key)==='true';}catch{}
+  const control=root?.querySelector('.motion-preference');
+  if(control){control.hidden=false;root.querySelector('.cinema-actions').append(control);}
+  const footerControls=[...document.querySelectorAll('[data-motion-settings]')];
+  footerControls.forEach(button=>{button.hidden=false;button.addEventListener('click',()=>control?.click());});
+  const load=()=>loading||=new Promise((resolve,reject)=>{const script=document.createElement('script');script.src=new URL('assets/scroll-experience.js?v=20261115-8',scriptBase).href;script.async=true;script.onload=resolve;script.onerror=reject;document.head.append(script);});
+  async function update(){
+    const turn=++version;motion?.dispose();motion=null;
+    const limited=reduced.matches||manual;document.documentElement.classList.toggle('motion-reduced',limited);
+    if(control){control.setAttribute('aria-pressed',String(limited));control.textContent=reduced.matches?'Animazioni ridotte dal sistema':limited?'Attiva animazioni':'Riduci animazioni';control.disabled=reduced.matches;}
+    footerControls.forEach(button=>{button.setAttribute('aria-pressed',String(limited));button.textContent=reduced.matches?'Movimento ridotto dal sistema':limited?'Attiva movimento':'Riduci movimento';button.disabled=reduced.matches;});
+    if(limited)return;
+    try{await load();if(turn!==version||document.hidden)return;motion=window.CCPMotion.mountMotion({root});}catch{document.documentElement.classList.remove('page-motion');}
+  }
+  control?.addEventListener('click',()=>{manual=!manual;try{sessionStorage.setItem(key,String(manual));}catch{}update();});
+  reduced.addEventListener('change',update);
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!motion)update();});
+  window.addEventListener('pagehide',()=>{version++;motion?.dispose();motion=null;});
+  window.addEventListener('pageshow',event=>{if(event.persisted)update();});
+  const gallery=document.querySelector('.business-area-nav');
+  if(gallery){const buttons=[...document.querySelectorAll('[data-category-scroll]')];const sync=()=>buttons.forEach(button=>{button.disabled=Number(button.dataset.categoryScroll)<0?gallery.scrollLeft<3:gallery.scrollLeft+gallery.clientWidth>=gallery.scrollWidth-3;});buttons.forEach(button=>button.addEventListener('click',()=>gallery.scrollBy({left:Number(button.dataset.categoryScroll)*(gallery.querySelector('a').getBoundingClientRect().width+20),behavior:reduced.matches||manual?'instant':'smooth'})));gallery.addEventListener('scroll',sync,{passive:true});new ResizeObserver(sync).observe(gallery);sync();}
+  update();
+})();

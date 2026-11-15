@@ -1,0 +1,15 @@
+dist/
+node_modules/
+.netlify/
+*.zip
+
+/visuracomm.pdf
+/visuracomm/
+
+dist-github/
+github-pages-repository/
+audit-visivo/
+anteprima-*.png
+
+dist-github*/
+github-pages-package-files.json
