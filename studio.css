@@ -437,3 +437,8 @@ html{scroll-behavior:auto;overflow-anchor:auto}
 @media(max-width:959px){.studio-home .cinema-editorial .cinema-layout,.subpage-cards .seo-area-hero>.container{grid-template-columns:1fr;gap:28px}.hero-context{padding-top:20px}.hero-context .eyebrow{margin-bottom:16px!important}.hero-context-lead{font-size:27px;margin-bottom:18px}.hero-facts{margin-top:20px;padding-top:18px}.hero-facts dd{font-size:28px}.studio-home .cinema-editorial .cinema-stage{padding-top:24px}.studio-home .cinema-editorial h1{font-size:clamp(43px,11vw,68px)}.subpage-cards .seo-area-hero .hero-text{padding-bottom:0}.subpage-cards .seo-area-hero h1{font-size:clamp(36px,8.6vw,56px)}.subpage-cards .seo-area-hero .hero-context{margin-top:4px}.subpage-cards .seo-area-hero .seo-area-nav{margin-top:0}}
 .studio-home #contenuto>section,.studio-home #contenuto.section-stack-active>section.section-sheet,.subpage-cards .seo-area-page>section{min-height:100svh!important}
 .hero-context-lead{color:#123453}@media(max-width:959px){.subpage-cards .seo-area-hero>.container{row-gap:18px}.subpage-cards .seo-area-hero .seo-breadcrumbs{margin-bottom:6px}.subpage-cards .seo-area-hero>.container>.eyebrow{margin-bottom:8px}}
+
+/* Every content sheet pins after its last line; the next sheet covers it. */
+.studio-home #contenuto.section-stack-active>section.section-sheet,.subpage-cards .seo-area-page.section-stack-active>section.section-sheet{position:sticky!important;top:var(--section-top,0px)!important}
+.studio-home #contenuto.section-stack-active>section.section-sheet#richiesta{position:relative!important;top:auto!important}
+.subpage-cards .seo-area-page.section-stack-active>section.section-sheet:has(.seo-area-cards){position:relative!important;top:auto!important}

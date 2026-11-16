@@ -1,4 +1,4 @@
-/* CSS owns scrolling. JavaScript only identifies sheets that fit the viewport. */
+/* Native CSS stacking, measured against the stable viewport without scroll handlers. */
 export function mountMotion() {
  const main=document.querySelector('.studio-home #contenuto,.subpage-cards .seo-area-page');
  if(!main)return {dispose(){}};
@@ -10,7 +10,7 @@ export function mountMotion() {
  let frame=0,active=true;
  main.classList.add('section-stack-active');
  sheets.forEach((sheet,index)=>{sheet.classList.add('section-sheet');sheet.style.setProperty('--section-layer',index+1);});
- const measure=()=>{frame=0;if(!active)return;const height=ruler.getBoundingClientRect().height;sheets.forEach(sheet=>sheet.classList.toggle('section-flow',sheet.offsetHeight>height+2||sheet.id==='richiesta'));};
+ const measure=()=>{frame=0;if(!active)return;const height=ruler.getBoundingClientRect().height;sheets.forEach(sheet=>{sheet.classList.toggle('section-flow',sheet.id==='richiesta');sheet.style.setProperty('--section-top',Math.min(0,height-sheet.offsetHeight)+'px');});};
  const refresh=()=>{if(!frame&&active)frame=requestAnimationFrame(measure);};
  const resize=new ResizeObserver(refresh);sheets.forEach(sheet=>resize.observe(sheet));resize.observe(ruler);
  window.addEventListener('resize',refresh,{passive:true});
