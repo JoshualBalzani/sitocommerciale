@@ -534,3 +534,21 @@ html{scroll-behavior:auto;overflow-anchor:auto}
 .site-footer.footer-integrated [hidden]{display:none!important}
 
 .skip-link:not(:focus){clip-path:inset(50%);width:1px;height:1px;overflow:hidden;white-space:nowrap;padding:0;border:0}
+
+/* Make the next step explicit, with a direct link as an alternative to scrolling. */
+.studio-home .cinema-editorial .cinema-bottom{padding-top:22px;margin-top:28px}
+.studio-home .cinema-editorial .hero-scroll-cue{display:inline-flex;align-items:center;gap:16px;min-height:64px;padding:6px 0;text-decoration:none;color:#123453}
+.scroll-cue-icon{display:grid;place-items:center;flex:0 0 48px;width:48px;height:48px;border:1px solid #b7cfe2;border-radius:50%;color:#0d47a1;background:#f4f8fb}
+.hero-scroll-cue strong{display:block;font-size:14px;font-weight:700;line-height:1.6}
+.hero-scroll-cue small{display:block;font-size:12px;line-height:1.7;color:#45627b;margin-top:2px}
+.hero-scroll-cue svg{animation:scroll-cue-nudge 2.6s ease-in-out infinite}
+.hero-scroll-cue:hover .scroll-cue-icon{background:#e6f0f8;border-color:#0d47a1}
+.hero-scroll-cue:focus-visible{outline:3px solid #0d47a1;outline-offset:6px;border-radius:8px}
+@keyframes scroll-cue-nudge{0%,65%,100%{transform:translateY(0)}30%{transform:translateY(4px)}}
+.motion-reduced .hero-scroll-cue svg{animation:none}
+@media(prefers-reduced-motion:reduce){.hero-scroll-cue svg{animation:none}}
+
+
+.studio-home .cinema-editorial .cinema-copy{grid-column:1;grid-row:1}.studio-home .cinema-editorial .hero-brand{grid-column:2;grid-row:1}.studio-home .cinema-editorial .cinema-bottom{grid-column:1/-1;grid-row:2;width:100%;max-width:none;margin-inline:0;border-top:1px solid #d5e3ed}
+@media(max-width:959px){.studio-home .cinema-editorial .cinema-copy{grid-column:1;grid-row:1}.studio-home .cinema-editorial .cinema-bottom{grid-column:1;grid-row:2;margin-top:0;padding-top:18px}.studio-home .cinema-editorial .hero-brand{grid-column:1;grid-row:3}.studio-home .cinema-editorial .cinema-layout{row-gap:20px}}
+.studio-home .cinema-editorial .cinema-layout{row-gap:16px}
