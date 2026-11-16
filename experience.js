@@ -9,7 +9,7 @@
   if(control){control.hidden=false;root.querySelector('.cinema-actions').append(control);}
   const footerControls=[...document.querySelectorAll('[data-motion-settings]')];
   footerControls.forEach(button=>{button.hidden=false;button.addEventListener('click',toggleMotion);});
-  const load=()=>loading||=new Promise((resolve,reject)=>{const script=document.createElement('script');script.src=new URL('assets/scroll-experience.js?v=20261116-12',scriptBase).href;script.async=true;script.onload=resolve;script.onerror=reject;document.head.append(script);});
+  const load=()=>loading||=new Promise((resolve,reject)=>{const script=document.createElement('script');script.src=new URL('assets/scroll-experience.js?v=20261116-13',scriptBase).href;script.async=true;script.onload=resolve;script.onerror=reject;document.head.append(script);});
   async function update(){
     const turn=++version;motion?.dispose();motion=null;
     const limited=reduced.matches||manual;document.documentElement.classList.toggle('motion-reduced',limited);

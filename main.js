@@ -40,6 +40,7 @@ document.documentElement.classList.add("js");
   if (cards.length)
     document.querySelector("[data-catalog-tools]").hidden = false;
   search?.addEventListener("input", filterCatalog);
+  if (cards.length) window.addEventListener("pageshow", () => requestAnimationFrame(filterCatalog));
   filters.forEach((button) =>
     button.addEventListener("click", () => {
       activeFilter = button.dataset.filter;

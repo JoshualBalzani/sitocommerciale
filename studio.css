@@ -442,3 +442,43 @@ html{scroll-behavior:auto;overflow-anchor:auto}
 .studio-home #contenuto.section-stack-active>section.section-sheet,.subpage-cards .seo-area-page.section-stack-active>section.section-sheet{position:sticky!important;top:var(--section-top,0px)!important}
 .studio-home #contenuto.section-stack-active>section.section-sheet#richiesta{position:relative!important;top:auto!important}
 .subpage-cards .seo-area-page.section-stack-active>section.section-sheet:has(.seo-area-cards){position:relative!important;top:auto!important}
+
+/* Searchable and expandable content stays in document flow while it changes height. */
+.studio-home #contenuto.section-stack-active>section.section-sheet#prodotti,.studio-home #contenuto.section-stack-active>section.section-sheet#faq{position:relative!important;top:auto!important}
+/* Catalog components share the same surfaces and controls as the product cards. */
+.studio-home #prodotti .full-catalog{border:0;border-radius:0;background:transparent;overflow:visible}
+.studio-home #prodotti .full-catalog>summary{padding:22px 24px;border:1px solid #d3e1ec;border-radius:20px;background:#fff;font-size:18px;gap:20px}
+.studio-home #prodotti .full-catalog>summary small{font-size:13px;line-height:1.6;color:#45627b}
+.studio-home #prodotti .catalog-summary-action{border:1px solid #d3e1ec;border-radius:100px;padding:10px 18px;background:#f0f6fa;font-size:12px}
+.studio-home #prodotti .catalog-detail-content{padding:20px 0 0}
+.studio-home #prodotti .catalog-tools{display:grid;grid-template-columns:1fr;gap:20px;padding:26px;border:1px solid #d3e1ec;border-radius:20px;background:#f0f6fa;margin:0 0 24px}
+.studio-home #prodotti .catalog-tools[hidden]{display:none}
+.studio-home #prodotti .catalog-search{max-width:none;min-width:0}
+.studio-home #prodotti .catalog-search label{display:block;font-size:13px;font-weight:650;color:#123453;margin-bottom:10px}
+.studio-home #prodotti .catalog-search input{width:100%;min-height:50px;border:1px solid #b8cede;border-radius:12px;background:#fff;padding:13px 16px;font:inherit;font-size:16px;color:#123453;box-shadow:none}
+.studio-home #prodotti .catalog-filters{display:flex;flex-wrap:wrap;gap:10px;overflow:visible}
+.studio-home #prodotti .catalog-filters button{min-height:44px;padding:11px 18px;border:1px solid #c8dbe9;border-radius:100px;background:#fff;font-family:inherit;font-size:13px;font-weight:600;color:#244d70;white-space:normal;line-height:1.4}
+.studio-home #prodotti .catalog-filters button[aria-pressed=true]{background:#0d47a1;border-color:#0d47a1;color:#fff}
+.studio-home #prodotti #catalog-count{grid-column:auto;padding:16px 0 0;margin:0;border-top:1px solid #d3e1ec;font-size:13px;line-height:1.6;color:#45627b}
+.studio-home #prodotti .catalog-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:stretch}
+.studio-home #prodotti .catalog-card{display:flex;flex-direction:column;min-width:0;padding:28px;border:1px solid #d3e1ec;border-radius:20px;background:#f0f6fa;box-shadow:none;overflow-wrap:anywhere}
+.studio-home #prodotti .catalog-card[hidden]{display:none}
+.studio-home #prodotti .catalog-card-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 22px;font-size:12px;line-height:1.5;text-transform:none}
+.studio-home #prodotti .catalog-card-top>span:first-child{padding:6px 12px;border:1px solid #d3e1ec;border-radius:100px;background:#fff;color:#45627b;font-size:11px;font-weight:600}
+.studio-home #prodotti .catalog-card-top>span:last-child{color:#52718a;font-size:11px}
+.studio-home #prodotti .catalog-card h3{font-family:Manrope,sans-serif;font-size:27px;line-height:1.2;letter-spacing:-.035em;color:#123453;margin:0 0 14px;min-height:0;max-width:none}
+.studio-home #prodotti .catalog-card>p{font-size:15px;line-height:1.8;color:#45627b;margin:0 0 20px;min-height:0;max-width:none}
+.studio-home #prodotti .catalog-card details{margin-top:auto;border-top:1px solid #d3e1ec;border-bottom:0}
+.studio-home #prodotti .catalog-card summary{padding:17px 22px 17px 0;font-size:13px;font-weight:600;line-height:1.6;color:#244d70}
+.studio-home #prodotti .catalog-card details p{padding:0 0 18px;margin:0;font-size:14px;line-height:1.8;color:#45627b}
+.studio-home #prodotti .catalog-request{display:flex;align-items:center;justify-content:center;min-height:46px;padding:12px 20px;margin:14px 0 0;border:1px solid #0d47a1;border-radius:100px;background:#0d47a1;color:#fff;font-size:12px;font-weight:700;line-height:1.5;text-decoration:none;text-transform:uppercase}
+.studio-home #prodotti .catalog-request:hover{background:#123e7f;border-color:#123e7f;color:#fff}
+.studio-home #prodotti :is(button,a,input,summary):focus-visible{outline:3px solid #0d47a1;outline-offset:4px}
+.studio-home #prodotti .catalog-empty{padding:28px;border:1px solid #d3e1ec;border-radius:20px;background:#f0f6fa;color:#45627b}
+@media(max-width:760px){.studio-home #prodotti .catalog-grid{grid-template-columns:1fr;gap:16px}.studio-home #prodotti .full-catalog>summary{padding:20px;font-size:16px}.studio-home #prodotti .catalog-tools{padding:20px;gap:18px}.studio-home #prodotti .catalog-card{padding:24px 22px}.studio-home #prodotti .catalog-card h3{font-size:24px}.studio-home #prodotti .catalog-filters{gap:8px}.studio-home #prodotti .catalog-filters button{font-size:12px;padding:10px 14px}.studio-home #prodotti .catalog-request{width:100%}}
+
+.studio-home #prodotti .catalog-results-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid #d3e1ec;padding-top:18px}
+.studio-home #prodotti .catalog-results-bar #catalog-count{border:0;padding:0;margin:0}
+.studio-home #prodotti .catalog-filter-hint{font-size:13px;line-height:1.6;color:#45627b;margin:0}
+.studio-home #prodotti .catalog-reset{min-height:42px;border:1px solid #bfd3e3;border-radius:100px;background:#fff;padding:10px 18px;font:inherit;font-size:12px;font-weight:650;color:#244d70}
+.studio-home #contenuto.section-stack-active,.subpage-cards .seo-area-page.section-stack-active{padding-bottom:0;background:#fff}.studio-home #contenuto.section-stack-active>section.section-sheet,.subpage-cards .seo-area-page.section-stack-active>section.section-sheet{margin-block:0!important}
