@@ -9,7 +9,7 @@ export function mountMotion() {
   tweens=[];const mobile=context.conditions.mobile;let disposeSections=()=>{};
   const main=document.querySelector('.studio-home #contenuto');
   if(main&&context.conditions.sections){
-   const sections=[...main.children].filter(el=>el.matches('section')&&!el.classList.contains('cinema'));
+   const sections=[...main.children].filter(el=>el.matches('section'));
    main.classList.add('section-stack-active');
    const markers=sections.map((section,index)=>{const marker=document.createElement('span');marker.className='section-marker';marker.setAttribute('aria-hidden','true');main.insertBefore(marker,section);section.classList.add('section-sheet');section.style.setProperty('--section-layer',index+1);return marker;});
    let frame=0,alive=true;

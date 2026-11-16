@@ -285,3 +285,10 @@ html{scroll-padding-top:20px}
  .studio-home .cinema-editorial{margin:0 12px 18px;border-top:0;border-radius:0 0 24px 24px}
  .studio-home .cinema-editorial .cinema-stage{padding-top:22px}
 }
+
+/* The entire opening, including navigation, is the first stacking card. */
+.studio-home #contenuto>section.cinema-editorial{width:calc(100% - 48px);max-width:1440px;margin:20px auto 16svh;border:1px solid #abc8de;border-radius:28px;background:linear-gradient(90deg,#b7d3e8,#dcecf6)}
+.studio-home #contenuto>section.cinema-editorial .opening-header{margin:0;border:0;border-radius:28px 28px 0 0;background:transparent}
+.studio-home #contenuto>section.cinema-editorial .cinema-stage{background:transparent}
+@media(max-width:760px){.studio-home #contenuto>section.cinema-editorial{width:calc(100% - 24px);margin-top:16px;border-radius:24px}.studio-home #contenuto>section.cinema-editorial .opening-header{border-radius:24px 24px 0 0}}
+.studio-home #contenuto.section-stack-active>section.section-sheet#richiesta{margin-bottom:45svh}
