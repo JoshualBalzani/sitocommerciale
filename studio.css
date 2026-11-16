@@ -268,3 +268,20 @@ h2 em,.area-entry h2 em{font-family:Georgia,'Times New Roman',serif;font-weight:
 /* Navigation scrolls away; section cards use the full viewport. */
 html{scroll-padding-top:20px}
 :target,.section[id],#contatti{scroll-margin-top:20px}
+
+/* The navigation and introduction form one continuous opening card. */
+.studio-home .opening-header,.studio-home .cinema-editorial,.studio-home .cinema-editorial .cinema-stage{background:linear-gradient(90deg,#b7d3e8,#dcecf6)}
+.studio-home .opening-header{position:relative;margin:24px 24px 0;border:1px solid #abc8de;border-bottom:0;border-radius:28px 28px 0 0;backdrop-filter:none;box-shadow:none}
+.studio-home .opening-header .topbar{background:transparent;border-bottom:1px solid #789fb52b;border-radius:28px 28px 0 0}
+.studio-home .opening-header .topbar span,.studio-home .opening-header .topbar a{color:#174e76!important}
+.studio-home .opening-header:after{display:none}
+.studio-home .cinema-editorial{margin:0 24px 24px;border:1px solid #abc8de;border-top:0;border-radius:0 0 28px 28px}
+.studio-home .cinema-editorial .cinema-stage{padding-top:48px}
+@media(max-width:760px){
+ .studio-home .opening-header{margin:12px 12px 0;border-radius:24px 24px 0 0}
+ .studio-home .opening-header .topbar{border-radius:24px 24px 0 0}
+ .studio-home .opening-header .topbar .container,.studio-home .opening-header .header-inner{width:calc(100% - 36px)}
+ .studio-home .opening-header #navigation{top:100%;border:1px solid #abc8de;background:#e3eff7;border-radius:0 0 18px 18px}
+ .studio-home .cinema-editorial{margin:0 12px 18px;border-top:0;border-radius:0 0 24px 24px}
+ .studio-home .cinema-editorial .cinema-stage{padding-top:22px}
+}
