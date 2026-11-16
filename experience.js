@@ -9,7 +9,7 @@
   if(control){control.hidden=false;root.querySelector('.cinema-actions').append(control);}
   const footerControls=[...document.querySelectorAll('[data-motion-settings]')];
   footerControls.forEach(button=>{button.hidden=false;button.addEventListener('click',toggleMotion);});
-  const load=()=>loading||=new Promise((resolve,reject)=>{const script=document.createElement('script');script.src=new URL('assets/scroll-experience.js?v=20261116-6',scriptBase).href;script.async=true;script.onload=resolve;script.onerror=reject;document.head.append(script);});
+  const load=()=>loading||=new Promise((resolve,reject)=>{const script=document.createElement('script');script.src=new URL('assets/scroll-experience.js?v=20261116-7',scriptBase).href;script.async=true;script.onload=resolve;script.onerror=reject;document.head.append(script);});
   async function update(){
     const turn=++version;motion?.dispose();motion=null;
     const limited=reduced.matches||manual;document.documentElement.classList.toggle('motion-reduced',limited);
@@ -24,7 +24,5 @@
   document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!motion)update();});
   window.addEventListener('pagehide',()=>{version++;motion?.dispose();motion=null;});
   window.addEventListener('pageshow',event=>{if(event.persisted)update();});
-  const gallery=document.querySelector('.business-area-nav');
-  if(gallery){const buttons=[...document.querySelectorAll('[data-category-scroll]')];const sync=()=>buttons.forEach(button=>{button.disabled=Number(button.dataset.categoryScroll)<0?gallery.scrollLeft<3:gallery.scrollLeft+gallery.clientWidth>=gallery.scrollWidth-3;});buttons.forEach(button=>button.addEventListener('click',()=>gallery.scrollBy({left:Number(button.dataset.categoryScroll)*(gallery.querySelector('a').getBoundingClientRect().width+20),behavior:reduced.matches||manual?'instant':'smooth'})));gallery.addEventListener('scroll',sync,{passive:true});new ResizeObserver(sync).observe(gallery);sync();}
   update();
 })();
