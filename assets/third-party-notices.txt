@@ -1,14 +1,1 @@
-Third-party software notices
-Locally bundled libraries; no CDN requests.
-
-
-
-GSAP 3.15.1
-/*!
- * GSAP 3.15.1
- * https://gsap.com
- *
- * @license Copyright 2008-2026, GreenSock. All rights reserved.
- * Subject to the terms at https://gsap.com/standard-license
- * @author: Jack Doyle, jack@greensock.com
-*/
+Scroll interaction: original site code. No third-party animation library is bundled.
