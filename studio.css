@@ -367,3 +367,46 @@ html{scroll-padding-top:20px}
 @media(max-width:760px){.studio-home #contenuto.section-stack-active>section.section-sheet{width:calc(100% - 16px);margin-top:12px;margin-bottom:20px}}
 @media(max-width:959px){.studio-home #contenuto>section,.studio-home #contenuto.section-stack-active>section.section-sheet{width:100%;max-width:none;margin:0 0 20px;border-left:0;border-right:0;border-radius:22px 22px 0 0}.studio-home #contenuto>section.cinema-editorial,.studio-home #contenuto.section-stack-active>section.section-sheet.cinema-editorial{width:100%;max-width:none;margin-top:0;border:0;border-radius:0}}
 .studio-home #contenuto.section-stack-active>section.section-sheet#richiesta{position:relative;top:auto}
+
+/* A shorter journey: introduction, areas, searchable catalog, one request guide. */
+.studio-home .cinema-editorial .cinema-layout{display:block}
+.studio-home .cinema-editorial .cinema-copy{max-width:1120px}
+.studio-home .cinema-editorial .cinema-signature{display:block;margin-top:32px}
+.studio-home .cinema-editorial .cinema-lead{max-width:780px;font-size:clamp(16px,1.4vw,20px)}
+.studio-home #prodotti .section-heading{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:end}
+.studio-home #prodotti .full-catalog{margin-top:28px}
+.studio-home .compact-guide{background:#f3f7fa}
+.studio-home .compact-guide .guide-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.studio-home .compact-guide .guide-steps article{display:flex;align-items:flex-start;gap:14px;background:#fff;border:1px solid #d7e3ec;border-radius:18px;padding:26px;margin:0}
+.studio-home .compact-guide .guide-steps h3{font-size:22px;margin:0 0 14px;line-height:1.25}
+.studio-home .compact-guide .guide-steps p{font-size:15px;line-height:1.8;margin:0;color:#45627b}
+.guide-close{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:28px}.guide-close p{font-size:14px;line-height:1.7;max-width:620px;color:#45627b}
+.form-success-details{border:1px solid #9fc6ad;border-radius:16px;padding:24px;margin-top:20px;background:#eef8f1;color:#194b31;scroll-margin:24px}.form-success-details[hidden]{display:none}.form-success-details h3{font-size:23px;margin-bottom:12px}.form-success-details p{font-size:15px;line-height:1.75;overflow-wrap:anywhere}.form-success-details a{color:#174f32;text-decoration:underline;text-underline-offset:3px}
+.studio-home #form-status[data-state=success]{padding:22px;border:1px solid #9fc6ad;border-radius:14px;background:#eef8f1;color:#194b31;font-size:17px;font-weight:650}
+@media(max-width:760px){.studio-home #prodotti .section-heading{grid-template-columns:1fr;gap:18px}.studio-home .compact-guide .guide-steps{grid-template-columns:1fr;gap:14px}.studio-home .compact-guide .guide-steps article{padding:23px 20px}.guide-close{align-items:flex-start;flex-direction:column;gap:16px}.studio-home .cinema-editorial .cinema-signature{display:none}}
+
+/* Shared card surfaces on product, legal and service pages. */
+.subpage-cards{background:#eaf1f7;color:#123453}
+.subpage-cards .site-header{border:0;background:#fff;box-shadow:none}
+.subpage-cards .seo-area-page{padding:0;background:transparent}
+.subpage-cards .seo-area-page>section{width:100%;max-width:none;margin:0 0 20px;border:0;border-top:1px solid #d4e1ec;border-radius:24px 24px 0 0;background:#fff;padding:clamp(32px,5vw,72px) 0}
+.subpage-cards .seo-area-page>section>.container{width:calc(100% - 8vw);max-width:1680px}
+.subpage-cards .seo-area-page.section-stack-active{position:relative;isolation:isolate;padding-bottom:20px}
+.subpage-cards .seo-area-page.section-stack-active>section.section-sheet{position:sticky;top:var(--section-top,0);z-index:var(--section-layer,1);height:auto;min-height:100svh;overflow:visible;transform:none!important;will-change:auto}
+.subpage-cards .seo-area-page .seo-area-cards article,.subpage-cards .seo-area-page .area-deepening aside{background:#f0f6fa;border:1px solid #d3e1ec;border-radius:20px;padding:28px}
+.subpage-cards .seo-area-page .seo-area-nav{display:flex;flex-wrap:wrap;gap:10px;padding:0;background:transparent;border:0;box-shadow:none;position:static}
+.subpage-cards .seo-area-page .seo-area-nav a{min-height:44px;padding:12px 18px;border:1px solid #d3e1ec;background:#f4f8fb;border-radius:100px}
+.subpage-cards .seo-area-page .seo-area-nav a[aria-current=page]{background:#0d47a1;border-color:#0d47a1;color:#fff}
+.subpage-cards .legal-page{padding:0;background:transparent}
+.subpage-cards .legal-page>.container{width:100%;max-width:none}
+.subpage-cards .legal-page .privacy-content{max-width:none;margin:0;padding:0;border:0;border-radius:0;box-shadow:none;background:transparent}
+.subpage-cards .legal-page .privacy-header,.subpage-cards .legal-page .privacy-section,.subpage-cards .legal-page .legal-index{background:#fff;border:1px solid #d5e2ec;border-left:0;border-right:0;border-radius:24px 24px 0 0;padding:clamp(28px,5vw,64px) max(24px,6vw);margin:0 0 18px;overflow-wrap:anywhere}
+.subpage-cards .legal-page .privacy-header>*,.subpage-cards .legal-page .privacy-section>*{max-width:1120px;margin-inline:auto}
+.subpage-cards .legal-page .legal-index{display:flex;position:static;flex-wrap:wrap;gap:12px 22px;font-size:14px}
+.subpage-cards .legal-page .legal-index a{padding:10px 0;min-height:44px}
+.subpage-cards .legal-page .privacy-content:not(:has(.privacy-header)){background:#fff;border-radius:24px 24px 0 0;padding:clamp(28px,5vw,64px) max(24px,6vw)}
+.subpage-cards .legal-page table{display:block;max-width:100%;overflow-x:auto}
+.subpage-cards .legal-page h1{font-size:clamp(34px,5vw,64px);line-height:1.1}
+.subpage-cards .legal-page .privacy-section h2{font-size:clamp(25px,3vw,36px);line-height:1.2}
+@media(max-width:760px){.subpage-cards .seo-area-page>section>.container{width:calc(100% - 40px)}.subpage-cards .seo-area-page .seo-area-cards article,.subpage-cards .seo-area-page .area-deepening aside{padding:23px}.subpage-cards .seo-area-page>section{padding-block:32px}.subpage-cards .legal-page .privacy-content{font-size:16px;line-height:1.8}}
+.subpage-cards .seo-area-page.section-stack-active>section.section-sheet:not(.seo-area-hero){position:relative;top:auto}

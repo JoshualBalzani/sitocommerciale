@@ -1,35 +1,5 @@
 document.documentElement.classList.add("js");
 (() => {
-  const toggle = document.querySelector(".menu-toggle");
-  const nav = document.querySelector("#navigation");
-  function closeMenu() {
-    if (!toggle || !nav) return;
-    toggle.setAttribute("aria-expanded", "false");
-    toggle.setAttribute("aria-label", "Apri menu");
-    nav.classList.remove("is-open");
-  }
-  toggle?.addEventListener("click", () => {
-    const open = toggle.getAttribute("aria-expanded") !== "true";
-    toggle.setAttribute("aria-expanded", String(open));
-    toggle.setAttribute("aria-label", open ? "Chiudi menu" : "Apri menu");
-    nav.classList.toggle("is-open", open);
-  });
-  nav
-    ?.querySelectorAll("a")
-    .forEach((link) => link.addEventListener("click", closeMenu));
-  document.addEventListener("click", (event) => {
-    if (!event.target.closest(".site-header")) closeMenu();
-  });
-  document.addEventListener("keydown", (event) => {
-    if (
-      event.key === "Escape" &&
-      toggle?.getAttribute("aria-expanded") === "true"
-    ) {
-      closeMenu();
-      toggle.focus();
-    }
-  });
-  window.matchMedia("(min-width: 761px)").addEventListener("change", closeMenu);
   document.querySelectorAll(".faq-list details").forEach((item) => {
     item.addEventListener("toggle", () => {
       if (item.open)
@@ -184,8 +154,11 @@ document.documentElement.classList.add("js");
   function showStatus(text, state) {
     status.textContent = text;
     status.dataset.state = state;
+    const confirmation = document.querySelector("#request-success");
+    if (confirmation) confirmation.hidden = state !== "success";
     status.hidden = false;
     status.focus({ preventScroll: true });
+    if (state === "success") status.scrollIntoView({ block: "center", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
   }
   function showFallback() {
     fallback.hidden = false;
@@ -201,6 +174,9 @@ document.documentElement.classList.add("js");
         : "Copia non disponibile: seleziona i dati del modulo o scrivici direttamente.";
     });
   form.addEventListener("input", () => {
+    const confirmation = document.querySelector("#request-success");
+    if (confirmation) confirmation.hidden = true;
+    if (status.dataset.state === "success") status.hidden = true;
     if (!fallback.hidden) showFallback();
     form.querySelector("[data-copy-status]").textContent = "";
   });
@@ -284,6 +260,7 @@ document.documentElement.classList.add("js");
 (() => {
   const catalogue = document.querySelector("#catalogo-completo");
   const catalogueAction = catalogue?.querySelector(".catalog-summary-action");
+  if (catalogueAction) catalogueAction.textContent = catalogue.open ? "Chiudi" : "Esplora";
   catalogue?.addEventListener("toggle", () => {
     if (catalogueAction)
       catalogueAction.textContent = catalogue.open ? "Chiudi" : "Esplora";

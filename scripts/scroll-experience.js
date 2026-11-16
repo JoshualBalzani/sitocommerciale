@@ -7,7 +7,7 @@ export function mountMotion() {
  const media=gsap.matchMedia();let tweens=[],sectionState=null;
  media.add({desktop:'(min-width:960px)',mobile:'(max-width:959px)',sections:'(min-height:320px)'},context=>{
   tweens=[];const mobile=context.conditions.mobile;let disposeSections=()=>{};
-  const main=document.querySelector('.studio-home #contenuto');
+  const main=document.querySelector('.studio-home #contenuto,.subpage-cards .seo-area-page');
   if(main&&context.conditions.sections){
    const sections=[...main.children].filter(el=>el.matches('section'));
    main.classList.add('section-stack-active');
