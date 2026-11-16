@@ -301,7 +301,11 @@ document.documentElement.classList.add("js");
       [...document.querySelectorAll("[data-filter]")]
         .find((button) => button.dataset.filter === link.dataset.familyCategory)
         ?.click();
-      location.hash = "catalogo-completo";
+      if (location.hash === "#catalogo-completo") {
+        window.dispatchEvent(new HashChangeEvent("hashchange"));
+      } else {
+        location.hash = "catalogo-completo";
+      }
       catalogue.querySelector("summary").focus({ preventScroll: true });
     });
   });

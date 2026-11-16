@@ -249,7 +249,7 @@ h2 em,.area-entry h2 em{font-family:Georgia,'Times New Roman',serif;font-weight:
  .seo-area-page .area-deepening aside{border:1px solid #ccdeec;border-radius:19px;background:#edf5fb}
 }
 @media(max-width:760px){
- .studio-home :is(#prodotti,#chi-siamo,#marchi,#documentazione,#vantaggi,#guida-richiesta,#faq,#richiesta,#contatti){border-radius:24px}
+ .studio-home :is(#prodotti,#chi-siamo,#marchi,#vantaggi,#guida-richiesta,#faq,#richiesta,#contatti){border-radius:24px}
  .studio-home #vantaggi .button{background:#0d47a1;border:1px solid #0d47a1;color:#fff}
 }
 @media(max-width:760px){.studio-home .footer-bottom>span{color:#3c5b75;font-size:12px;line-height:1.7}}

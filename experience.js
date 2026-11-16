@@ -8,17 +8,18 @@
   const control=root?.querySelector('.motion-preference');
   if(control){control.hidden=false;root.querySelector('.cinema-actions').append(control);}
   const footerControls=[...document.querySelectorAll('[data-motion-settings]')];
-  footerControls.forEach(button=>{button.hidden=false;button.addEventListener('click',()=>control?.click());});
-  const load=()=>loading||=new Promise((resolve,reject)=>{const script=document.createElement('script');script.src=new URL('assets/scroll-experience.js?v=20261115-9',scriptBase).href;script.async=true;script.onload=resolve;script.onerror=reject;document.head.append(script);});
+  footerControls.forEach(button=>{button.hidden=false;button.addEventListener('click',toggleMotion);});
+  const load=()=>loading||=new Promise((resolve,reject)=>{const script=document.createElement('script');script.src=new URL('assets/scroll-experience.js?v=20261116-1',scriptBase).href;script.async=true;script.onload=resolve;script.onerror=reject;document.head.append(script);});
   async function update(){
     const turn=++version;motion?.dispose();motion=null;
     const limited=reduced.matches||manual;document.documentElement.classList.toggle('motion-reduced',limited);
     if(control){control.setAttribute('aria-pressed',String(limited));control.textContent=reduced.matches?'Animazioni ridotte dal sistema':limited?'Attiva animazioni':'Riduci animazioni';control.disabled=reduced.matches;}
-    footerControls.forEach(button=>{button.setAttribute('aria-pressed',String(limited));button.textContent=reduced.matches?'Movimento ridotto dal sistema':limited?'Attiva movimento':'Riduci movimento';button.disabled=reduced.matches;});
+    footerControls.forEach(button=>{button.setAttribute('aria-pressed',String(limited));button.textContent=reduced.matches?'Animazioni ridotte dal sistema':limited?'Attiva animazioni':'Riduci animazioni';button.disabled=reduced.matches;});
     if(limited)return;
     try{await load();if(turn!==version||document.hidden)return;motion=window.CCPMotion.mountMotion({root});}catch{document.documentElement.classList.remove('page-motion');}
   }
-  control?.addEventListener('click',()=>{manual=!manual;try{sessionStorage.setItem(key,String(manual));}catch{}update();});
+  function toggleMotion(){if(reduced.matches)return;manual=!manual;try{sessionStorage.setItem(key,String(manual));}catch{}update();}
+  control?.addEventListener('click',toggleMotion);
   reduced.addEventListener('change',update);
   document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!motion)update();});
   window.addEventListener('pagehide',()=>{version++;motion?.dispose();motion=null;});

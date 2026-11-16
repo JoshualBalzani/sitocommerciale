@@ -4,9 +4,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export function mountMotion() {
  document.documentElement.classList.add('page-motion');
- const media=gsap.matchMedia();let tweens=[],sectionState=null,keyboard=false;
- const onKey=event=>{if(event.key==='Tab')keyboard=true;};
- const onPointer=()=>{keyboard=false;};
+ const media=gsap.matchMedia();let tweens=[],sectionState=null;
  media.add({desktop:'(min-width:960px)',mobile:'(max-width:959px)',sections:'(min-height:640px)'},context=>{
   tweens=[];const mobile=context.conditions.mobile;let disposeSections=()=>{};
   const main=document.querySelector('.studio-home #contenuto');
@@ -40,16 +38,15 @@ export function mountMotion() {
   for(const img of document.querySelectorAll('.category-art'))gsap.fromTo(img,{y:15,scale:.98},{y:-8,scale:1.02,ease:'none',scrollTrigger:{trigger:img.parentElement,start:'top bottom',end:'bottom top',scrub:.5}});
   const headings='.area-entry-heading,.section-heading>div,.editorial-heading,.about-statement,.process-heading,.faq-grid>div:first-child,.request-intro>h2,.contact-banner-top,.seo-area-hero h1';
   for(const element of document.querySelectorAll(headings)){const tween=gsap.fromTo(element,{y:mobile?16:26,opacity:1},{y:0,opacity:1,duration:.6,ease:'power2.out',scrollTrigger:{trigger:element,start:'top 96%',toggleActions:'play none none reverse'}});tweens.push({element,tween});}
-  for(const element of document.querySelectorAll('.family-card,.client-grid article,.brand-tile,.about-points article,.process-grid article,.guide-steps article,.resource-list article,.seo-area-cards article,.area-deepening aside'))gsap.fromTo(element,{y:mobile?18:30,opacity:1},{y:0,opacity:1,ease:'none',scrollTrigger:{trigger:element,start:'top 103%',end:'top 85%',scrub:.25,invalidateOnRefresh:true}});
+  for(const element of document.querySelectorAll('.family-card,.client-grid article,.brand-tile,.about-points article,.process-grid article,.guide-steps article,.seo-area-cards article,.area-deepening aside'))gsap.fromTo(element,{y:mobile?18:30,opacity:1},{y:0,opacity:1,ease:'none',scrollTrigger:{trigger:element,start:'top 103%',end:'top 85%',scrub:.25,invalidateOnRefresh:true}});
   ScrollTrigger.create({start:0,end:()=>ScrollTrigger.maxScroll(window),onUpdate:self=>document.documentElement.style.setProperty('--page-progress',self.progress)});
   return disposeSections;
  });
  const onFocus=event=>{
-  if(!keyboard)return;
   if(sectionState){const {sections,markers,header}=sectionState;const section=event.target.closest('.section-sheet'),index=sections.indexOf(section);if(index>=0){const rect=event.target.getBoundingClientRect();if(rect.top<header()||rect.bottom>innerHeight-25||!event.target.contains(document.elementFromPoint(rect.left+rect.width/2,Math.max(header()+1,Math.min(innerHeight-1,rect.top+rect.height/2))))){const scale=Number(gsap.getProperty(section,'scaleY'))||1;const inside=(rect.top-section.getBoundingClientRect().top)/scale;window.scrollTo({top:markers[index].getBoundingClientRect().top+scrollY+inside-header()-20,behavior:'instant'});}}}
   for(const {element,tween}of tweens)if(element.contains(event.target))tween.progress(1);
  };
- document.addEventListener('keydown',onKey);document.addEventListener('pointerdown',onPointer,true);document.addEventListener('focusin',onFocus);
- const refresh=()=>ScrollTrigger.refresh();document.querySelectorAll('#catalogo-completo,.brand-product-details').forEach(el=>el.addEventListener('toggle',refresh));requestAnimationFrame(refresh);
- return {dispose(){media.revert();document.removeEventListener('keydown',onKey);document.removeEventListener('pointerdown',onPointer,true);document.removeEventListener('focusin',onFocus);document.querySelectorAll('#catalogo-completo,.brand-product-details').forEach(el=>el.removeEventListener('toggle',refresh));document.documentElement.classList.remove('page-motion');document.documentElement.style.removeProperty('--page-progress');}};
+ document.addEventListener('focusin',onFocus);
+ const refresh=()=>ScrollTrigger.refresh();document.querySelectorAll('#catalogo-completo').forEach(el=>el.addEventListener('toggle',refresh));requestAnimationFrame(refresh);
+ return {dispose(){media.revert();document.removeEventListener('focusin',onFocus);document.querySelectorAll('#catalogo-completo').forEach(el=>el.removeEventListener('toggle',refresh));document.documentElement.classList.remove('page-motion');document.documentElement.style.removeProperty('--page-progress');}};
 }
