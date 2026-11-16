@@ -5,7 +5,7 @@ gsap.registerPlugin(ScrollTrigger);
 export function mountMotion() {
  document.documentElement.classList.add('page-motion');
  const media=gsap.matchMedia();let tweens=[],sectionState=null;
- media.add({desktop:'(min-width:960px)',mobile:'(max-width:959px)',sections:'(min-height:640px)'},context=>{
+ media.add({desktop:'(min-width:960px)',mobile:'(max-width:959px)',sections:'(min-height:320px)'},context=>{
   tweens=[];const mobile=context.conditions.mobile;let disposeSections=()=>{};
   const main=document.querySelector('.studio-home #contenuto');
   if(main&&context.conditions.sections){
@@ -13,8 +13,8 @@ export function mountMotion() {
    main.classList.add('section-stack-active');
    const markers=sections.map((section,index)=>{const marker=document.createElement('span');marker.className='section-marker';marker.setAttribute('aria-hidden','true');main.insertBefore(marker,section);section.classList.add('section-sheet');section.style.setProperty('--section-layer',index+1);return marker;});
    let frame=0,alive=true;
-   const header=()=>14;
-   const measure=()=>sections.forEach(section=>section.style.setProperty('--section-top',Math.min(header(),innerHeight-section.offsetHeight-22)+'px'));
+   const header=()=>innerWidth<=760?10:16;
+   const measure=()=>sections.forEach(section=>section.style.setProperty('--section-top',header()+'px'));
    const refresh=()=>{if(frame||!alive)return;frame=requestAnimationFrame(()=>{frame=0;if(!alive)return;measure();ScrollTrigger.refresh();});};
    measure();
    sectionState={main,sections,markers,header};
@@ -23,8 +23,8 @@ export function mountMotion() {
     if(!hash||hash==='#')return false;let target;try{target=document.getElementById(decodeURIComponent(hash.slice(1)));}catch{return false;}
     const section=target?.closest('.section-sheet');const index=sections.indexOf(section);if(index<0)return false;
     const scale=Number(gsap.getProperty(section,'scaleY'))||1;
-    const inside=target===section?0:(target.getBoundingClientRect().top-section.getBoundingClientRect().top)/scale;
-    window.scrollTo({top:markers[index].getBoundingClientRect().top+scrollY+inside-header(),behavior});return true;
+    const inside=target===section?0:(target.getBoundingClientRect().top-section.getBoundingClientRect().top)/scale+section.scrollTop;
+    section.scrollTo({top:inside,behavior});window.scrollTo({top:markers[index].getBoundingClientRect().top+scrollY-header(),behavior});return true;
    };
    const onAnchor=event=>{if(event.defaultPrevented||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;const link=event.target.closest('a[href]');if(!link||link.target==='_blank'||link.hasAttribute('download'))return;const url=new URL(link.href,location.href);if(url.origin!==location.origin||url.pathname!==location.pathname||url.search!==location.search||!url.hash)return;if(revealTarget(url.hash,'smooth')){event.preventDefault();if(location.hash!==url.hash)history.pushState(null,'',url.hash);}};
    const onHash=()=>requestAnimationFrame(()=>{measure();revealTarget(location.hash);});
@@ -43,7 +43,7 @@ export function mountMotion() {
   return disposeSections;
  });
  const onFocus=event=>{
-  if(sectionState){const {sections,markers,header}=sectionState;const section=event.target.closest('.section-sheet'),index=sections.indexOf(section);if(index>=0){const rect=event.target.getBoundingClientRect();if(rect.top<header()||rect.bottom>innerHeight-25||!event.target.contains(document.elementFromPoint(rect.left+rect.width/2,Math.max(header()+1,Math.min(innerHeight-1,rect.top+rect.height/2))))){const scale=Number(gsap.getProperty(section,'scaleY'))||1;const inside=(rect.top-section.getBoundingClientRect().top)/scale;window.scrollTo({top:markers[index].getBoundingClientRect().top+scrollY+inside-header()-20,behavior:'instant'});}}}
+  if(sectionState){const {sections,markers,header}=sectionState;const section=event.target.closest('.section-sheet'),index=sections.indexOf(section);if(index>=0){const rect=event.target.getBoundingClientRect(),sheet=section.getBoundingClientRect();if(rect.top<sheet.top+16||rect.bottom>sheet.bottom-16)section.scrollTop+=rect.top-sheet.top-24;if(sheet.top<0||sheet.top>innerHeight-80||!section.contains(document.elementFromPoint(innerWidth/2,Math.max(1,Math.min(innerHeight-1,sheet.top+30)))))window.scrollTo({top:markers[index].getBoundingClientRect().top+scrollY-header(),behavior:'instant'});}}
   for(const {element,tween}of tweens)if(element.contains(event.target))tween.progress(1);
  };
  document.addEventListener('focusin',onFocus);
