@@ -21,7 +21,7 @@ if (catalog) {
   }
   document.querySelector<HTMLElement>('[data-catalog-tools]')?.removeAttribute('hidden');
   search?.addEventListener('input', update);
-  for (const button of filters) button.addEventListener('click', () => { active = button.dataset['filter'] ?? 'all'; update(); });
+  for (const button of filters) button.addEventListener('click', () => { active = button.dataset['filter'] ?? 'all'; update(); document.dispatchEvent(new CustomEvent('catalog:filtered')); });
   document.querySelector('[data-reset-catalog]')?.addEventListener('click', () => { active = 'all'; if (search) { search.value = ''; search.focus(); } update(); });
   window.addEventListener('pageshow', () => requestAnimationFrame(update));
   update();

@@ -1,6 +1,6 @@
 ﻿# Commerciale Clima Plus
 
-Sito corporate statico realizzato con Astro, TypeScript e Zod; Motion per le animazioni e Lucide per le icone SVG. Pubblicato con GitHub Actions su https://www.commercialeclimaplus.it.
+Sito corporate statico realizzato con Astro, TypeScript e Zod; Motion per le animazioni, Lenis per lo scorrimento e Lucide per le icone SVG. Pubblicato con GitHub Actions su https://www.commercialeclimaplus.it.
 
 ## Sviluppo
 

@@ -78,7 +78,7 @@ test('area navigation, footer and request selection',async({page},testInfo)=>{
  await page.locator('[data-request-brand="Beretta"]').click();await expect(page.locator('[data-selection-summary]')).toContainText('Beretta');
  await page.locator('[data-clear-selection]').click();await expect(page.locator('.request-selection')).toBeHidden();await expect(page.locator('#request-category')).toBeFocused();await expect(page.locator('#request-brand')).toHaveValue('');
  const footer=page.getByRole('navigation',{name:'Esplora il sito'});await footer.getByRole('link',{name:'Termoidraulica',exact:true}).click();await expect(page).toHaveURL(/\/termoidraulica\/$/);
- await page.getByRole('link',{name:'Torna all’inizio'}).click();await expect(page).toHaveURL(/#inizio$/);expect(await page.evaluate(()=>scrollY)).toBe(0);
+ await page.getByRole('link',{name:'Torna all’inizio'}).click();await expect(page).toHaveURL(/#inizio$/);await expect.poll(()=>page.evaluate(()=>scrollY)).toBe(0);
 });
 
 test('motion respects reduced movement and security policy',async({page})=>{
@@ -91,4 +91,16 @@ test('motion respects reduced movement and security policy',async({page})=>{
  expect(await page.evaluate(()=>window.policyViolations)).toEqual([]);
  await page.emulateMedia({reducedMotion:'no-preference'});await page.locator('#marchi').scrollIntoViewIfNeeded();await page.waitForTimeout(650);
  expect(await page.evaluate(()=>window.policyViolations)).toEqual([]);
+});
+
+test('Lenis anchors, wheel input and live reduced-motion preference',async({page})=>{
+ await page.emulateMedia({reducedMotion:'no-preference'});await page.goto('/');await page.getByRole('button',{name:'Continua senza tracciamento',exact:true}).click();
+ await expect(page.locator('html')).toHaveClass(/lenis/);
+ await page.mouse.move(100,600);await page.mouse.wheel(0,500);await expect.poll(()=>page.evaluate(()=>scrollY)).toBeGreaterThan(100);
+ await page.locator('.hero-foundation a[href="#marchi"]').click();await expect(page).toHaveURL(/#marchi$/);
+ await expect.poll(()=>page.locator('#marchi').evaluate(element=>Math.round(element.getBoundingClientRect().top)),{timeout:6000}).toBe(24);
+ await expect(page.locator('#marchi')).toBeFocused();
+ await page.emulateMedia({reducedMotion:'reduce'});await expect(page.locator('html')).not.toHaveClass(/lenis/);
+ await page.getByRole('link',{name:'Torna all’inizio'}).click();await expect.poll(()=>page.evaluate(()=>scrollY)).toBe(0);
+ await page.emulateMedia({reducedMotion:'no-preference'});await expect(page.locator('html')).toHaveClass(/lenis/);
 });

@@ -8,6 +8,7 @@ if (toggle && navigation) {
     toggle!.setAttribute('aria-expanded', String(open));
     navigation!.hidden = mobile.matches && !open;
     if (label) label.textContent = open ? 'Chiudi' : 'Menu';
+    if (open) document.dispatchEvent(new CustomEvent('navigation:opened'));
     if (!open && areaMenu) areaMenu.open = false;
   }
   function synchronize() { toggle!.hidden = !mobile.matches; setOpen(false); }

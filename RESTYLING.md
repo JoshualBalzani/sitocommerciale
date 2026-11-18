@@ -20,3 +20,11 @@ Navigazione desktop/mobile e accesso alle aree prodotto, catalogo con ricerca e 
 ## Verifiche
 
 Controllo tipi su 42 file, build e collegamenti pubblici. 30 test Playwright desktop/mobile, inclusi axe, tastiera, menu aperti, filtri, richieste simulate, storico di scorrimento, preferenze di movimento ridotto e assenza di violazioni CSP. Nessuna email reale inviata durante le prove. Risultati di Lighthouse salvati in reports/verification.json; sono misure di laboratorio, non dati sul campo.
+
+## Evoluzione editoriale e Lenis
+
+Aggiunti segno grafico SVG originale FlowMark, frase iniziale piu esplicita, griglia asimmetrica delle soluzioni su desktop, catalogo a righe, composizione tipografica dei marchi e firma coordinata nelle aree prodotto. La sezione azienda esplicita ruolo commerciale, sede e informazioni utili per le richieste senza aggiungere testimonianze o risultati non documentati.
+
+Lenis 1.3.27 (https://github.com/darkroomengineering/lenis) gestisce wheel e ancore interne; il touch rimane nativo (syncTouch false). L'istanza viene distrutta con movimento ridotto e ripristinata al cambio di preferenza. Gestiti history, focus, link modificati, skip link, scroll annidati e navigazione fra documenti. Le ancore compensano le dimensioni acquisite dalle righe del catalogo durante lo scorrimento. Nessun blocco della pagina o sezione pinnata.
+
+Verifiche aggiuntive: ancore allineate al CSS scroll-padding, wheel input, disattivazione/riattivazione dal sistema, gesture touch emulata in Chrome. I test non equivalgono a una prova su tutti i dispositivi iOS reali. Suite portata a 32 test desktop/mobile.

@@ -24,3 +24,12 @@ initializeMotion();
 preference.addEventListener('change', initializeMotion);
 window.addEventListener('pagehide', () => { observer?.disconnect(); for (const animation of running) animation.cancel(); running.clear(); });
 window.addEventListener('pageshow', event => { if (event.persisted) initializeMotion(); });
+function animateInteraction(selector: string) {
+  const element = document.querySelector(selector);
+  if (preference.matches || !element) return;
+  const animation = animate(element, { transform: ['translateY(6px)', 'translateY(0px)'] }, { duration: .22, ease: 'easeOut' });
+  running.add(animation);
+  void animation.then(() => { animation.cancel(); running.delete(animation); });
+}
+document.addEventListener('catalog:filtered', () => animateInteraction('#catalog-grid'));
+document.addEventListener('navigation:opened', () => animateInteraction('#primary-navigation'));
