@@ -28,3 +28,7 @@ Aggiunti segno grafico SVG originale FlowMark, frase iniziale piu esplicita, gri
 Lenis 1.3.27 (https://github.com/darkroomengineering/lenis) gestisce wheel e ancore interne; il touch rimane nativo (syncTouch false). L'istanza viene distrutta con movimento ridotto e ripristinata al cambio di preferenza. Gestiti history, focus, link modificati, skip link, scroll annidati e navigazione fra documenti. Le ancore compensano le dimensioni acquisite dalle righe del catalogo durante lo scorrimento. Nessun blocco della pagina o sezione pinnata.
 
 Verifiche aggiuntive: ancore allineate al CSS scroll-padding, wheel input, disattivazione/riattivazione dal sistema, gesture touch emulata in Chrome. I test non equivalgono a una prova su tutti i dispositivi iOS reali. Suite portata a 32 test desktop/mobile.
+
+## Immagini illustrative
+
+Integrate quattro ambientazioni originali generate con imagegen, senza marchi o persone. Le soluzioni mantengono una griglia regolare 2x2 su desktop; nelle sottopagine le immagini sostituiscono il precedente riquadro contestuale. La hero della homepage resta bianca e tipografica. Asset responsive WebP generati da Astro, caricamento differito nella homepage, immagine prioritaria nelle aree prodotto. Provenienza e prompt in IMAGES.md. Suite ampliata a 36 test.

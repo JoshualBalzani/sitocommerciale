@@ -50,3 +50,5 @@ I push su main attivano `.github/workflows/static.yml`: installazione riproducib
 Dettagli e risultati in [MIGRATION.md](MIGRATION.md).
 
 Scelte grafiche e librerie in [RESTYLING.md](RESTYLING.md).
+
+Le quattro immagini illustrative sono generate con imagegen e salvate in `src/assets/areas/`. Prompt e dettagli in [IMAGES.md](IMAGES.md).

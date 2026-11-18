@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-18",
+  "environment": "Local production preview, Chrome, Lighthouse 13.6.0, mobile emulation",
+  "automatedTests": 36,
+  "typescriptErrors": 0,
+  "measurements": {
+    "homepage": {
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcp": 912.1724999999999,
+      "cls": 0
+    },
+    "climatizzazione": {
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcp": 1514.5144500000001,
+      "cls": 0
+    }
+  }
+}
