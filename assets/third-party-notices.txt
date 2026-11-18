@@ -1,1 +1,0 @@
-Scroll interaction: original site code. No third-party animation library is bundled.

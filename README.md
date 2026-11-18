@@ -14,7 +14,7 @@ Il workflow legge l'indirizzo effettivo da GitHub Pages e ricompila collegamenti
 
 Impostalo in **Settings → Pages → Custom domain**, configura i DNS del dominio secondo le istruzioni di GitHub e abilita **Enforce HTTPS** quando disponibile. Poi esegui nuovamente il workflow: rileverà il nuovo indirizzo. Non è necessario sostituire manualmente gli URL nel codice.
 
-`pages.config.json` contiene un campo `siteUrl` facoltativo per le build locali. Nel workflow, l'indirizzo restituito da GitHub Pages ha priorità. Non impostare un dominio non ancora operativo come canonical della versione online.
+`pages.config.json` definisce il dominio pubblico definitivo: https://www.commercialeclimaplus.it. Questo valore ha priorità sull'indirizzo automatico restituito da GitHub Pages. Il sito usa sezioni lineari e scorrimento nativo, senza impilamento o librerie di animazione.
 
 ## Modulo di contatto
 
@@ -37,7 +37,7 @@ node scripts/build-github-pages.cjs --site-url https://TUO-UTENTE.github.io/NOME
 node scripts/check-github-pages.cjs
 ```
 
-L'output è `dist-github/`. Non servono installazioni npm per la pubblicazione: le librerie del sito sono già incluse localmente. Per modificare le animazioni, il sorgente è `scripts/scroll-experience.js`; il compilatore opzionale richiede gli strumenti di sviluppo indicati nei suoi script.
+L'output è `dist-github/`. Non servono installazioni npm per la pubblicazione. La hero è tipografica e lo scorrimento è gestito dal browser. `experience.js` rispetta la preferenza di movimento già salvata.
 
 ## Search Console
 

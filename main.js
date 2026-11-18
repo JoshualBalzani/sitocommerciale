@@ -257,38 +257,6 @@ document.documentElement.classList.add("js");
   });
 })();
 
-/* Product-family navigation. */
-(() => {
-  const catalogue = document.querySelector("#catalogo-completo");
-  const catalogueAction = catalogue?.querySelector(".catalog-summary-action");
-  if (catalogueAction) catalogueAction.textContent = catalogue.open ? "Chiudi" : "Esplora";
-  catalogue?.addEventListener("toggle", () => {
-    if (catalogueAction)
-      catalogueAction.textContent = catalogue.open ? "Chiudi" : "Esplora";
-  });
-  document.querySelectorAll("[data-family-category]").forEach((link) => {
-    link.addEventListener("click", (event) => {
-      if (!catalogue) return;
-      event.preventDefault();
-      catalogue.open = true;
-      const search = document.querySelector("#catalog-search");
-      if (search) {
-        search.value = "";
-        search.dispatchEvent(new Event("input", { bubbles: true }));
-      }
-      [...document.querySelectorAll("[data-filter]")]
-        .find((button) => button.dataset.filter === link.dataset.familyCategory)
-        ?.click();
-      if (location.hash === "#catalogo-completo") {
-        window.dispatchEvent(new HashChangeEvent("hashchange"));
-      } else {
-        location.hash = "catalogo-completo";
-      }
-      catalogue.querySelector("summary").focus({ preventScroll: true });
-    });
-  });
-})();
-
 /* Product-area links prefill only non-personal product fields. */
 (() => {
   const form = document.querySelector("#contact-form");

@@ -20,8 +20,6 @@
   "assets/studio-vent.svg",
   "assets/studio-water.svg",
   "experience.js",
-  "assets/scroll-experience.js",
-  "assets/third-party-notices.txt",
   "fonts/manrope-latin-variable.woff2",
   "fonts/Manrope-OFL.txt",
   "main.js",
@@ -36,5 +34,6 @@
   "web-app-manifest-512x512.png",
   "site.webmanifest",
   "robots.txt",
-  "sitemap.xml"
+  "sitemap.xml",
+  "linear.css"
 ]
