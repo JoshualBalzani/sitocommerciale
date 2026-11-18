@@ -55,3 +55,13 @@ summary{list-style:none;position:relative}summary::-webkit-details-marker{displa
 @media print{.privacy-notice,.topbar,.site-header,.site-footer{display:none}.section{padding-block:24px}.container{width:100%;max-width:none}.catalog-card,.editorial-item{break-inside:avoid}a{color:#000}}
 
 .table-scroll{max-width:100%;overflow-x:auto;margin-block:24px;overscroll-behavior-inline:contain}.legal-content .table-scroll table{display:table;overflow:visible;margin:0;min-width:650px}
+.header-inner{justify-content:space-between;gap:32px}
+.primary-navigation{display:flex;align-items:center;gap:28px;margin-left:auto}
+.primary-navigation ul{display:flex;align-items:center;gap:22px;list-style:none;margin:0;padding:0}
+.primary-navigation li+li{margin:0}.primary-navigation li a{display:flex;align-items:center;min-height:48px;font-size:13px;font-weight:650;text-decoration:none;border-bottom:2px solid transparent}
+.primary-navigation li a:hover{border-bottom-color:var(--blue)}.navigation-cta{font-size:11px;white-space:nowrap}
+.navigation-toggle{display:flex;align-items:center;justify-content:center;gap:12px;min-height:48px;min-width:90px;border:1px solid var(--line);border-radius:8px;padding:10px 14px;background:#fff;color:var(--ink);font-size:13px;font-weight:700}
+.navigation-icon{width:16px;height:12px;border-block:1.5px solid currentColor;position:relative}.navigation-icon::after{content:'';position:absolute;inset:4px 0 auto;border-top:1.5px solid currentColor}
+.navigation-toggle[aria-expanded=true] .navigation-icon{height:16px;border:0}.navigation-toggle[aria-expanded=true] .navigation-icon::before,.navigation-toggle[aria-expanded=true] .navigation-icon::after{content:'';position:absolute;top:7px;left:0;width:16px;border-top:1.5px solid currentColor;transform:rotate(45deg)}.navigation-toggle[aria-expanded=true] .navigation-icon::after{transform:rotate(-45deg)}
+@media(max-width:1050px){.header-inner{flex-wrap:wrap;gap:0;justify-content:space-between}.primary-navigation{flex-basis:100%;display:block;margin:18px 0 0;padding:16px 0 8px;border-top:1px solid var(--line)}.primary-navigation ul{display:block}.primary-navigation li a{min-height:52px;padding:10px 0;border-bottom:1px solid var(--line);font-size:16px}.navigation-cta{margin-top:20px}.navigation-toggle{margin-left:auto}}
+@media(max-width:360px){.brand strong{font-size:21px}.brand img{width:40px;height:40px}.navigation-toggle{min-width:80px;padding-inline:10px}}

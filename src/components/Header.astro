@@ -2,6 +2,18 @@
 import { Image } from 'astro:assets';
 import brand from '../assets/brand.png';
 import { company } from '../data/site';
+const links = [
+  ['Soluzioni', '/#aree-prodotto'], ['Prodotti', '/#prodotti'],
+  ['Azienda', '/#chi-siamo'], ['Marchi', '/#marchi'], ['Contatti', '/#contatti'],
+];
 ---
 <div class="topbar"><div class="container"><span>Rappresentanze e forniture · Forlì</span><a href={`tel:${company.telephone}`}>{company.phone}</a></div></div>
-<header class="site-header"><div class="container header-inner"><a class="brand" href="/"><Image src={brand} width={48} height={48} densities={[1,2]} format="webp" loading="eager" fetchpriority="high" alt="" /><span>Commerciale<strong>Clima Plus<span class="brand-dot">.</span></strong></span></a></div></header>
+<header class="site-header"><div class="container header-inner">
+  <a class="brand" href="/"><Image src={brand} width={48} height={48} densities={[1,2]} format="webp" loading="eager" fetchpriority="high" alt="" /><span>Commerciale<strong>Clima Plus<span class="brand-dot">.</span></strong></span></a>
+  <button class="navigation-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" hidden><span data-navigation-label>Menu</span><span class="navigation-icon" aria-hidden="true"></span></button>
+  <nav id="primary-navigation" class="primary-navigation" aria-label="Navigazione principale">
+    <ul>{links.map(([label, href]) => <li><a href={href}>{label}</a></li>)}</ul>
+    <a class="button navigation-cta" href="/#richiesta">Richiedi un preventivo</a>
+  </nav>
+</div></header>
+<script>import '../scripts/navigation';</script>
