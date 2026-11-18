@@ -2,6 +2,7 @@
 import { company } from "../data/site";
 ---
 <form name="richiesta-commerciale" id="contact-form" method="POST" action="https://api.web3forms.com/submit" class="contact-form">
+  <aside class="request-selection" aria-label="Oggetto della richiesta" hidden><p class="eyebrow">La tua selezione</p><p data-selection-summary role="status" aria-live="polite"></p><button type="button" class="text-button" data-clear-selection>Rimuovi selezione</button></aside>
             <input type="hidden" name="access_key" value={company.web3FormsKey}><input type="hidden" name="subject" value="Richiesta commerciale dal sito Commerciale Clima Plus"><input type="hidden" name="from_name" value="Commerciale Clima Plus - Sito web">
             <p hidden="">
               <label>Non compilare questo campo

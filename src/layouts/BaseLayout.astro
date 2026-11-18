@@ -52,7 +52,7 @@ const structured = {
     {verification && <meta name="google-site-verification" content={verification} />}
     <script type="application/ld+json" set:html={JSON.stringify(structured).replaceAll('<', '\u003c')} />
   </head>
-  <body class={bodyClass}>
+  <body class={bodyClass} id="inizio">
     <a class="skip-link" href="#contenuto">Vai al contenuto</a>
     <Header />
     <slot />

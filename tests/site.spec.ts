@@ -62,3 +62,20 @@ test('primary navigation on desktop, mobile and inner pages',async({page},testIn
  await navigation.getByRole('link',{name:'Prodotti',exact:true}).click();await expect(page).toHaveURL(/\/#prodotti$/);
  if(mobile){await page.evaluate(()=>scrollTo(0,0));await toggle.click();await page.setViewportSize({width:1280,height:900});await expect(navigation).toBeVisible();await expect(toggle).toBeHidden();await page.setViewportSize({width:390,height:844});await expect(navigation).toBeHidden();}
 });
+
+test('area navigation, footer and request selection',async({page},testInfo)=>{
+ await page.goto('/');await page.getByRole('button',{name:'Continua senza tracciamento',exact:true}).click();
+ const nav=page.getByRole('navigation',{name:'Navigazione principale'});
+ if(testInfo.project.name==='mobile')await page.locator('.navigation-toggle').click();
+ const summary=nav.locator('.area-menu summary');await summary.click();
+ await expect(nav.getByRole('link',{name:'Climatizzazione',exact:true})).toBeVisible();
+ const audit=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa','wcag22aa']).analyze();expect(audit.violations).toEqual([]);
+ await page.keyboard.press('Escape');await expect(nav.locator('.area-menu')).not.toHaveAttribute('open','');await expect(summary).toBeFocused();await summary.click();
+ await nav.getByRole('link',{name:'Climatizzazione',exact:true}).click();await expect(page).toHaveURL(/\/climatizzazione\/$/);
+ if(testInfo.project.name==='mobile')await page.locator('.navigation-toggle').click();
+ await nav.getByRole('link',{name:'Richiedi un preventivo',exact:true}).click();await expect(page.locator('#request-type')).toHaveValue('Preventivo');
+ await page.locator('[data-request-brand="Beretta"]').click();await expect(page.locator('[data-selection-summary]')).toContainText('Beretta');
+ await page.locator('[data-clear-selection]').click();await expect(page.locator('.request-selection')).toBeHidden();await expect(page.locator('#request-category')).toBeFocused();await expect(page.locator('#request-brand')).toHaveValue('');
+ const footer=page.getByRole('navigation',{name:'Esplora il sito'});await footer.getByRole('link',{name:'Termoidraulica',exact:true}).click();await expect(page).toHaveURL(/\/termoidraulica\/$/);
+ await page.getByRole('link',{name:'Torna all’inizio'}).click();await expect(page).toHaveURL(/#inizio$/);expect(await page.evaluate(()=>scrollY)).toBe(0);
+});

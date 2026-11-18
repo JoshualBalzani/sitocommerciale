@@ -26,6 +26,18 @@ function initializeRequest(form: HTMLFormElement) {
     });
   }
   function countMessage() { const count = form.querySelector('[data-message-count]'); if (count) count.textContent = `${message!.value.length} / 3000`; }
+  function updateSelection() {
+    const panel = form.querySelector<HTMLElement>('.request-selection');
+    const summary = form.querySelector('[data-selection-summary]');
+    const values = ['categoria', 'marchio', 'prodotto'].map(name => field(name)?.value.trim()).filter(Boolean);
+    if (panel) panel.hidden = values.length === 0;
+    if (summary) summary.textContent = values.join(' · ');
+  }
+  form.querySelector('[data-clear-selection]')?.addEventListener('click', () => {
+    for (const name of ['categoria', 'marchio', 'prodotto']) { const input = field(name); if (input) input.value = ''; }
+    updateSelection(); clearErrors(); field('categoria')?.focus();
+  });
+  form.addEventListener('change', updateSelection);
   function showStatus(text: string, state: string, focus = true) {
     status!.textContent = text; status!.dataset['state'] = state; status!.hidden = false;
     if (confirmation) confirmation.hidden = state !== 'success';
@@ -48,7 +60,7 @@ function initializeRequest(form: HTMLFormElement) {
     if (result) result.textContent = copied ? 'Richiesta copiata. Puoi incollarla in una email.' : `Copia non disponibile. Scrivi a ${company.email}.`;
   });
   form.addEventListener('input', () => {
-    clearErrors(); countMessage();
+    clearErrors(); countMessage(); updateSelection();
     if (confirmation) confirmation.hidden = true;
     if (status.dataset['state'] === 'success') status.hidden = true;
     if (!fallback.hidden) showFallback();
@@ -62,10 +74,13 @@ function initializeRequest(form: HTMLFormElement) {
         const input = field(name);
         if (input && value !== undefined && (!(input instanceof HTMLSelectElement) || [...input.options].some(option => option.value === value))) input.value = value;
       }
+      updateSelection();
       requestAnimationFrame(() => document.querySelector<HTMLElement>('#request-title')?.focus({ preventScroll: true }));
     });
   }
   const params = new URLSearchParams(location.search);
+  const requestType = field('tipo-richiesta');
+  if (requestType instanceof HTMLSelectElement && [...requestType.options].some(option => option.value === params.get('tipo'))) requestType.value = params.get('tipo') ?? 'Informazioni';
   const category = field('categoria');
   if (category instanceof HTMLSelectElement && [...category.options].some(option => option.value === params.get('categoria'))) {
     category.value = params.get('categoria') ?? '';
@@ -97,7 +112,7 @@ function initializeRequest(form: HTMLFormElement) {
         body: JSON.stringify({ access_key: company.web3FormsKey, subject: 'Richiesta commerciale dal sito Commerciale Clima Plus', from_name: company.name, ...parsed.data }) });
       const result: unknown = await response.json();
       if (!response.ok || typeof result !== 'object' || result === null || !('success' in result) || result.success !== true) throw new DeliveryError(response.status);
-      form.reset(); countMessage(); clearErrors(); showStatus('Richiesta inviata. La risposta sarà trasmessa ai recapiti indicati.', 'success');
+      form.reset(); countMessage(); updateSelection(); clearErrors(); showStatus('Richiesta inviata. La risposta sarà trasmessa ai recapiti indicati.', 'success');
     } catch (error: unknown) {
       const text = error instanceof DOMException && error.name === 'AbortError'
         ? 'Il servizio non ha confermato l’invio in tempo. Non possiamo verificarne la ricezione: prima di riprovare puoi contattarci direttamente.'
@@ -107,7 +122,8 @@ function initializeRequest(form: HTMLFormElement) {
       showStatus(text, 'error'); showFallback();
     } finally { clearTimeout(timeout); sending = false; submit.disabled = false; form.removeAttribute('aria-busy'); submit.textContent = 'Invia richiesta'; }
   });
-  countMessage();
+  countMessage(); updateSelection();
+  window.addEventListener('pageshow', updateSelection);
 }
 const form = document.querySelector<HTMLFormElement>('#contact-form');
 if (form) initializeRequest(form);
