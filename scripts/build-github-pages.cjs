@@ -4,7 +4,7 @@ const {execFileSync}=require('node:child_process');
 const root=path.resolve(__dirname,'..');
 const config=JSON.parse(fs.readFileSync(path.join(root,'pages.config.json'),'utf8'));
 const at=process.argv.indexOf('--site-url');
-let siteUrl=at>=0?process.argv[at+1]:process.env.PAGES_SITE_URL||config.siteUrl;
+let siteUrl=at>=0?process.argv[at+1]:config.siteUrl||process.env.PAGES_SITE_URL;
 if(!siteUrl&&process.env.GITHUB_REPOSITORY){const [owner,repo]=process.env.GITHUB_REPOSITORY.split('/');if(owner&&repo)siteUrl='https://'+owner+'.github.io'+(repo.toLowerCase()===owner.toLowerCase()+'.github.io'?'':'/'+repo);}
 if(!siteUrl)throw Error('URL Pages non ancora impostato. GitHub Actions lo ricava automaticamente; per una build locale usa --site-url https://TUO-URL oppure pages.config.json.');
 const site=new URL(siteUrl);
