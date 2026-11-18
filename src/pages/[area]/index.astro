@@ -1,0 +1,11 @@
+---
+import AreaPage from '../../components/AreaPage.astro';
+import { areas, type Area } from '../../data/content';
+export function getStaticPaths() { return areas.map(area => ({ params: { area: area.slug }, props: { area } })); }
+interface Props { area: Area; }
+const { area } = Astro.props;
+const documents = import.meta.glob<string>('../../content/areas/*.html', { query: '?raw', import: 'default', eager: true });
+const content = documents[`../../content/areas/${area.slug}.html`];
+if (!content) throw new Error(`Missing content for ${area.slug}`);
+---
+<AreaPage area={area} content={content} />

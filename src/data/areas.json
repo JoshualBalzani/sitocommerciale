@@ -1,0 +1,102 @@
+[
+  {
+    "slug": "riscaldamento",
+    "name": "Riscaldamento",
+    "title": "Caldaie e riscaldamento a Forlì | Commerciale Clima Plus",
+    "description": "Caldaie a condensazione, sistemi ibridi e componenti per il riscaldamento. Rappresentanze commerciali e richieste di fornitura a Forlì.",
+    "heroTitle": "Soluzioni per il riscaldamento",
+    "lead": "Caldaie, sistemi ibridi e componenti per impianti residenziali e professionali. Informazioni commerciali e richieste di fornitura dalla sede di Forlì.",
+    "introTitle": "Informazioni utili per una richiesta precisa.",
+    "intro": "La scelta di un generatore parte dalle caratteristiche dell’impianto e dal prodotto richiesto. Commerciale Clima Plus opera nella rappresentanza commerciale e nel commercio di prodotti idro-termo-sanitari: il contatto diretto consente di inquadrare la categoria e raccogliere gli elementi utili a una richiesta commerciale.",
+    "products": [
+      {
+        "title": "Caldaie a condensazione",
+        "description": "Informazioni sui prodotti per il riscaldamento e la produzione di acqua calda sanitaria. Per una sostituzione, indicare marca e modello del generatore esistente e l’eventuale codice del prodotto cercato."
+      },
+      {
+        "title": "Sistemi ibridi",
+        "description": "Richieste relative a sistemi che combinano diverse tecnologie per il comfort. Per il confronto commerciale sono utili i dati dei generatori presenti e una descrizione dell’intervento previsto."
+      },
+      {
+        "title": "Accumuli e componenti dell’impianto",
+        "description": "Per accumuli, collettori e componenti indicare la tipologia richiesta, il codice quando disponibile e le quantità. Le caratteristiche e la compatibilità vanno verificate sulla documentazione del produttore."
+      }
+    ]
+  },
+  {
+    "slug": "climatizzazione",
+    "name": "Climatizzazione",
+    "title": "Climatizzatori e pompe di calore a Forlì | Clima Plus",
+    "description": "Climatizzatori mono e multisplit, sistemi canalizzati e pompe di calore. Informazioni commerciali, marchi rappresentati e richieste di fornitura a Forlì.",
+    "heroTitle": "Climatizzazione e pompe di calore",
+    "lead": "Climatizzatori, sistemi canalizzati e pompe di calore per ambienti residenziali e professionali. Un’area di prodotto dedicata alla gestione della temperatura.",
+    "introTitle": "Informazioni utili per una richiesta precisa.",
+    "intro": "Una richiesta di climatizzazione può riguardare un singolo ambiente, più locali o un prodotto da sostituire. Per individuare il riferimento commerciale sono utili il numero degli ambienti, le predisposizioni esistenti e l’eventuale modello già selezionato. Le verifiche tecniche restano affidate al professionista e alla documentazione del produttore.",
+    "products": [
+      {
+        "title": "Climatizzatori mono e multisplit",
+        "description": "Informazioni sui sistemi split per uno o più ambienti. Nella richiesta indicare il numero di locali, i prodotti di interesse e le eventuali unità già presenti."
+      },
+      {
+        "title": "Pompe di calore",
+        "description": "Richieste commerciali relative a pompe di calore aria/acqua e aria/aria. Specificare l’utilizzo previsto e le caratteristiche conosciute dell’impianto, senza sostituire la valutazione tecnica necessaria."
+      },
+      {
+        "title": "Sistemi canalizzati",
+        "description": "Soluzioni da integrare negli spazi dell’edificio. Per una richiesta sono utili la destinazione degli ambienti, la presenza di controsoffitti e i codici dei prodotti eventualmente individuati."
+      }
+    ]
+  },
+  {
+    "slug": "ventilazione",
+    "name": "Aria e ventilazione",
+    "title": "VMC e ventilconvettori a Forlì | Commerciale Clima Plus",
+    "description": "Ventilazione meccanica controllata, ventilconvettori e distribuzione dell’aria. Informazioni sui prodotti e richieste commerciali a Forlì.",
+    "heroTitle": "Ventilazione e terminali per gli ambienti",
+    "lead": "VMC, ventilconvettori e distribuzione dell’aria: categorie differenti da identificare con precisione nella richiesta di prodotto.",
+    "introTitle": "Informazioni utili per una richiesta precisa.",
+    "intro": "Il ricambio dell’aria e la gestione della temperatura sono esigenze distinte. Nel descrivere il progetto è utile chiarire se si cerca una soluzione di ventilazione meccanica controllata, un terminale per un impianto esistente o un componente di distribuzione. Questa distinzione aiuta a inoltrare una richiesta commerciale pertinente.",
+    "products": [
+      {
+        "title": "Ventilazione meccanica controllata",
+        "description": "Informazioni sui sistemi VMC dedicati al ricambio dell’aria. Indicare gli ambienti interessati, la tipologia di soluzione cercata e l’eventuale modello selezionato dal professionista."
+      },
+      {
+        "title": "Ventilconvettori",
+        "description": "Richieste per terminali a parete, a pavimento o canalizzabili. Specificare il tipo di impianto, la collocazione prevista e i dati disponibili del prodotto esistente."
+      },
+      {
+        "title": "Distribuzione dell’aria",
+        "description": "Per elementi di distribuzione e componenti collegati a una soluzione VMC sono utili codici, misure e quantità. Le compatibilità devono essere controllate sulla documentazione tecnica del sistema."
+      }
+    ]
+  },
+  {
+    "slug": "termoidraulica",
+    "name": "Termoidraulica",
+    "title": "Rubinetteria e termoidraulica a Forlì | Clima Plus",
+    "description": "Rubinetteria, valvole, raccordi e prodotti per trattamento e manutenzione degli impianti. Rappresentanze e richieste commerciali a Forlì.",
+    "heroTitle": "Rubinetteria e componenti termoidraulici",
+    "lead": "Prodotti e componenti per completare gli impianti: dalla rubinetteria ai raccordi, fino al trattamento e alla manutenzione.",
+    "introTitle": "Informazioni utili per una richiesta precisa.",
+    "intro": "Una richiesta di componenti è più efficace quando contiene riferimenti precisi. Codice prodotto, misure e quantità permettono di distinguere articoli simili e ridurre i passaggi necessari al confronto commerciale. Per la rubinetteria sono utili anche tipologia di installazione e finitura desiderata.",
+    "products": [
+      {
+        "title": "Rubinetteria",
+        "description": "Informazioni sui prodotti per bagno e cucina. Specificare la tipologia di rubinetto, l’installazione prevista, il modello e la finitura quando già individuati."
+      },
+      {
+        "title": "Valvole e raccordi",
+        "description": "Richieste di componenti per impianti idraulici e termoidraulici. Indicare codice, diametro, materiale e quantità; in caso di sostituzione aggiungere il riferimento del componente esistente."
+      },
+      {
+        "title": "Trattamento e manutenzione",
+        "description": "Prodotti per il trattamento e la manutenzione degli impianti. La richiesta deve identificare l’impianto interessato e il prodotto cercato; l’impiego richiede il rispetto delle istruzioni del produttore."
+      },
+      {
+        "title": "Evacuazione fumi e accessori",
+        "description": "Sistemi per evacuazione fumi, canne fumarie, terminali e accessori: La termocamino è tra i marchi rappresentati. Per una richiesta precisa, indica sistema, diametro e riferimenti dei componenti individuati dal professionista."
+      }
+    ]
+  }
+]

@@ -1,0 +1,4 @@
+---
+import { home } from '../data/content';
+---
+<section class="section section-soft compact-guide" id="guida-richiesta" aria-labelledby="guide-title"><span id="vantaggi" aria-hidden="true"></span><div class="container"><div class="section-intro"><p class="eyebrow">Il percorso commerciale</p><h2 id="guide-title">Dalla richiesta<br />alla proposta.</h2><p>{home.guide.intro}</p></div><div class="three-columns guide-steps">{home.guide.steps.map((step,index)=><article class="editorial-item"><span class="eyebrow">0{index+1}</span><h3>{step.title}</h3><p>{step.description}</p></article>)}</div><div class="guide-close"><p>{home.guide.note}</p><a class="button" href="#richiesta" data-request-type="Preventivo">Invia la tua richiesta</a></div></div></section>

@@ -1,0 +1,115 @@
+---
+import { company } from "../data/site";
+---
+<form name="richiesta-commerciale" id="contact-form" method="POST" action="https://api.web3forms.com/submit" class="contact-form">
+            <input type="hidden" name="access_key" value={company.web3FormsKey}><input type="hidden" name="subject" value="Richiesta commerciale dal sito Commerciale Clima Plus"><input type="hidden" name="from_name" value="Commerciale Clima Plus - Sito web">
+            <p hidden="">
+              <label>Non compilare questo campo
+                <input name="botcheck" type="checkbox" tabindex="-1" autocomplete="off"></label>
+            </p>
+            <div class="form-section-heading">
+              <span>01</span>
+              <h3>La richiesta</h3>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="request-type">Tipo di richiesta *</label><select id="request-type" name="tipo-richiesta" required="">
+                  <option value="Informazioni">Informazioni</option>
+                  <option value="Preventivo">Preventivo</option>
+                  <option value="Disponibilità prodotto">
+                    Disponibilità prodotto
+                  </option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="request-client">Profilo del richiedente</label><select id="request-client" name="profilo">
+                  <option value="">Seleziona (facoltativo)</option>
+                  <option value="Privato">Privato</option>
+                  <option value="Installatore / professionista">
+                    Installatore / professionista
+                  </option>
+                  <option value="Azienda">Azienda</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="request-category">Categoria *</label><select id="request-category" name="categoria" required="">
+                  <option value="">Scegli una categoria</option>
+                  <option value="Riscaldamento">Riscaldamento</option>
+                  <option value="Climatizzazione">Climatizzazione</option>
+                  <option value="Aria e ventilazione">
+                    Aria e ventilazione
+                  </option>
+                  <option value="Termoidraulica">Termoidraulica</option>
+                  <option value="Richiesta di orientamento">
+                    Richiesta di orientamento
+                  </option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="request-brand">Marchio</label><select id="request-brand" name="marchio">
+                  <option value="">Nessuna preferenza</option>
+                  <option value="Chaffoteaux">Chaffoteaux</option>
+                  <option value="Beretta">Beretta</option>
+                  <option value="Sylber">Sylber</option>
+                  <option value="AUX">AUX</option>
+                  <option value="Fiore">Fiore</option>
+                  <option value="La termocamino">La termocamino</option>
+                  <option value="ITAP">ITAP</option>
+                  <option value="Facot">Facot</option>
+                  <option value="Ideal Clima">Ideal Clima</option>
+                  <option value="Altro">Altro</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="request-product">Prodotto, modello o codice</label><input id="request-product" name="prodotto" type="text" maxlength="180" placeholder="Se lo conosci, indicalo qui">
+            </div>
+            <div class="form-field">
+              <label for="request-message">Descrizione della richiesta *</label><textarea id="request-message" name="messaggio" required="" minlength="15" maxlength="3000" rows="5" placeholder="Descrivi la tua esigenza, gli ambienti o i prodotti che cerchi." aria-describedby="message-help"></textarea>
+              <div class="field-help">
+                <span id="message-help">Da 15 a 3.000 caratteri. Non inserire dati sensibili.</span><span data-message-count="" aria-hidden="true">0 / 3000</span>
+              </div>
+            </div>
+            <div class="form-section-heading">
+              <span>02</span>
+              <h3>Recapiti del richiedente</h3>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="request-name">Nome e cognome *</label><input id="request-name" name="nome" autocomplete="name" required="" minlength="2" maxlength="100">
+              </div>
+              <div class="form-field">
+                <label for="request-company">Azienda</label><input id="request-company" name="azienda" autocomplete="organization" maxlength="150">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="request-email">Email *</label><input id="request-email" name="email" type="email" autocomplete="email" required="" maxlength="254">
+              </div>
+              <div class="form-field">
+                <label for="request-phone">Telefono</label><input id="request-phone" name="telefono" type="tel" autocomplete="tel" maxlength="30" inputmode="tel">
+              </div>
+            </div>
+            <div class="form-privacy">
+              <p>
+                I dati saranno utilizzati per gestire la richiesta, come
+                descritto nell’<a href="/privacy/#trattamenti" target="_blank" rel="noopener">informativa privacy</a>. Non è prevista l’iscrizione a comunicazioni promozionali.
+              </p>
+            </div>
+            <div class="form-status" id="form-status" role="status" aria-live="polite" tabindex="-1" hidden=""></div>
+            <div class="form-submit-row">
+              <button class="button" type="submit">Invia richiesta</button><span>Nessun acquisto o impegno di spesa.</span>
+            </div>
+<section class="form-success-details" id="request-success" aria-labelledby="request-success-title" hidden=""><h3 id="request-success-title">Il prossimo passo</h3><p>Esamineremo le informazioni ricevute e ti contatteremo ai recapiti indicati per approfondire la richiesta e verificare i dettagli commerciali.</p><p>Per integrare la richiesta, scrivi a <a href="mailto:info@commercialeclimaplus.it">info@commercialeclimaplus.it</a> oppure chiama <a href="tel:+393496808840">349 680 8840</a>.</p></section>
+            <div class="form-fallback" hidden="">
+              <a class="link-button" data-email-fallback="" href="#richiesta">Apri la richiesta nel programma di posta </a><button type="button" class="text-button" data-copy-request="">
+                Copia il testo della richiesta</button><span data-copy-status="" role="status" aria-live="polite"></span>
+            </div>
+            <noscript><p>
+                Il modulo utilizza l’invio standard del browser. L’invio viene
+                gestito dal servizio Web3Forms.
+              </p></noscript>
+          </form>
+<script>import "../scripts/request";</script>

@@ -26,12 +26,20 @@ jobs:
       - name: Read GitHub Pages URL
         id: pages
         uses: actions/configure-pages@v5
-      - name: Build site for the actual Pages address
-        run: node scripts/build-github-pages.cjs
+      - name: Install dependencies
+        run: npm ci
+      - name: Check TypeScript and Astro
+        run: npm run check
+      - name: Build static site
+        run: npm run build
         env:
-          PAGES_SITE_URL: ${{ steps.pages.outputs.base_url }}
+          ASTRO_TELEMETRY_DISABLED: '1'
       - name: Check public output
-        run: node scripts/check-github-pages.cjs
+        run: npm run test:links
+      - name: Install test browser
+        run: npx playwright install --with-deps chromium
+      - name: Test desktop, mobile and accessibility
+        run: npm run test:e2e
       - name: Upload only public site
         uses: actions/upload-pages-artifact@v4
         with:

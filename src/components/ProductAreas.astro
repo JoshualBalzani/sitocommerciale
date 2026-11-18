@@ -1,0 +1,4 @@
+---
+import { home } from '../data/content';
+---
+<section class="section area-entry" id="aree-prodotto" aria-labelledby="area-entry-title"><div class="container"><div class="section-heading"><div><p class="eyebrow">Le aree di prodotto</p><h2 id="area-entry-title">Quattro aree.<br /><em>Un unico riferimento.</em></h2></div><p>Esplora i prodotti per riscaldamento, climatizzazione, ventilazione e termoidraulica.</p></div><div class="area-grid business-area-nav">{home.areas.map(area=><a class="area-product-card" href={`/${area.slug}/`}><img src={area.image} width="600" height="600" alt="" loading="lazy" decoding="async" /><span class="eyebrow">{area.number} / Area di prodotto</span><h3>{area.name}</h3><p>{area.description}</p><span class="text-link">Esplora l’area</span></a>)}</div></div></section>

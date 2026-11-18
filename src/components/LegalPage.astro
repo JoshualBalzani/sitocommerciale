@@ -1,0 +1,6 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+interface Props { title: string; description: string; content: string; noindex?: boolean; }
+const { title, description, content, noindex = false } = Astro.props;
+---
+<BaseLayout title={title} description={description} noindex={noindex} bodyClass="page-document"><main id="contenuto" class="section legal-page" tabindex="-1"><div class="container document-container"><article class="legal-content"><Fragment set:html={content} /></article></div></main></BaseLayout>

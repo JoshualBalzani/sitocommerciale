@@ -1,0 +1,4 @@
+---
+import { home } from '../data/content';
+---
+<section class="section" id="marchi" aria-labelledby="brands-title"><div class="container"><div class="section-heading"><div><p class="eyebrow">03 / I nostri marchi</p><h2 id="brands-title">Nove marchi.<br /><em>Un unico riferimento.</em></h2></div><p>COMMERCIALE CLIMA PLUS SRL opera come agenzia di rappresentanza commerciale per tutti i marchi elencati, nei settori del riscaldamento, della climatizzazione e della termoidraulica.</p></div><div class="brands-grid">{home.brands.map(brand=><a class="brand-tile" href="#richiesta" data-request-brand={brand.value} data-request-category={brand.category}><h3 class={brand.className}>{brand.name}</h3><p>{brand.description}</p></a>)}</div><p class="editorial-note">Per informazioni sui prodotti rappresentati: <a href="#richiesta">invia una richiesta commerciale</a>.</p></div></section>

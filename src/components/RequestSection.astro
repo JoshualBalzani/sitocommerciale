@@ -1,0 +1,26 @@
+---
+import RequestForm from "./RequestForm.astro";
+---
+<section class="section request-section" id="richiesta" aria-labelledby="request-title"><div class="container request-layout"><div class="request-intro">
+            <p class="eyebrow">RICHIESTA DI INFORMAZIONI E PREVENTIVI</p>
+            <h2 id="request-title" tabindex="-1">
+              Richieste di informazioni<br>e preventivi.
+            </h2>
+            <p>
+              Modulo dedicato a informazioni sui prodotti, disponibilità e
+              richieste di fornitura. I campi con * sono obbligatori.
+            </p>
+            <ol class="request-steps">
+              <li><span>01</span>Scegli il tipo di richiesta</li>
+              <li><span>02</span>Indica prodotto, marchio o esigenza</li>
+              <li><span>03</span>Inserisci i recapiti di contatto</li>
+            </ol>
+            <div class="request-help">
+              <strong>Contatto telefonico</strong><a href="tel:+393496808840">349 680 8840 </a>
+              <p>
+                Indirizzo email<br><a href="mailto:info@commercialeclimaplus.it">info@commercialeclimaplus.it</a>
+              </p>
+              <button type="button" class="text-button" data-copy-email="">
+                Copia indirizzo email</button><span class="copy-status" role="status" aria-live="polite"></span>
+            </div>
+          </div><RequestForm /></div></section>

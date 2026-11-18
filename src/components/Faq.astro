@@ -1,0 +1,4 @@
+---
+import { home } from '../data/content';
+---
+<section class="section" id="faq" aria-labelledby="faq-title"><div class="container faq-grid"><div><p class="eyebrow">Domande frequenti</p><h2 id="faq-title">Domande frequenti.</h2><p>Per ulteriori informazioni:<br /><a class="text-link" href="#richiesta">Invia una richiesta</a></p></div><div class="faq-list">{home.faq.map(item=><details name="frequent-questions"><summary>{item.question}</summary><p set:html={item.answerHtml} /></details>)}</div></div></section>

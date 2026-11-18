@@ -1,55 +1,50 @@
-﻿# Commerciale Clima Plus — GitHub Pages
+﻿# Commerciale Clima Plus
 
-Pacchetto pronto per un repository GitHub. Mantiene il design corrente, le sezioni intere sovrapposte e il modulo Web3Forms. Nessun oggetto 3D.
+Sito corporate statico realizzato con Astro, TypeScript e Zod. Pubblicato con GitHub Actions su https://www.commercialeclimaplus.it.
+
+## Sviluppo
+
+Richiede Node.js 24 e npm.
+
+```sh
+npm ci
+npm run dev
+```
+
+## Verifiche e build
+
+```sh
+npm run check
+npm run build
+npm run test:links
+npx playwright install chromium
+npm run test:e2e
+```
+
+`npm run preview` serve la build. Astro gestisce una singola anteprima per progetto: `astro preview stop` termina quella esistente. L'output pubblicabile e esclusivamente `dist-github/`. Non caricare i sorgenti come sito statico.
+
+## Struttura
+
+- `src/pages/`: pagine, sitemap, robots e compatibilita con gli indirizzi HTML precedenti.
+- `src/components/`: hero, catalogo, marchi, modulo, FAQ, footer e componenti delle aree prodotto.
+- `src/layouts/BaseLayout.astro`: documento, metadata, JSON-LD e politica CSP.
+- `src/data/`: dati aziendali e contenuti validati con Zod.
+- `src/content/`: contenuti dettagliati delle aree e documenti legali preservati.
+- `src/scripts/`: interazioni TypeScript di catalogo, richieste e preferenze privacy.
+- `src/styles/global.css`: unico design system responsive.
+- `public/`: font locali, illustrazioni SVG, icone e risorse pubbliche.
+- `tests/`: verifiche Playwright e axe su desktop e mobile.
+
+## Contenuti e dominio
+
+Modificare i dati societari in `src/data/site.ts`; le schede in `src/data/home.json` e `areas.json`. Aggiornare `pages.config.json` solo quando cambia il dominio: canonical, sitemap e CNAME sono generati dalla stessa configurazione. `googleSiteVerification` e facoltativo quando la proprieta Search Console e gia verificata via DNS.
+
+Il modulo usa Web3Forms con validazione, errori accessibili e protezione contro invii duplicati. Il campo access_key e una chiave pubblica del servizio. Le prove intercettano le richieste: non inviano email reali. La consegna finale delle email dipende dal servizio e dalla configurazione del destinatario.
+
+Non sono presenti analytics, font remoti o incorporamenti. L'avviso privacy e informativo; la sua chiusura viene ricordata solo nella sessione. I dati del modulo non sono memorizzati nel browser.
 
 ## Pubblicazione
 
-1. Crea un repository (pubblico se usi GitHub Free) e carica **il contenuto di questo pacchetto nella sua cartella principale**, comprese `.github`, `.seo`, `assets`, `fonts` e `scripts`. Non caricare il file ZIP come unico file del repository.
-2. In **Settings → Pages → Build and deployment → Source**, seleziona **GitHub Actions**.
-3. Apri **Actions → Publish GitHub Pages → Run workflow**. I successivi aggiornamenti del ramo principale pubblicano automaticamente il sito.
+I push su main attivano `.github/workflows/static.yml`: installazione riproducibile, controllo tipi, build, controllo collegamenti, test desktop/mobile/accessibilita e pubblicazione del solo output statico. GitHub Pages deve usare GitHub Actions. I vecchi URL `.html` rimangono disponibili con inoltro alle pagine canoniche, preservando query e ancore; GitHub Pages non permette redirect HTTP configurabili.
 
-Il workflow legge l'indirizzo effettivo da GitHub Pages e ricompila collegamenti, canonical, Open Graph, dati strutturati e sitemap. Funziona sia sulla radice `utente.github.io`, sia sotto il nome del repository. Non devi inserire ora un dominio.
-
-## Quando avrai il dominio definitivo
-
-Impostalo in **Settings → Pages → Custom domain**, configura i DNS del dominio secondo le istruzioni di GitHub e abilita **Enforce HTTPS** quando disponibile. Poi esegui nuovamente il workflow: rileverà il nuovo indirizzo. Non è necessario sostituire manualmente gli URL nel codice.
-
-`pages.config.json` definisce il dominio pubblico definitivo: https://www.commercialeclimaplus.it. Questo valore ha priorità sull'indirizzo automatico restituito da GitHub Pages. Il sito usa sezioni lineari e scorrimento nativo, senza impilamento o librerie di animazione.
-
-## Modulo di contatto
-
-Il modulo usa direttamente Web3Forms; non richiede Netlify Forms, Functions o un server GitHub. La chiave pubblica fornita è già integrata. Nell'account Web3Forms verifica il destinatario, il piano e le eventuali restrizioni di dominio: dopo il passaggio devi consentire l'indirizzo `github.io` o il tuo dominio. L'effettiva ricezione va verificata con un invio dal sito pubblicato. I test locali usano risposte simulate e non inviano email reali.
-
-## Privacy e sicurezza
-
-L'informativa descrive GitHub Pages e Web3Forms. Nessun Analytics, pixel pubblicitario, font remoto o mappa incorporata viene aggiunto. La preferenza di movimento e la chiusura dell'avviso restano nella sessione del browser.
-
-GitHub Pages non applica i file Netlify `_headers` e `_redirects`: il pacchetto pubblico non li usa. La Content Security Policy e la politica referrer sono inserite nell'HTML con i meccanismi disponibili. Gli header che richiedono configurazione del server, come `frame-ancestors`, non sono simulati con meta tag.
-
-Le vecchie pagine `.html` hanno reindirizzamenti lato browser verso i percorsi a cartella, mantenendo parametri e frammenti quando JavaScript è attivo. Non vengono presentati come redirect HTTP 301. Il file `404.html` usa percorsi corretti anche nelle URL inesistenti profonde.
-
-## Build locale, se serve
-
-Con Node.js 24:
-
-```text
-node scripts/build-github-pages.cjs --site-url https://TUO-UTENTE.github.io/NOME-REPOSITORY
-node scripts/check-github-pages.cjs
-```
-
-L'output è `dist-github/`. Non servono installazioni npm per la pubblicazione. La hero è tipografica e lo scorrimento è gestito dal browser. `experience.js` rispetta la preferenza di movimento già salvata.
-
-## Search Console
-
-Dopo la pubblicazione verifica la proprietà URL corrispondente all'indirizzo effettivo. Puoi inserire il token in `pages.config.json`, campo `googleSiteVerification`, e ripubblicare. La sitemap si trova all'indirizzo del sito seguito da `/sitemap.xml`.
-
-Per un sito di progetto, un `robots.txt` sotto il percorso del repository non governa l'intero dominio `utente.github.io`: rimangono validi i meta robots delle pagine e la sitemap. Non è stata dichiarata alcuna verifica Search Console già completata.
-
-## File pubblicati
-
-GitHub Actions carica solo `dist-github/`, costruita da un elenco esplicito di risorse. Visura, report locali, screenshot, note operative e strumenti di sviluppo non sono inclusi nel sito pubblico. Questo pacchetto non contiene la visura.
-
-Fonti ufficiali:
-- https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages
-- https://docs.github.com/en/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https
-- https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages
+Dettagli e risultati in [MIGRATION.md](MIGRATION.md).

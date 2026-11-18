@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HomeHero from '../components/HomeHero.astro';
+import ProductAreas from '../components/ProductAreas.astro';
+import Audiences from '../components/Audiences.astro';
+import Catalog from '../components/Catalog.astro';
+import About from '../components/About.astro';
+import Brands from '../components/Brands.astro';
+import RequestGuide from '../components/RequestGuide.astro';
+import Faq from '../components/Faq.astro';
+import RequestSection from '../components/RequestSection.astro';
+import ContactSection from '../components/ContactSection.astro';
+import { pageMetadata } from '../data/content';
+const meta = pageMetadata('index');
+---
+<BaseLayout title={meta.title} description={meta.description} bodyClass="studio-home"><main id="contenuto" tabindex="-1"><HomeHero /><ProductAreas /><Audiences /><Catalog /><About /><Brands /><RequestGuide /><Faq /><RequestSection /><ContactSection /></main></BaseLayout>

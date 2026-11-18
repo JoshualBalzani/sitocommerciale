@@ -1,0 +1,47 @@
+{
+  "404": {
+    "title": "Pagina non trovata | Commerciale Clima Plus",
+    "description": "La pagina richiesta non è disponibile. Consulta prodotti e contatti di Commerciale Clima Plus.",
+    "robots": "noindex, follow"
+  },
+  "index": {
+    "title": "Rappresentanze termoidrauliche a Forlì | Clima Plus",
+    "description": "Commerciale Clima Plus: rappresentanze e forniture termoidrauliche a Forlì. Riscaldamento, climatizzazione, ventilazione e rubinetteria.",
+    "robots": "index, follow, max-image-preview:large"
+  },
+  "riscaldamento": {
+    "title": "Caldaie e riscaldamento a Forlì | Commerciale Clima Plus",
+    "description": "Caldaie a condensazione, sistemi ibridi e componenti per il riscaldamento. Rappresentanze commerciali e richieste di fornitura a Forlì.",
+    "robots": "index, follow, max-image-preview:large"
+  },
+  "climatizzazione": {
+    "title": "Climatizzatori e pompe di calore a Forlì | Clima Plus",
+    "description": "Climatizzatori mono e multisplit, sistemi canalizzati e pompe di calore. Informazioni commerciali, marchi rappresentati e richieste di fornitura a Forlì.",
+    "robots": "index, follow, max-image-preview:large"
+  },
+  "ventilazione": {
+    "title": "VMC e ventilconvettori a Forlì | Commerciale Clima Plus",
+    "description": "Ventilazione meccanica controllata, ventilconvettori e distribuzione dell’aria. Informazioni sui prodotti e richieste commerciali a Forlì.",
+    "robots": "index, follow, max-image-preview:large"
+  },
+  "termoidraulica": {
+    "title": "Rubinetteria e termoidraulica a Forlì | Clima Plus",
+    "description": "Rubinetteria, valvole, raccordi e prodotti per trattamento e manutenzione degli impianti. Rappresentanze e richieste commerciali a Forlì.",
+    "robots": "index, follow, max-image-preview:large"
+  },
+  "privacy": {
+    "title": "Privacy e cookie | Commerciale Clima Plus",
+    "description": "Informativa privacy e cookie di Commerciale Clima Plus: dati personali, modulo Web3Forms, hosting GitHub Pages, conservazione e diritti.",
+    "robots": "index, follow, max-image-preview:large"
+  },
+  "note-legali": {
+    "title": "Dati societari e note legali | Commerciale Clima Plus",
+    "description": "Sede legale a Forlì, codice fiscale, partita IVA, REA, capitale sociale e contatti ufficiali di Commerciale Clima Plus.",
+    "robots": "index, follow, max-image-preview:large"
+  },
+  "grazie": {
+    "title": "Conferma richiesta | Commerciale Clima Plus",
+    "description": "Informazioni sulla richiesta commerciale e contatti di Commerciale Clima Plus.",
+    "robots": "noindex, follow"
+  }
+}

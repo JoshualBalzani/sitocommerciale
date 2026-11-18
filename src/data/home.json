@@ -1,0 +1,277 @@
+{
+  "hero": {
+    "eyebrow": "COMMERCIALE CLIMA PLUS / FORLÌ",
+    "lead": "Riscaldamento, climatizzazione, ventilazione e termoidraulica.Rappresentanze commerciali per installatori, professionisti e aziende."
+  },
+  "areas": [
+    {
+      "slug": "riscaldamento",
+      "name": "Riscaldamento",
+      "description": "Caldaie e sistemi ibridi",
+      "image": "/assets/studio-heat.svg",
+      "number": "01"
+    },
+    {
+      "slug": "climatizzazione",
+      "name": "Climatizzazione",
+      "description": "Climatizzatori e pompe di calore",
+      "image": "/assets/studio-air.svg",
+      "number": "02"
+    },
+    {
+      "slug": "ventilazione",
+      "name": "Aria e ventilazione",
+      "description": "VMC e ventilconvettori",
+      "image": "/assets/studio-vent.svg",
+      "number": "03"
+    },
+    {
+      "slug": "termoidraulica",
+      "name": "Termoidraulica",
+      "description": "Rubinetteria, valvole e raccordi",
+      "image": "/assets/studio-water.svg",
+      "number": "04"
+    }
+  ],
+  "audiences": [
+    {
+      "name": "Installatori e professionisti",
+      "description": "Codici, modelli e caratteristiche dell’impianto sono il punto di partenza per identificare il prodotto richiesto.",
+      "bullets": [
+        "Sostituzioni e nuovi impianti",
+        "Componenti e quantità"
+      ],
+      "profile": "Installatore / professionista",
+      "cta": "Invia una richiesta come professionista"
+    },
+    {
+      "name": "Aziende e operatori del settore",
+      "description": "Un riferimento per le richieste commerciali sui marchi rappresentati e sulle diverse famiglie di fornitura.",
+      "bullets": [
+        "Richieste per elenco materiali",
+        "Confronto su marchi e categorie"
+      ],
+      "profile": "Azienda",
+      "cta": "Invia una richiesta come azienda"
+    },
+    {
+      "name": "Privati",
+      "description": "Informazioni sui prodotti per orientare la richiesta, anche quando il modello da cercare deve ancora essere individuato.",
+      "bullets": [
+        "Descrizione dell’esigenza",
+        "Prodotto esistente o categoria"
+      ],
+      "profile": "Privato",
+      "cta": "Invia una richiesta come privato"
+    }
+  ],
+  "catalog": [
+    {
+      "id": "catalog-01",
+      "category": "Riscaldamento",
+      "search": "Riscaldamento Caldaie a condensazione Per impianti di riscaldamento e acqua calda sanitaria.",
+      "title": "Caldaie a condensazione",
+      "description": "Per impianti di riscaldamento e acqua calda sanitaria.",
+      "hint": "Indica modello da sostituire, tipo di impianto e spazi disponibili.",
+      "product": "Caldaie a condensazione"
+    },
+    {
+      "id": "catalog-02",
+      "category": "Riscaldamento",
+      "search": "Riscaldamento Sistemi ibridi Soluzioni che combinano diverse tecnologie per il comfort.",
+      "title": "Sistemi ibridi",
+      "description": "Soluzioni che combinano diverse tecnologie per il comfort.",
+      "hint": "Specificare i generatori esistenti e gli interventi previsti.",
+      "product": "Sistemi ibridi"
+    },
+    {
+      "id": "catalog-03",
+      "category": "Climatizzazione",
+      "search": "Climatizzazione Pompe di calore Soluzioni aria/acqua e aria/aria per il progetto.",
+      "title": "Pompe di calore",
+      "description": "Soluzioni aria/acqua e aria/aria per il progetto.",
+      "hint": "Indica destinazione dell’immobile, impianto esistente e utilizzo previsto.",
+      "product": "Pompe di calore"
+    },
+    {
+      "id": "catalog-04",
+      "category": "Climatizzazione",
+      "search": "Climatizzazione Climatizzatori mono e multisplit Soluzioni per uno o più ambienti, residenziali e commerciali.",
+      "title": "Climatizzatori mono e multisplit",
+      "description": "Soluzioni per uno o più ambienti, residenziali e commerciali.",
+      "hint": "Indica numero di stanze, superfici e predisposizioni esistenti.",
+      "product": "Climatizzatori mono e multisplit"
+    },
+    {
+      "id": "catalog-05",
+      "category": "Climatizzazione",
+      "search": "Climatizzazione Sistemi canalizzati Climatizzazione da integrare negli spazi del tuo ambiente.",
+      "title": "Sistemi canalizzati",
+      "description": "Climatizzazione da integrare negli spazi del tuo ambiente.",
+      "hint": "Indica destinazione degli ambienti e disponibilità di controsoffitti.",
+      "product": "Sistemi canalizzati"
+    },
+    {
+      "id": "catalog-06",
+      "category": "Aria e ventilazione",
+      "search": "Aria e ventilazione Ventilconvettori Soluzioni a parete, a pavimento e canalizzabili.",
+      "title": "Ventilconvettori",
+      "description": "Soluzioni a parete, a pavimento e canalizzabili.",
+      "hint": "Indica tipo di impianto e collocazione prevista.",
+      "product": "Ventilconvettori"
+    },
+    {
+      "id": "catalog-07",
+      "category": "Aria e ventilazione",
+      "search": "Aria e ventilazione Ventilazione meccanica controllata Sistemi dedicati al ricambio dell’aria negli ambienti.",
+      "title": "Ventilazione meccanica controllata",
+      "description": "Sistemi dedicati al ricambio dell’aria negli ambienti.",
+      "hint": "Indica tipologia e superficie degli ambienti interessati.",
+      "product": "Ventilazione meccanica controllata"
+    },
+    {
+      "id": "catalog-08",
+      "category": "Termoidraulica",
+      "search": "Termoidraulica Rubinetteria Rubinetterie e soluzioni per completare il progetto.",
+      "title": "Rubinetteria",
+      "description": "Rubinetterie e soluzioni per completare il progetto.",
+      "hint": "Indica ambiente, tipologia di installazione e finitura desiderata.",
+      "product": "Rubinetteria"
+    },
+    {
+      "id": "catalog-09",
+      "category": "Termoidraulica",
+      "search": "Termoidraulica Valvole e raccordi Componenti per impianti idraulici e termoidraulici.",
+      "title": "Valvole e raccordi",
+      "description": "Componenti per impianti idraulici e termoidraulici.",
+      "hint": "Indica codice, diametro, materiale e quantità richiesta.",
+      "product": "Valvole e raccordi"
+    },
+    {
+      "id": "catalog-10",
+      "category": "Termoidraulica",
+      "search": "Termoidraulica Trattamento e manutenzione Prodotti per il trattamento e la manutenzione degli impianti.",
+      "title": "Trattamento e manutenzione",
+      "description": "Prodotti per il trattamento e la manutenzione degli impianti.",
+      "hint": "Descrivi il tipo di impianto e il trattamento di cui hai bisogno.",
+      "product": "Trattamento e manutenzione"
+    }
+  ],
+  "brands": [
+    {
+      "name": "Chaffoteaux",
+      "value": "Chaffoteaux",
+      "category": "Riscaldamento",
+      "description": "Riscaldamento",
+      "className": "wordmark wordmark-0"
+    },
+    {
+      "name": "Beretta",
+      "value": "Beretta",
+      "category": "Riscaldamento",
+      "description": "Riscaldamento",
+      "className": "wordmark wordmark-1"
+    },
+    {
+      "name": "Sylber",
+      "value": "Sylber",
+      "category": "Riscaldamento",
+      "description": "Riscaldamento",
+      "className": "wordmark wordmark-2"
+    },
+    {
+      "name": "AUX",
+      "value": "AUX",
+      "category": "Climatizzazione",
+      "description": "Air Conditioner",
+      "className": "wordmark wordmark-3"
+    },
+    {
+      "name": "Fiore",
+      "value": "Fiore",
+      "category": "Termoidraulica",
+      "description": "Rubinetterie",
+      "className": "wordmark wordmark-4"
+    },
+    {
+      "name": "La termocamino",
+      "value": "La termocamino",
+      "category": "Termoidraulica",
+      "description": "Evacuazione fumi e accessori",
+      "className": "wordmark wordmark-5"
+    },
+    {
+      "name": "ITAP",
+      "value": "ITAP",
+      "category": "Termoidraulica",
+      "description": "Valvole e raccordi",
+      "className": "wordmark wordmark-6"
+    },
+    {
+      "name": "Facot",
+      "value": "Facot",
+      "category": "Termoidraulica",
+      "description": "Trattamento impianti",
+      "className": "wordmark wordmark-7"
+    },
+    {
+      "name": "Ideal Clima",
+      "value": "Ideal Clima",
+      "category": "Aria e ventilazione",
+      "description": "Comfort e ventilazione",
+      "className": "wordmark wordmark-8"
+    }
+  ],
+  "faq": [
+    {
+      "question": "Posso inviare una richiesta senza conoscere il codice?",
+      "answerHtml": "Sì. Indica la categoria e descrivi il prodotto o l’esigenza. Se disponibili, aggiungi marchio e modello esistente: sono riferimenti utili per inquadrare la richiesta."
+    },
+    {
+      "question": "Dove posso trovare cataloghi e schede dei marchi?",
+      "answerHtml": "Contattaci indicando il marchio e il modello o codice del prodotto. Specifica quale informazione o documento ti occorre, così da inquadrare correttamente la richiesta."
+    },
+    {
+      "question": "Il modulo permette di acquistare online?",
+      "answerHtml": "No. Il modulo serve a richiedere informazioni, preventivi o verifiche di disponibilità. Le condizioni della singola fornitura devono essere concordate prima dell’ordine."
+    },
+    {
+      "question": "Come posso richiedere più prodotti?",
+      "answerHtml": "Riporta nel messaggio un elenco con marchio, codice o modello e quantità per ciascun articolo. Se occorrono ulteriori documenti, potrai concordarne l’invio nel successivo contatto."
+    },
+    {
+      "question": "Come posso richiedere un preventivo?",
+      "answerHtml": "\n                Compila il modulo di richiesta, chiamaci al 349 680 8840 o\n                scrivi a info@commercialeclimaplus.it, indicando il prodotto o\n                la categoria di interesse e le informazioni sul tuo progetto.\n              "
+    },
+    {
+      "question": "Posso verificare la disponibilità di un prodotto?",
+      "answerHtml": "\n                Sì. Contattaci indicando il marchio e, se disponibile, il\n                modello o codice prodotto. Verificheremo disponibilità e\n                dettagli della fornitura.\n              "
+    },
+    {
+      "question": "Quali soluzioni posso trovare?",
+      "answerHtml": "\n                Caldaie, sistemi ibridi, pompe di calore, climatizzatori,\n                ventilconvettori, VMC, rubinetteria e componenti termoidraulici.\n              "
+    },
+    {
+      "question": "Dove siete e quali sono gli orari?",
+      "answerHtml": "\n                Ci trovi in Viale Bologna 24, 47121 Forlì (FC). Siamo aperti dal\n                lunedì al venerdì, dalle 8:30 alle 12:30 e dalle 14:00 alle\n                17:00. Sabato e domenica chiuso.\n              "
+    }
+  ],
+  "guide": {
+    "intro": "Tre passaggi per un confronto commerciale preciso. Non occorre conoscere ogni dettaglio: parti dalle informazioni disponibili.",
+    "steps": [
+      {
+        "title": "Indica il prodotto",
+        "description": "Categoria, marchio, modello o codice. Per una sostituzione, aggiungi i riferimenti del prodotto esistente e la quantità richiesta."
+      },
+      {
+        "title": "Descrivi cosa occorre",
+        "description": "Informazioni, preventivo o verifica di disponibilità. Le caratteristiche dell’impianto vanno definite con il professionista incaricato."
+      },
+      {
+        "title": "Concorda i dettagli",
+        "description": "Esaminiamo la richiesta e verifichiamo prodotti, disponibilità e condizioni della singola fornitura attraverso i recapiti indicati."
+      }
+    ],
+    "note": "Il modulo avvia un contatto commerciale e non conclude un acquisto."
+  }
+}

@@ -1,0 +1,1 @@
+(() => { const link=document.querySelector('link[rel=canonical]');if(!link)return;const target=new URL(link.href);target.search=location.search;target.hash=location.hash;location.replace(target.pathname+target.search+target.hash); })();

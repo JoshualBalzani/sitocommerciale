@@ -1,0 +1,7 @@
+---
+import LegalPage from '../components/LegalPage.astro';
+import content from '../content/legal/404.html?raw';
+import { pageMetadata } from '../data/content';
+const meta = pageMetadata('404');
+---
+<LegalPage title={meta.title} description={meta.description} content={content} noindex />

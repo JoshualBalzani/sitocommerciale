@@ -1,0 +1,7 @@
+---
+import { Image } from 'astro:assets';
+import brand from '../assets/brand.png';
+import { company } from '../data/site';
+---
+<div class="topbar"><div class="container"><span>Rappresentanze e forniture · Forlì</span><a href={`tel:${company.telephone}`}>{company.phone}</a></div></div>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="/"><Image src={brand} width={48} height={48} densities={[1,2]} format="webp" loading="eager" fetchpriority="high" alt="" /><span>Commerciale<strong>Clima Plus<span class="brand-dot">.</span></strong></span></a></div></header>

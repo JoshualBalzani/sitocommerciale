@@ -1,0 +1,48 @@
+import { test, expect } from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
+const routes=['/','/riscaldamento/','/climatizzazione/','/ventilazione/','/termoidraulica/','/privacy/','/note-legali/','/grazie/'];
+for(const route of routes) test(`layout and WCAG checks: ${route}`,async({page})=>{
+ const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));
+ const response=await page.goto(route);expect(response?.status()).toBe(200);
+ await page.getByRole('button',{name:'Continua senza tracciamento',exact:true}).click();
+ await expect(page.locator('h1')).toHaveCount(1);
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ expect(await page.locator('main>section').evaluateAll(elements=>elements.every(element=>!['sticky','fixed'].includes(getComputedStyle(element).position)))).toBe(true);
+ const report=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa','wcag22aa']).analyze();
+ expect(report.violations).toEqual([]);expect(errors).toEqual([]);
+});
+test('catalog filters, reset and request context',async({page})=>{
+ await page.goto('/');await page.getByRole('button',{name:'Continua senza tracciamento',exact:true}).click();
+ await page.locator('#catalog-search').fill('rubinetteria');await expect(page.locator('.catalog-card:visible')).toHaveCount(1);
+ await page.locator('.catalog-card:visible summary').click();await expect(page.locator('.catalog-card:visible details')).toHaveAttribute('open','');
+ await page.locator('.catalog-card:visible .catalog-request').click();await expect(page.locator('#request-product')).toHaveValue('Rubinetteria');await expect(page.locator('#request-category')).toHaveValue('Termoidraulica');
+ await page.locator('#catalog-search').fill('inesistente-zz');await expect(page.locator('.catalog-empty')).toBeVisible();
+ await page.getByRole('button',{name:'Azzera filtri',exact:true}).click();await expect(page.locator('.catalog-card:visible')).toHaveCount(10);
+ await page.locator('[data-filter="Climatizzazione"]').click();await expect(page.locator('.catalog-card:visible')).toHaveCount(3);
+ await page.locator('[data-request-brand="Beretta"]').click();await expect(page.locator('#request-brand')).toHaveValue('Beretta');
+});
+test('validation, confirmed delivery and retained values on failure',async({page})=>{
+ let fail=false;let submissions=0;
+ await page.route('https://api.web3forms.com/**',async route=>{
+  if(route.request().method()==='OPTIONS'){await route.fulfill({status:204,headers:{'access-control-allow-origin':'*','access-control-allow-methods':'POST,OPTIONS','access-control-allow-headers':'content-type,accept'}});return;}
+  submissions++;await route.fulfill({status:fail?429:200,contentType:'application/json',headers:{'access-control-allow-origin':'*'},body:JSON.stringify({success:!fail})});
+ });
+ await page.goto('/#richiesta');await page.getByRole('button',{name:'Continua senza tracciamento',exact:true}).click();
+ await page.getByRole('button',{name:'Invia richiesta',exact:true}).click();await expect(page.locator('#request-name')).toHaveAttribute('aria-invalid','true');expect(submissions).toBe(0);
+ const fill=async()=>{await page.locator('#request-category').selectOption('Termoidraulica');await page.locator('#request-name').fill('Verifica Locale');await page.locator('#request-email').fill('verifica@example.com');await page.locator('#request-message').fill('Test simulato: nessuna email reale viene inviata.');};
+ await fill();await page.getByRole('button',{name:'Invia richiesta',exact:true}).click();await expect(page.locator('#form-status')).toHaveAttribute('data-state','success');await expect(page.locator('#request-success')).toBeVisible();expect(submissions).toBe(1);
+ fail=true;await fill();await page.getByRole('button',{name:'Invia richiesta',exact:true}).click();await expect(page.locator('#form-status')).toHaveAttribute('data-state','error');await expect(page.locator('#request-name')).toHaveValue('Verifica Locale');await expect(page.locator('.form-fallback')).toBeVisible();await expect(page.locator('#request-success')).toBeHidden();expect(submissions).toBe(2);
+});
+test('product links and legacy URLs preserve context',async({page})=>{
+ await page.goto('/climatizzazione/');await page.getByRole('button',{name:'Continua senza tracciamento',exact:true}).click();
+ await page.locator('.seo-area-cards article').filter({has:page.getByRole('heading',{name:'Pompe di calore',exact:true})}).locator('a').click();
+ await expect(page.locator('#request-category')).toHaveValue('Climatizzazione');await expect(page.locator('#request-product')).toHaveValue('Pompe di calore');
+ await page.goto('/riscaldamento.html?codice=abc#contenuto');await expect(page).toHaveURL(/\/riscaldamento\/\?codice=abc#contenuto$/);
+ await page.goto('/privacy/#cookie');await page.locator('[data-privacy-settings]').click();await expect(page.locator('.privacy-notice')).toBeVisible();await page.keyboard.press('Escape');await expect(page.locator('.privacy-notice')).toHaveCount(0);await expect(page.locator('[data-privacy-settings]')).toBeFocused();
+});
+test('keyboard entry and natural scroll restoration',async({page})=>{
+ await page.goto('/');await page.getByRole('button',{name:'Continua senza tracciamento',exact:true}).click();
+ await page.keyboard.press('Tab');await expect(page.locator('.skip-link')).toBeFocused();await page.keyboard.press('Enter');await expect(page.locator('main')).toBeFocused();
+ await page.evaluate(()=>scrollTo(0,1500));const before=await page.evaluate(()=>scrollY);
+ await page.goto('/riscaldamento/');await page.goBack();await page.waitForTimeout(200);expect(Math.abs(await page.evaluate(()=>scrollY)-before)).toBeLessThan(60);
+});

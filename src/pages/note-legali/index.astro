@@ -1,0 +1,7 @@
+---
+import LegalPage from '../../components/LegalPage.astro';
+import content from '../../content/legal/note-legali.html?raw';
+import { pageMetadata } from '../../data/content';
+const meta = pageMetadata('note-legali');
+---
+<LegalPage title={meta.title} description={meta.description} content={content} />

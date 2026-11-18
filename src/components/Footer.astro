@@ -1,0 +1,16 @@
+---
+import { Image } from 'astro:assets';
+import brand from '../assets/brand.png';
+import { company } from '../data/site';
+---
+<footer class="site-footer footer-integrated">
+  <div class="container">
+    <div class="footer-main"><a class="brand" href="/"><Image src={brand} width={48} height={48} densities={[1,2]} format="webp" loading="lazy" alt="" /><span>Commerciale<strong>Clima Plus.</strong></span></a><p>Rappresentanze commerciali.<br />Termoidraulica e comfort.</p><a class="button button-outline" href="/#contatti">Contatti aziendali</a></div>
+    <div class="footer-company">
+      <section aria-labelledby="footer-company"><h2 class="footer-label" id="footer-company">Società e sede</h2><strong>{company.legalName}</strong><p>{company.street}<br />{company.postalCode} {company.city} ({company.province}), Italia</p><p class="muted">Sede legale</p></section>
+      <section aria-labelledby="footer-records"><h2 class="footer-label" id="footer-records">Dati societari</h2><dl><div><dt>Codice fiscale e partita IVA</dt><dd>{company.vat}</dd></div><div><dt>Registro Imprese</dt><dd>{company.register}<br />N. iscrizione {company.vat}</dd></div><div><dt>REA</dt><dd>{company.rea}</dd></div><div><dt>Capitale sociale</dt><dd>{company.capital}</dd></div><div><dt>Codice destinatario SDI</dt><dd>{company.sdi}</dd></div></dl></section>
+      <section aria-labelledby="footer-contact"><h2 class="footer-label" id="footer-contact">Contatti aziendali</h2><address><span>Telefono</span><a class="footer-phone" href={`tel:${company.telephone}`}>{company.phone}</a><span>Email</span><a href={`mailto:${company.email}`}>{company.email}</a><span>Posta elettronica certificata</span><a href={`mailto:${company.pec}`}>{company.pec}</a></address><a class="footer-request" href="/#richiesta">Richiedi informazioni</a></section>
+    </div>
+    <div class="footer-bottom"><small>Copyright {new Date().getFullYear()} {company.legalName}</small><nav aria-label="Informazioni legali"><a href="/privacy/">Privacy</a><a href="/privacy/#cookie">Cookie</a><a href="/note-legali/">Note legali</a><button type="button" class="text-button" data-privacy-settings>Impostazioni privacy</button></nav></div>
+  </div>
+</footer>
