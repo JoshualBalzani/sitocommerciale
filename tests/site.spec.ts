@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+declare global { interface Window { policyViolations: string[]; } }
 const routes=['/','/riscaldamento/','/climatizzazione/','/ventilazione/','/termoidraulica/','/privacy/','/note-legali/','/grazie/'];
 for(const route of routes) test(`layout and WCAG checks: ${route}`,async({page})=>{
  const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));
@@ -78,4 +79,16 @@ test('area navigation, footer and request selection',async({page},testInfo)=>{
  await page.locator('[data-clear-selection]').click();await expect(page.locator('.request-selection')).toBeHidden();await expect(page.locator('#request-category')).toBeFocused();await expect(page.locator('#request-brand')).toHaveValue('');
  const footer=page.getByRole('navigation',{name:'Esplora il sito'});await footer.getByRole('link',{name:'Termoidraulica',exact:true}).click();await expect(page).toHaveURL(/\/termoidraulica\/$/);
  await page.getByRole('link',{name:'Torna all’inizio'}).click();await expect(page).toHaveURL(/#inizio$/);expect(await page.evaluate(()=>scrollY)).toBe(0);
+});
+
+test('motion respects reduced movement and security policy',async({page})=>{
+ await page.emulateMedia({reducedMotion:'reduce'});
+ await page.addInitScript(()=>{window.policyViolations=[];document.addEventListener('securitypolicyviolation',event=>window.policyViolations.push(event.violatedDirective));});
+ await page.goto('/');await page.getByRole('button',{name:'Continua senza tracciamento',exact:true}).click();
+ await page.locator('.area-product-card').first().scrollIntoViewIfNeeded();
+ expect(await page.evaluate(()=>document.getAnimations().filter(animation=>animation.playState==='running').length)).toBe(0);
+ await expect(page.locator('.area-product-card').first()).toHaveCSS('transform','none');
+ expect(await page.evaluate(()=>window.policyViolations)).toEqual([]);
+ await page.emulateMedia({reducedMotion:'no-preference'});await page.locator('#marchi').scrollIntoViewIfNeeded();await page.waitForTimeout(650);
+ expect(await page.evaluate(()=>window.policyViolations)).toEqual([]);
 });

@@ -1,4 +1,9 @@
 ---
+import { ArrowUpRight, Flame, Snowflake, Wind, Droplets } from '@lucide/astro';
 import { home } from '../data/content';
+const icons = [Flame, Snowflake, Wind, Droplets];
 ---
-<section class="section area-entry" id="aree-prodotto" aria-labelledby="area-entry-title"><div class="container"><div class="section-heading"><div><p class="eyebrow">Le aree di prodotto</p><h2 id="area-entry-title">Quattro aree.<br /><em>Un unico riferimento.</em></h2></div><p>Esplora i prodotti per riscaldamento, climatizzazione, ventilazione e termoidraulica.</p></div><div class="area-grid business-area-nav">{home.areas.map(area=><a class="area-product-card" href={`/${area.slug}/`}><img src={area.image} width="600" height="600" alt="" loading="lazy" decoding="async" /><span class="eyebrow">{area.number} / Area di prodotto</span><h3>{area.name}</h3><p>{area.description}</p><span class="text-link">Esplora l’area</span></a>)}</div></div></section>
+<section class="section area-entry" id="aree-prodotto" aria-labelledby="area-entry-title"><div class="container">
+  <div class="section-heading"><div><p class="eyebrow">01 / Le soluzioni</p><h2 id="area-entry-title">Ogni impianto.<br /><em>La sua soluzione.</em></h2></div><p>Dai sistemi per il comfort ai componenti per l’impianto. Esplora l’area di interesse e individua i prodotti da indicare nella richiesta.</p></div>
+  <div class="area-grid">{home.areas.map((area,index) => {const Icon=icons[index]!;return <a class="area-product-card" href={`/${area.slug}/`}><div class="area-card-heading"><span class="area-index">{area.number} /</span><span class="area-arrow"><ArrowUpRight size={22} aria-hidden="true" /></span></div><div class="area-symbol" aria-hidden="true"><Icon size={66} stroke-width={1} /></div><h3>{area.name}</h3><p>{area.description}</p><span class="area-card-bottom">Prodotti e informazioni <ArrowUpRight size={17} aria-hidden="true" /></span></a>;})}</div>
+</div></section>

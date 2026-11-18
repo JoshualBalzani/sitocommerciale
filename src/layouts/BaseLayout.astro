@@ -4,6 +4,7 @@ import Footer from '../components/Footer.astro';
 import PrivacyNotice from '../components/PrivacyNotice.astro';
 import { company, policy, siteUrl, verification } from '../data/site';
 import '../styles/global.css';
+import '../styles/design.css';
 interface Props { title: string; description: string; noindex?: boolean; bodyClass?: string; }
 const { title, description, noindex = false, bodyClass = '' } = Astro.props;
 const canonical = new URL(Astro.url.pathname === '/404/' ? '/404.html' : Astro.url.pathname, siteUrl).href;
@@ -58,5 +59,6 @@ const structured = {
     <slot />
     <Footer />
     <PrivacyNotice />
+    <script>import '../scripts/motion';</script>
   </body>
 </html>

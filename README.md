@@ -1,6 +1,6 @@
 ﻿# Commerciale Clima Plus
 
-Sito corporate statico realizzato con Astro, TypeScript e Zod. Pubblicato con GitHub Actions su https://www.commercialeclimaplus.it.
+Sito corporate statico realizzato con Astro, TypeScript e Zod; Motion per le animazioni e Lucide per le icone SVG. Pubblicato con GitHub Actions su https://www.commercialeclimaplus.it.
 
 ## Sviluppo
 
@@ -31,7 +31,7 @@ npm run test:e2e
 - `src/data/`: dati aziendali e contenuti validati con Zod.
 - `src/content/`: contenuti dettagliati delle aree e documenti legali preservati.
 - `src/scripts/`: interazioni TypeScript di catalogo, richieste e preferenze privacy.
-- `src/styles/global.css`: unico design system responsive.
+- `src/styles/`: base responsive e design system del restyling.
 - `public/`: font locali, illustrazioni SVG, icone e risorse pubbliche.
 - `tests/`: verifiche Playwright e axe su desktop e mobile.
 
@@ -48,3 +48,5 @@ Non sono presenti analytics, font remoti o incorporamenti. L'avviso privacy e in
 I push su main attivano `.github/workflows/static.yml`: installazione riproducibile, controllo tipi, build, controllo collegamenti, test desktop/mobile/accessibilita e pubblicazione del solo output statico. GitHub Pages deve usare GitHub Actions. I vecchi URL `.html` rimangono disponibili con inoltro alle pagine canoniche, preservando query e ancore; GitHub Pages non permette redirect HTTP configurabili.
 
 Dettagli e risultati in [MIGRATION.md](MIGRATION.md).
+
+Scelte grafiche e librerie in [RESTYLING.md](RESTYLING.md).

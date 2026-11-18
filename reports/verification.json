@@ -1,8 +1,9 @@
 {
   "date": "2026-11-18",
+  "revision": "Corporate restyling with Motion and Lucide",
   "environment": "Local production preview, Chrome, Lighthouse 13.6.0",
   "pages": 17,
-  "automatedTests": 24,
+  "automatedTests": 30,
   "typescriptErrors": 0,
   "lighthouse": {
     "mobile": {
@@ -13,9 +14,9 @@
         "seo": 100
       },
       "metrics": {
-        "first-contentful-paint": 1225.1505,
-        "largest-contentful-paint": 1225.1505,
-        "total-blocking-time": 33.999999999999886,
+        "first-contentful-paint": 762.7381,
+        "largest-contentful-paint": 762.7381,
+        "total-blocking-time": 0,
         "cumulative-layout-shift": 0
       }
     },
@@ -27,10 +28,10 @@
         "seo": 100
       },
       "metrics": {
-        "first-contentful-paint": 294.012,
-        "largest-contentful-paint": 294.012,
+        "first-contentful-paint": 373.258,
+        "largest-contentful-paint": 373.258,
         "total-blocking-time": 0,
-        "cumulative-layout-shift": 0
+        "cumulative-layout-shift": 0.0007485077223874174
       }
     }
   }
