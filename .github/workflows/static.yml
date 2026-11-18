@@ -37,7 +37,10 @@ jobs:
       - name: Check public output
         run: npm run test:links
       - name: Install test browser
-        run: npx playwright install --with-deps chromium
+        run: |
+          if ! command -v google-chrome >/dev/null && ! command -v google-chrome-stable >/dev/null; then
+            npx playwright install --with-deps chromium
+          fi
       - name: Test desktop, mobile and accessibility
         run: npm run test:e2e
       - name: Upload only public site
