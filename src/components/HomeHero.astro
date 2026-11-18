@@ -1,21 +1,23 @@
 ---
 import { ArrowUpRight, ArrowRight, MapPin, Flame, Snowflake, Wind, Droplets } from '@lucide/astro';
 import { home } from '../data/content';
-import FlowMark from './FlowMark.astro';
+import { Image } from 'astro:assets';
+import panorama from '../assets/hero-panorama.webp';
 const icons = [Flame, Snowflake, Wind, Droplets];
 ---
-<section class="hero" id="esperienza" aria-labelledby="cinema-title"><div class="container">
-  <div class="hero-layout"><div class="hero-main">
+<section class="hero hero-panorama" id="esperienza" aria-labelledby="cinema-title">
+  <div class="hero-scene">
+    <Image class="hero-panorama-image" src={panorama} alt="Ambiente illustrativo con radiatore, climatizzatore, ventilazione integrata e rubinetteria senza marchi." widths={[480,800,1200,1600,1800]} sizes="(max-width: 760px) 150vw, 100vw" format="webp" quality={80} loading="eager" fetchpriority="high" decoding="async" />
+    <div class="hero-scene-shade" aria-hidden="true"></div>
+    <div class="container hero-scene-inner"><div class="hero-main">
     <p class="eyebrow hero-kicker"><span aria-hidden="true"></span> Rappresentanze commerciali · Forlì</p>
     <h1 id="cinema-title">Il comfort.<br /><em>In ogni<br class="hero-line-break" /> ambiente.</em></h1>
     <p class="hero-description">Rappresentanze commerciali e forniture<br class="hero-line-break" /> per il comfort e la termoidraulica.</p>
     <p class="hero-audience">Un contatto diretto per installatori, aziende e privati.</p>
     <div class="hero-actions"><a class="button" href="#richiesta" data-request-type="Preventivo">Richiedi un preventivo <ArrowUpRight size={18} aria-hidden="true" /></a><a class="text-link" href="#prodotti">Consulta il catalogo <ArrowRight size={17} aria-hidden="true" /></a></div>
-  </div><div class="hero-directory" aria-labelledby="hero-directory-title">
-    <div class="directory-heading"><p class="eyebrow" id="hero-directory-title">L’offerta, in quattro aree</p><span aria-hidden="true">01 — 04</span></div>
-    {home.areas.map((area,index) => { const Icon = icons[index]!; return <a href={`/${area.slug}/`} class="directory-link"><span class="directory-icon"><Icon size={25} stroke-width={1.5} aria-hidden="true" /></span><span><strong>{area.name}</strong><small>{area.description}</small></span><ArrowUpRight size={20} aria-hidden="true" /></a>; })}
-    <p class="directory-note">Dalla categoria di prodotto alla richiesta commerciale.</p>
-  </div></div>
-  <div class="hero-signature"><span>Calore. Aria. Acqua.</span><FlowMark /><span>Soluzioni che si incontrano.</span></div>
+  </div></div></div>
+  <div class="container">
+  <div class="hero-photo-credit">Ambientazione illustrativa generata con IA.</div>
+  <nav class="hero-paths" aria-label="Le quattro aree di prodotto">{home.areas.map((area,index) => { const Icon = icons[index]!; return <a href={`/${area.slug}/`}><Icon size={19} stroke-width={1.5} aria-hidden="true" /><span>{area.name}</span><ArrowUpRight size={16} aria-hidden="true" /></a>; })}</nav>
   <div class="hero-foundation"><p>COMMERCIALE CLIMA PLUS</p><span><strong>04</strong> Aree di prodotto</span><a href="#marchi"><strong>09</strong> Marchi rappresentati <ArrowUpRight size={16} aria-hidden="true" /></a><a href="#contatti"><MapPin size={17} aria-hidden="true" /> La nostra sede a Forlì</a></div>
 </div></section>

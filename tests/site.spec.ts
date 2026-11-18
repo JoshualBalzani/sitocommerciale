@@ -120,3 +120,11 @@ test('generated area images load responsively with matching inner pages',async({
  for(const image of await images.all()){await image.scrollIntoViewIfNeeded();await expect.poll(()=>image.evaluate((element:HTMLImageElement)=>element.complete&&element.naturalWidth>0)).toBe(true);await expect(image).toHaveAttribute('srcset',/400w/);await expect(image).toHaveAttribute('loading','lazy');}
  for(const route of ['/riscaldamento/','/climatizzazione/','/ventilazione/','/termoidraulica/']){await page.goto(route);const image=page.locator('.area-hero-photo img');await expect(image).toBeVisible();await expect.poll(()=>image.evaluate((element:HTMLImageElement)=>element.complete&&element.naturalWidth>0)).toBe(true);await expect(image).toHaveAttribute('alt',/.+/);await expect(page.locator('.area-hero-photo figcaption')).toContainText('illustrativa');expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);}
 });
+
+test('panoramic hero remains readable and links to all areas',async({page},testInfo)=>{
+ await page.goto('/');await page.getByRole('button',{name:'Continua senza tracciamento',exact:true}).click();
+ const image=page.locator('.hero-panorama-image');await expect.poll(()=>image.evaluate((element:HTMLImageElement)=>element.complete&&element.naturalWidth>0)).toBe(true);await expect(image).toHaveAttribute('fetchpriority','high');
+ await expect(page.getByRole('navigation',{name:'Le quattro aree di prodotto'}).getByRole('link')).toHaveCount(4);
+ if(testInfo.project.name==='mobile'){const text=await page.locator('.hero-main').boundingBox(),photo=await image.boundingBox();expect(text!.y+text!.height).toBeLessThanOrEqual(photo!.y);}
+ await page.locator('.hero-main [data-request-type="Preventivo"]').click();await expect(page.locator('#request-type')).toHaveValue('Preventivo');await expect(page).toHaveURL(/#richiesta$/);
+});

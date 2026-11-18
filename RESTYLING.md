@@ -32,3 +32,7 @@ Verifiche aggiuntive: ancore allineate al CSS scroll-padding, wheel input, disat
 ## Immagini illustrative
 
 Integrate quattro ambientazioni originali generate con imagegen, senza marchi o persone. Le soluzioni mantengono una griglia regolare 2x2 su desktop; nelle sottopagine le immagini sostituiscono il precedente riquadro contestuale. La hero della homepage resta bianca e tipografica. Asset responsive WebP generati da Astro, caricamento differito nella homepage, immagine prioritaria nelle aree prodotto. Provenienza e prompt in IMAGES.md. Suite ampliata a 36 test.
+
+## Prova hero panoramica
+
+Sostituita la directory iniziale con una scena illustrativa originale che comprende radiatore, climatizzatore, ventilazione e rubinetteria. Velatura bianca CSS dietro al testo su desktop, immagine separata sotto al testo su mobile, quattro collegamenti compatti alle aree. Immagine WebP responsive prioritaria; prompt e file documentati in IMAGES.md. Suite ampliata a 38 verifiche.
