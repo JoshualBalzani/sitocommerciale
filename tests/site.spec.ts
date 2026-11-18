@@ -104,3 +104,12 @@ test('Lenis anchors, wheel input and live reduced-motion preference',async({page
  await page.getByRole('link',{name:'Torna all’inizio'}).click();await expect.poll(()=>page.evaluate(()=>scrollY)).toBe(0);
  await page.emulateMedia({reducedMotion:'no-preference'});await expect(page.locator('html')).toHaveClass(/lenis/);
 });
+
+test('solutions have uniform cards and full-width mobile submenu',async({page},testInfo)=>{
+ await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/');await page.getByRole('button',{name:'Continua senza tracciamento',exact:true}).click();
+ const cards=await page.locator('.area-product-card').evaluateAll(elements=>elements.map(element=>{const r=element.getBoundingClientRect();return {x:r.x,y:r.y,width:r.width,height:r.height};}));
+ expect(cards).toHaveLength(4);
+ for(const card of cards){expect(Math.abs(card.width-cards[0]!.width)).toBeLessThan(1);expect(Math.abs(card.height-cards[0]!.height)).toBeLessThan(1);}
+ if(testInfo.project.name==='desktop'){expect(cards[0]!.y).toBe(cards[1]!.y);expect(cards[2]!.y).toBe(cards[3]!.y);expect(cards[0]!.x).toBe(cards[2]!.x);expect(cards[1]!.x).toBe(cards[3]!.x);}
+ else {await page.locator('.navigation-toggle').click();await page.locator('.area-menu summary').click();const main=await page.locator('#primary-navigation>ul>li:nth-child(2)>a').boundingBox();const links=await page.locator('.area-menu-list a').evaluateAll(elements=>elements.map(element=>{const r=element.getBoundingClientRect();return {x:r.x,width:r.width};}));for(const link of links){expect(link.x).toBe(main!.x);expect(Math.abs(link.width-main!.width)).toBeLessThan(1);}}
+});
