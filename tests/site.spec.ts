@@ -22,6 +22,17 @@ test('catalog filters, reset and request context',async({page})=>{
  await page.locator('[data-filter="Climatizzazione"]').click();await expect(page.locator('.catalog-card:visible')).toHaveCount(3);
  await page.locator('[data-request-brand="Beretta"]').click();await expect(page.locator('#request-brand')).toHaveValue('Beretta');
 });
+
+test('catalog synonyms, multiword search and brand request context',async({page})=>{
+ await page.goto('/');await page.getByRole('button',{name:'Continua senza tracciamento',exact:true}).click();
+ for(const [query,title] of [['VMC','Ventilazione meccanica controllata'],['FAN-COIL','Ventilconvettori'],['calore pompa','Pompe di calore'],['bagno RUBINÈTTI','Rubinetteria']]){await page.locator('#catalog-search').fill(query!);await expect(page.locator('.catalog-card:visible')).toHaveCount(1);await expect(page.locator('.catalog-card:visible h3')).toHaveText(title!);}
+ await page.locator('[data-filter="Climatizzazione"]').click();await expect(page.locator('.catalog-empty')).toBeVisible();await expect(page.locator('[data-filter="Termoidraulica"] [data-filter-count]')).toHaveText('1');
+ await page.locator('[data-clear-catalog-search]').click();await expect(page.locator('#catalog-search')).toBeFocused();await expect(page.locator('.catalog-card:visible')).toHaveCount(3);await expect(page.locator('[data-active-catalog-area]')).toHaveText('Climatizzazione');
+ await page.getByRole('button',{name:'Azzera filtri',exact:true}).click();await page.locator('#catalog-search').fill('Fiore rubinetti');await expect(page.locator('.catalog-card:visible')).toHaveCount(1);await page.locator('.catalog-card:visible summary').click();
+ const report=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa','wcag22aa']).analyze();expect(report.violations).toEqual([]);
+ await page.locator('#catalog-grid [data-request-brand="Fiore"]').click();await expect(page.locator('#request-brand')).toHaveValue('Fiore');await expect(page.locator('#request-product')).toHaveValue('Rubinetteria');await expect(page.locator('#request-category')).toHaveValue('Termoidraulica');await expect(page.locator('[data-selection-summary]')).toContainText('Fiore');
+ await page.locator('#catalog-search').fill('prodotto-speciale-zz');await page.locator('[data-catalog-missing-request]').click();await expect(page.locator('#request-category')).toHaveValue('Richiesta di orientamento');await expect(page.locator('#request-product')).toHaveValue('prodotto-speciale-zz');await expect(page.locator('#request-brand')).toHaveValue('');
+});
 test('validation, confirmed delivery and retained values on failure',async({page})=>{
  let fail=false;let submissions=0;
  await page.route('https://api.web3forms.com/**',async route=>{

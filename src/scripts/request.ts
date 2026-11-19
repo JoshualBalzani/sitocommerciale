@@ -74,6 +74,10 @@ function initializeRequest(form: HTMLFormElement) {
         const input = field(name);
         if (input && value !== undefined && (!(input instanceof HTMLSelectElement) || [...input.options].some(option => option.value === value))) input.value = value;
       }
+      clearErrors();
+      if (confirmation) confirmation.hidden = true;
+      if (status.dataset['state'] === 'success') status.hidden = true;
+      if (!fallback.hidden) showFallback();
       updateSelection();
       requestAnimationFrame(() => document.querySelector<HTMLElement>('#request-title')?.focus({ preventScroll: true }));
     });

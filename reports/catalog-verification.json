@@ -1,0 +1,13 @@
+{
+  "date": "2026-11-19",
+  "environment": "Local production preview, Chrome, Lighthouse 13.6.0 mobile emulation",
+  "automatedTests": 40,
+  "scores": {
+    "performance": 98,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100
+  },
+  "lcp": 2186.6952500000007,
+  "cls": 0
+}

@@ -44,3 +44,7 @@ Composizione desktop con rapporto 55% testo e 45% fotografia, al netto dello spa
 ## Materiali nella sezione interlocutori - 19 novembre 2026
 
 Una sola immagine illustrativa originale di raccordi, valvola e rubinetteria affianca l'introduzione della sezione interlocutori; su mobile viene dopo il testo. I tre percorsi per professionisti, aziende e privati restano sotto. Immagine WebP responsive lazy, con didascalia e testo alternativo. File e prompt in IMAGES.md.
+
+## Catalogo - 19 novembre 2026
+
+Ricerca con sinonimi e termini combinati, conteggi per area, filtri espliciti, descrizioni concrete e dettagli espandibili. Percorsi interni per i marchi documentati e richiesta per prodotti non presenti. Dettagli e fonti delle associazioni in CATALOG.md.

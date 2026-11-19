@@ -71,90 +71,224 @@
       "category": "Riscaldamento",
       "search": "Riscaldamento Caldaie a condensazione Per impianti di riscaldamento e acqua calda sanitaria.",
       "title": "Caldaie a condensazione",
-      "description": "Per impianti di riscaldamento e acqua calda sanitaria.",
+      "description": "Caldaie a condensazione per il riscaldamento e, secondo il modello, la produzione di acqua calda sanitaria.",
       "hint": "Indica modello da sostituire, tipo di impianto e spazi disponibili.",
-      "product": "Caldaie a condensazione"
+      "product": "Caldaie a condensazione",
+      "includes": [
+        "Riscaldamento degli ambienti",
+        "Produzione di acqua calda sanitaria, secondo il modello"
+      ],
+      "aliases": [
+        "caldaia",
+        "caldaie",
+        "condensazione",
+        "acqua calda",
+        "sostituzione caldaia"
+      ],
+      "brands": []
     },
     {
       "id": "catalog-02",
       "category": "Riscaldamento",
       "search": "Riscaldamento Sistemi ibridi Soluzioni che combinano diverse tecnologie per il comfort.",
       "title": "Sistemi ibridi",
-      "description": "Soluzioni che combinano diverse tecnologie per il comfort.",
+      "description": "Sistemi che combinano generatori diversi per il riscaldamento e la gestione del comfort.",
       "hint": "Specificare i generatori esistenti e gli interventi previsti.",
-      "product": "Sistemi ibridi"
+      "product": "Sistemi ibridi",
+      "includes": [
+        "Soluzioni con generatori abbinati",
+        "Componenti per sistemi ibridi"
+      ],
+      "aliases": [
+        "ibrido",
+        "ibrida",
+        "ibridi",
+        "sistema ibrido",
+        "generatori combinati"
+      ],
+      "brands": []
     },
     {
       "id": "catalog-03",
       "category": "Climatizzazione",
       "search": "Climatizzazione Pompe di calore Soluzioni aria/acqua e aria/aria per il progetto.",
       "title": "Pompe di calore",
-      "description": "Soluzioni aria/acqua e aria/aria per il progetto.",
+      "description": "Pompe di calore aria/acqua e aria/aria da identificare in base al progetto e all’impianto previsto.",
       "hint": "Indica destinazione dell’immobile, impianto esistente e utilizzo previsto.",
-      "product": "Pompe di calore"
+      "product": "Pompe di calore",
+      "includes": [
+        "Sistemi aria/acqua",
+        "Sistemi aria/aria"
+      ],
+      "aliases": [
+        "pompa di calore",
+        "pompe calore",
+        "pdc",
+        "aria acqua",
+        "aria aria"
+      ],
+      "brands": []
     },
     {
       "id": "catalog-04",
       "category": "Climatizzazione",
       "search": "Climatizzazione Climatizzatori mono e multisplit Soluzioni per uno o più ambienti, residenziali e commerciali.",
       "title": "Climatizzatori mono e multisplit",
-      "description": "Soluzioni per uno o più ambienti, residenziali e commerciali.",
+      "description": "Climatizzatori mono e multisplit per uno o più ambienti, con unità interne ed esterne da indicare nella richiesta.",
       "hint": "Indica numero di stanze, superfici e predisposizioni esistenti.",
-      "product": "Climatizzatori mono e multisplit"
+      "product": "Climatizzatori mono e multisplit",
+      "includes": [
+        "Configurazioni monosplit",
+        "Configurazioni multisplit"
+      ],
+      "aliases": [
+        "clima",
+        "condizionatore",
+        "condizionatori",
+        "condizionamento",
+        "split",
+        "monosplit",
+        "multisplit",
+        "aria condizionata"
+      ],
+      "brands": [
+        "AUX"
+      ]
     },
     {
       "id": "catalog-05",
       "category": "Climatizzazione",
       "search": "Climatizzazione Sistemi canalizzati Climatizzazione da integrare negli spazi del tuo ambiente.",
       "title": "Sistemi canalizzati",
-      "description": "Climatizzazione da integrare negli spazi del tuo ambiente.",
+      "description": "Sistemi di climatizzazione canalizzata da valutare in relazione agli spazi e alle predisposizioni del progetto.",
       "hint": "Indica destinazione degli ambienti e disponibilità di controsoffitti.",
-      "product": "Sistemi canalizzati"
+      "product": "Sistemi canalizzati",
+      "includes": [
+        "Climatizzazione canalizzata",
+        "Soluzioni integrate nel controsoffitto"
+      ],
+      "aliases": [
+        "clima",
+        "condizionamento",
+        "climatizzatore canalizzato",
+        "canalizzato",
+        "canalizzati",
+        "controsoffitto"
+      ],
+      "brands": []
     },
     {
       "id": "catalog-06",
       "category": "Aria e ventilazione",
       "search": "Aria e ventilazione Ventilconvettori Soluzioni a parete, a pavimento e canalizzabili.",
       "title": "Ventilconvettori",
-      "description": "Soluzioni a parete, a pavimento e canalizzabili.",
+      "description": "Ventilconvettori nelle configurazioni a parete, a pavimento e canalizzabili, da identificare secondo l’impianto.",
       "hint": "Indica tipo di impianto e collocazione prevista.",
-      "product": "Ventilconvettori"
+      "product": "Ventilconvettori",
+      "includes": [
+        "Configurazioni a parete o pavimento",
+        "Configurazioni canalizzabili"
+      ],
+      "aliases": [
+        "fancoil",
+        "fan coil",
+        "ventilconvettore",
+        "ventilconvettori",
+        "termoconvettore"
+      ],
+      "brands": []
     },
     {
       "id": "catalog-07",
       "category": "Aria e ventilazione",
       "search": "Aria e ventilazione Ventilazione meccanica controllata Sistemi dedicati al ricambio dell’aria negli ambienti.",
       "title": "Ventilazione meccanica controllata",
-      "description": "Sistemi dedicati al ricambio dell’aria negli ambienti.",
+      "description": "Sistemi per il ricambio controllato dell’aria negli ambienti, con soluzione da definire secondo il progetto.",
       "hint": "Indica tipologia e superficie degli ambienti interessati.",
-      "product": "Ventilazione meccanica controllata"
+      "product": "Ventilazione meccanica controllata",
+      "includes": [
+        "Ventilazione meccanica controllata",
+        "Ricambio dell’aria negli ambienti"
+      ],
+      "aliases": [
+        "vmc",
+        "ricambio aria",
+        "ricambio dell aria",
+        "ventilazione meccanica",
+        "recupero calore"
+      ],
+      "brands": []
     },
     {
       "id": "catalog-08",
       "category": "Termoidraulica",
       "search": "Termoidraulica Rubinetteria Rubinetterie e soluzioni per completare il progetto.",
       "title": "Rubinetteria",
-      "description": "Rubinetterie e soluzioni per completare il progetto.",
+      "description": "Rubinetteria e miscelatori per completare bagno e cucina, con tipologia di installazione e finitura da specificare.",
       "hint": "Indica ambiente, tipologia di installazione e finitura desiderata.",
-      "product": "Rubinetteria"
+      "product": "Rubinetteria",
+      "includes": [
+        "Rubinetti e miscelatori",
+        "Soluzioni per bagno e cucina"
+      ],
+      "aliases": [
+        "rubinetto",
+        "rubinetti",
+        "miscelatore",
+        "miscelatori",
+        "rubinetteria bagno",
+        "rubinetti cucina"
+      ],
+      "brands": [
+        "Fiore"
+      ]
     },
     {
       "id": "catalog-09",
       "category": "Termoidraulica",
       "search": "Termoidraulica Valvole e raccordi Componenti per impianti idraulici e termoidraulici.",
       "title": "Valvole e raccordi",
-      "description": "Componenti per impianti idraulici e termoidraulici.",
+      "description": "Valvole e raccordi per impianti idraulici e termoidraulici, identificati tramite codice, misure e materiale.",
       "hint": "Indica codice, diametro, materiale e quantità richiesta.",
-      "product": "Valvole e raccordi"
+      "product": "Valvole e raccordi",
+      "includes": [
+        "Valvole per impianti",
+        "Raccordi e componenti di collegamento"
+      ],
+      "aliases": [
+        "valvola",
+        "valvole",
+        "raccordo",
+        "raccordi",
+        "diametro",
+        "filettatura"
+      ],
+      "brands": [
+        "ITAP"
+      ]
     },
     {
       "id": "catalog-10",
       "category": "Termoidraulica",
       "search": "Termoidraulica Trattamento e manutenzione Prodotti per il trattamento e la manutenzione degli impianti.",
       "title": "Trattamento e manutenzione",
-      "description": "Prodotti per il trattamento e la manutenzione degli impianti.",
+      "description": "Prodotti per il trattamento e la manutenzione degli impianti, da richiedere indicando intervento ed esigenza.",
       "hint": "Descrivi il tipo di impianto e il trattamento di cui hai bisogno.",
-      "product": "Trattamento e manutenzione"
+      "product": "Trattamento e manutenzione",
+      "includes": [
+        "Trattamento degli impianti",
+        "Prodotti per la manutenzione"
+      ],
+      "aliases": [
+        "trattamento",
+        "manutenzione",
+        "pulizia impianto",
+        "lavaggio impianto",
+        "prodotti manutenzione"
+      ],
+      "brands": [
+        "Facot"
+      ]
     }
   ],
   "brands": [
