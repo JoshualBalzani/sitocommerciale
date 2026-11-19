@@ -1,0 +1,37 @@
+{
+  "date": "2026-11-19",
+  "environment": "Local production preview, Chrome, Lighthouse mobile emulation",
+  "newPages": 11,
+  "indexableUrls": 18,
+  "automatedTests": 66,
+  "additionalViewportChecks": 36,
+  "viewports": [
+    320,
+    390,
+    768,
+    1024,
+    1440,
+    1920
+  ],
+  "scores": {
+    "performance": 100,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100
+  },
+  "lcp": 1590.741625,
+  "cls": 0,
+  "checks": [
+    "All nine brand pages and hubs: two loaded illustrative photos, no overflow, no page errors, automated WCAG 2.2 checks",
+    "Brand/family request prefills, unknown brand query rejected",
+    "18 canonical sitemap URLs and local links/anchors verified",
+    "No manufacturer website links in new public page content"
+  ],
+  "domain": {
+    "wwwHttps": "Valid certificate",
+    "apexHttps": "ERR_TLS_CERT_ALTNAME_INVALID; certificate still covers github.io, not apex",
+    "dns": "Apex A and www CNAME point to GitHub Pages",
+    "action": "Revalidated unchanged GitHub Pages custom domain via API; www and HTTPS enforcement preserved",
+    "remaining": "GitHub Pages certificate provisioning for apex remains unresolved; no source-code change can add TLS coverage"
+  }
+}

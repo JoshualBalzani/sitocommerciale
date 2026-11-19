@@ -50,3 +50,36 @@ File finale: src/assets/materiali-componenti.webp. Generato con lo strumento int
 ### Prompt finale
 
 Create one photorealistic premium editorial still-life photograph for an Italian plumbing and building comfort commercial supplier website. Landscape 3:2 framing. On a pale matte limestone work surface, a restrained balanced arrangement of five or six generic unbranded plumbing components: two well-made brass threaded elbows and a straight union, one small realistic brass ball valve with a simple navy-blue lever, and a brushed stainless steel basin mixer faucet standing upright as a material detail. Add a couple of small white ceramic and pale stone finish sample tiles, one discreet folded navy fabric swatch. The components should have physically plausible threaded openings, coherent geometry and realistic proportions. No random mechanical parts. Objects spaced naturally, not in rows, with the valve and fittings in the foreground and the faucet slightly behind. Gentle daylight from the left, soft tactile shadows, off-white background with plenty of breathing room, subtle warm-neutral palette, brass and brushed metal clearly differentiated. Shot by an architectural/product photographer on a normal lens from a slightly elevated three-quarter angle. Quiet, precise, refined, believable, not a glossy CGI render or futuristic machinery. All meaningful objects grouped in the central 70% so the photograph can crop to 16:9. No people, hands, logos, brand names, labels, packaging, writing, paperwork, watermarks or graphic overlays. This is an illustrative composition, not a depiction of a company's real stock.
+
+## Brand pages and service areas - 2026-11-19
+
+Mode: built-in imagegen, new image generation. Original PNGs preserved at the generator paths. Project assets optimized with sharp to WebP; Astro emits responsive variants.
+
+### impianto
+
+Asset: `src/assets/brands/impianto.webp`
+
+Original: `C:\Users\nebbia\.codex\generated_images\01a1d4fc-11fc-7591-94b7-db6a4a44a577\exec-cae9448c-dba8-4ee2-b96f-1b1be3b0beb5.png`
+
+Prompt:
+> Photorealistic premium Italian corporate website editorial photograph, landscape 3:2. An immaculate generic residential technical room, one unbranded plain white wall mounted boiler and a tall cylindrical white domestic hot water storage tank, carefully routed insulated pipes, minimal realistic installation, pale limestone flooring, daylight. Soft natural side lighting, restrained navy blue accents, realistic metal and glass materials, sophisticated clean composition with breathing space. No logos, no brands, no lettering, no numbers, no labels, no people, no watermark. Illustrative generic equipment, not an identifiable commercial model.
+
+### componenti
+
+Asset: `src/assets/brands/componenti.webp`
+
+Original: `C:\Users\nebbia\.codex\generated_images\01a1d4fc-11fc-7591-94b7-db6a4a44a577\exec-aaa28c5f-a379-4826-9192-668bdd8f8f70.png`
+
+Prompt:
+> Photorealistic premium Italian corporate website editorial photograph, landscape 3:2. Editorial still life of generic HVAC water treatment and hydraulic components on a pale stone workshop bench: brass distribution manifold with blue valve handles, clear unlabelled water filter housing, stainless magnetic dirt separator and two plain opaque white maintenance bottles with entirely blank surfaces, orderly realistic arrangement. Soft natural side lighting, restrained navy blue accents, realistic metal and glass materials, sophisticated clean composition with breathing space. No logos, no brands, no lettering, no numbers, no labels, no people, no watermark. Illustrative generic equipment, not an identifiable commercial model.
+
+### fumisteria
+
+Asset: `src/assets/brands/fumisteria.webp`
+
+Original: `C:\Users\nebbia\.codex\generated_images\01a1d4fc-11fc-7591-94b7-db6a4a44a577\exec-7adf304f-df92-4afa-9856-3e6b8c01c050.png`
+
+Prompt:
+> Photorealistic premium Italian corporate website editorial photograph, landscape 3:2. Premium architectural product still life of unbranded stainless steel chimney flue components: straight polished double wall tubes, one elbow fitting, roof terminal cap and circular connecting collars, arranged on a warm pale stone plinth in a bright minimalist industrial showroom. Soft natural side lighting, restrained navy blue accents, realistic metal and glass materials, sophisticated clean composition with breathing space. No logos, no brands, no lettering, no numbers, no labels, no people, no watermark. Illustrative generic equipment, not an identifiable commercial model.
+
+All new pages use two illustrative photographs, with visible AI disclosure. Existing generated area imagery is reused where relevant. No manufacturer photograph is used.

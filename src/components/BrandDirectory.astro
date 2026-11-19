@@ -1,0 +1,7 @@
+---
+import { brands } from '../data/brands';
+import { ArrowUpRight } from '@lucide/astro';
+interface Props { exclude?: string; }
+const { exclude } = Astro.props;
+---
+<div class="brand-directory">{brands.filter(brand => brand.slug !== exclude).map(brand => <a href={`/marchi/${brand.slug}/`} class="brand-directory-item"><h3>{brand.name}</h3><p>{brand.tagline}</p><span>Esplora la gamma <ArrowUpRight size={16} aria-hidden="true" /></span></a>)}</div>

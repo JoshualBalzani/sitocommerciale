@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BrandDirectory from './BrandDirectory.astro';
+import { Image } from 'astro:assets';
+import { type Brand, provinces, brandRequestUrl } from '../data/brands';
+import { brandImagery } from '../data/brand-imagery';
+import { company } from '../data/site';
+interface Props { brand: Brand; }
+const { brand } = Astro.props;
+const visual = brandImagery(brand.image);
+const secondary = brandImagery(brand.secondary);
+const description = `Agenti di commercio ${brand.name} per Forlì-Cesena, Ravenna, Rimini e Bologna. Famiglie di prodotto e richieste commerciali con Commerciale Clima Plus.`;
+---
+<BaseLayout title={`${brand.value} a Forlì, Ravenna, Rimini e Bologna | Clima Plus`} description={description} bodyClass="page-brand">
+  <main id="contenuto" tabindex="-1">
+    <section class="section brand-page-hero"><div class="container">
+      <nav class="breadcrumbs" aria-label="Percorso"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/marchi/">Marchi</a><span aria-hidden="true">/</span><span aria-current="page">{brand.name}</span></nav>
+      <div class="brand-hero-grid"><div><p class="eyebrow">Agenti di commercio · {brand.category}</p><h1>{brand.name}<span>{brand.tagline}</span></h1><p class="lead">{brand.intro}</p><div class="hero-actions"><a class="button" href={brandRequestUrl(brand)}>Richiedi informazioni {brand.value}</a><a class="text-link" href="#gamma">Esplora le famiglie</a></div></div>
+        <figure class="brand-photo"><Image src={visual.image} alt={visual.alt} widths={[480,800,1200,1600]} sizes="(max-width: 959px) calc(100vw - 40px), 45vw" format="webp" quality={82} loading="eager" fetchpriority="high" /><figcaption>Ambientazione illustrativa generata con IA. Nessun prodotto reale raffigurato.</figcaption></figure>
+      </div>
+      <div class="brand-territory"><span>Rappresentanza commerciale nelle province di</span><ul>{provinces.map(name => <li>{name}</li>)}</ul><a href="/zone-servite/">Copertura e contatti</a></div>
+    </div></section>
+    <section class="section brand-range" id="gamma" aria-labelledby="range-title"><div class="container"><div class="section-heading"><div><p class="eyebrow">La gamma, per famiglie</p><h2 id="range-title">Prodotti {brand.name}.</h2></div><p>Una panoramica delle categorie presenti nella gamma del produttore. Per configurazioni, caratteristiche e disponibilità è necessaria una verifica commerciale sul prodotto richiesto.</p></div>
+      <div class:list={['brand-family-grid', { 'brand-family-grid--four': brand.families.length === 4 }]}>{brand.families.map((family,index) => <article class="brand-family"><span class="eyebrow">{String(index+1).padStart(2,'0')}</span><h3>{family.title}</h3><ul>{family.items.map(item => <li>{item}</li>)}</ul><a class="text-link" href={brandRequestUrl(brand,family.title)}>Informazioni su {family.title.toLocaleLowerCase('it')}</a></article>)}</div>
+      <p class="editorial-note">Le categorie descrivono la gamma generale e non costituiscono un elenco di articoli disponibili. Denominazioni dei marchi utilizzate per identificare le rappresentanze commerciali.</p>
+    </div></section>
+    <section class="section brand-context"><div class="container brand-context-grid"><figure class="brand-photo"><Image src={secondary.image} alt={secondary.alt} widths={[480,800,1200]} sizes="(max-width: 959px) calc(100vw - 40px), 42vw" format="webp" quality={80} loading="lazy" /><figcaption>Immagine illustrativa generata con IA.</figcaption></figure><div><p class="eyebrow">Dalla gamma alla richiesta</p><h2>Un contatto commerciale dedicato.</h2><p>{brand.context}</p><p>Siamo agenti di commercio di {brand.name} per Forlì-Cesena, Ravenna, Rimini e Bologna, con sede a Forlì. Gestiamo informazioni e richieste commerciali sui prodotti rappresentati.</p><div class="hero-actions"><a class="button" href={brandRequestUrl(brand)}>Invia la richiesta</a><a class="text-link" href={`tel:${company.telephone}`}>{company.phone}</a></div><a class="text-link brand-area-link" href={`/${brand.area}/`}>Approfondisci l’area {brand.category.toLocaleLowerCase('it')}</a></div></div></section>
+    <section class="section"><div class="container"><div class="section-heading"><div><p class="eyebrow">Le altre rappresentanze</p><h2>Esplora gli altri marchi.</h2></div><a class="text-link" href="/marchi/">Tutti i marchi</a></div><BrandDirectory exclude={brand.slug} /></div></section>
+  </main>
+</BaseLayout>

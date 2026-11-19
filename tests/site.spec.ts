@@ -68,8 +68,8 @@ test('primary navigation on desktop, mobile and inner pages',async({page},testIn
  for(const name of ['Soluzioni','Prodotti','Azienda','Marchi','Contatti','Richiedi un preventivo'])await expect(navigation.getByRole('link',{name,exact:true})).toBeVisible();
  const audit=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa','wcag22aa']).analyze();expect(audit.violations).toEqual([]);
  if(mobile){await page.keyboard.press('Escape');await expect(toggle).toBeFocused();await expect(navigation).toBeHidden();await toggle.click();}
- await navigation.getByRole('link',{name:'Marchi',exact:true}).click();await expect(page).toHaveURL(/\/#marchi$/);
- if(mobile){await expect(navigation).toBeHidden();await expect(page.locator('#marchi')).toBeFocused();}
+ await navigation.getByRole('link',{name:'Marchi',exact:true}).click();await expect(page).toHaveURL(/\/marchi\/$/);
+ if(mobile){await expect(navigation).toBeHidden();}
  await page.goto('/climatizzazione/');if(mobile)await toggle.click();
  await navigation.getByRole('link',{name:'Prodotti',exact:true}).click();await expect(page).toHaveURL(/\/#prodotti$/);
  if(mobile){await page.evaluate(()=>scrollTo(0,0));await toggle.click();await page.setViewportSize({width:1280,height:900});await expect(navigation).toBeVisible();await expect(toggle).toBeHidden();await page.setViewportSize({width:390,height:844});await expect(navigation).toBeHidden();}

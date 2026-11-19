@@ -86,6 +86,8 @@ function initializeRequest(form: HTMLFormElement) {
   const requestType = field('tipo-richiesta');
   if (requestType instanceof HTMLSelectElement && [...requestType.options].some(option => option.value === params.get('tipo'))) requestType.value = params.get('tipo') ?? 'Informazioni';
   const category = field('categoria');
+  const brand = field('marchio');
+  if (brand instanceof HTMLSelectElement && [...brand.options].some(option => option.value === params.get('marchio'))) brand.value = params.get('marchio') ?? '';
   if (category instanceof HTMLSelectElement && [...category.options].some(option => option.value === params.get('categoria'))) {
     category.value = params.get('categoria') ?? '';
     const product = field('prodotto'); if (product) product.value = (params.get('prodotto') ?? '').slice(0,180);

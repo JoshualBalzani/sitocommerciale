@@ -28,5 +28,6 @@ function check(directory){
 }
 check(root);
 assert(fs.existsSync(path.join(root,'.nojekyll')));assert(fs.existsSync(path.join(root,'404.html')));
-const sitemap=fs.readFileSync(path.join(root,'sitemap.xml'),'utf8');const urls=[...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match=>match[1]);assert.equal(urls.length,7);assert(urls.every(url=>url.startsWith(siteUrl+'/')));
+const sitemap=fs.readFileSync(path.join(root,'sitemap.xml'),'utf8');const urls=[...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match=>match[1]);assert.equal(urls.length,18);assert.equal(new Set(urls).size,urls.length);assert(urls.every(url=>url.startsWith(siteUrl+'/')));
+for(const url of urls) assert(fs.existsSync(path.join(root,new URL(url).pathname,'index.html')),`Missing sitemap page: ${url}`);
 console.log(`${count} static pages: routes, links, anchors, metadata, CSP and public assets verified.`);
