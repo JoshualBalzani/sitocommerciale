@@ -1,0 +1,69 @@
+{
+  "date": "2026-11-19",
+  "routesChecked": [
+    "chaffoteaux",
+    "beretta",
+    "sylber",
+    "aux"
+  ],
+  "viewports": [
+    "desktop 1440x900",
+    "mobile 390x844"
+  ],
+  "newImages": 4,
+  "checks": [
+    "Distinct hero subjects and secondary photos",
+    "Image decoding and responsive layout",
+    "AUX short brand name and updated description"
+  ],
+  "assets": [
+    {
+      "viewport": "desktop",
+      "slug": "chaffoteaux",
+      "source": "/_astro/chaffoteaux-comfort.DN1rtYO7_Z2p6nvf.webp",
+      "alt": "Pompa di calore generica all’esterno di un’abitazione, con accumulo per acqua calda visibile nel locale adiacente."
+    },
+    {
+      "viewport": "desktop",
+      "slug": "beretta",
+      "source": "/_astro/beretta-centrale.DBUjqFAy_OKEaj.webp",
+      "alt": "Centrale termica illustrativa con tre caldaie murali generiche e collettori di distribuzione."
+    },
+    {
+      "viewport": "desktop",
+      "slug": "sylber",
+      "source": "/_astro/sylber-acqua-calda.DK200Y1W_1Oc4cH.webp",
+      "alt": "Scaldacqua murale generico in un locale domestico con lavabo e rubinetto per l’acqua calda."
+    },
+    {
+      "viewport": "desktop",
+      "slug": "aux",
+      "source": "/_astro/climatizzazione.Cdojt3Jb_W6p3F.webp",
+      "alt": "Climatizzatore a parete senza marchio in un soggiorno luminoso."
+    },
+    {
+      "viewport": "mobile",
+      "slug": "chaffoteaux",
+      "source": "/_astro/chaffoteaux-comfort.DN1rtYO7_Z2p6nvf.webp",
+      "alt": "Pompa di calore generica all’esterno di un’abitazione, con accumulo per acqua calda visibile nel locale adiacente."
+    },
+    {
+      "viewport": "mobile",
+      "slug": "beretta",
+      "source": "/_astro/beretta-centrale.DBUjqFAy_OKEaj.webp",
+      "alt": "Centrale termica illustrativa con tre caldaie murali generiche e collettori di distribuzione."
+    },
+    {
+      "viewport": "mobile",
+      "slug": "sylber",
+      "source": "/_astro/sylber-acqua-calda.DK200Y1W_1Oc4cH.webp",
+      "alt": "Scaldacqua murale generico in un locale domestico con lavabo e rubinetto per l’acqua calda."
+    },
+    {
+      "viewport": "mobile",
+      "slug": "aux",
+      "source": "/_astro/climatizzazione.Cdojt3Jb_W6p3F.webp",
+      "alt": "Climatizzatore a parete senza marchio in un soggiorno luminoso."
+    }
+  ]
+}

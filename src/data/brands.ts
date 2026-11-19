@@ -12,7 +12,7 @@ const brandSchema = z.object({
 export const brands = z.array(brandSchema).length(9).parse([
   {
     slug: 'chaffoteaux', name: 'Chaffoteaux', value: 'Chaffoteaux', category: 'Riscaldamento', area: 'riscaldamento',
-    tagline: 'Riscaldamento, acqua calda e sistemi integrati.', image: 'impianto', secondary: 'riscaldamento',
+    tagline: 'Riscaldamento, acqua calda e sistemi integrati.', image: 'chaffoteaux-comfort', secondary: 'solare-termico',
     intro: 'Dalla generazione del calore alla produzione di acqua calda sanitaria: la gamma Chaffoteaux comprende tecnologie a gas, elettriche e rinnovabili. Commerciale Clima Plus è il riferimento commerciale per orientare la richiesta tra le diverse famiglie.',
     context: 'Per una sostituzione o un nuovo impianto, indicare la destinazione degli ambienti, il sistema esistente e le esigenze di acqua calda aiuta a inquadrare la richiesta commerciale.',
     families: [
@@ -25,7 +25,7 @@ export const brands = z.array(brandSchema).length(9).parse([
   },
   {
     slug: 'beretta', name: 'Beretta', value: 'Beretta', category: 'Riscaldamento', area: 'riscaldamento',
-    tagline: 'Soluzioni per il comfort residenziale e professionale.', image: 'riscaldamento', secondary: 'impianto',
+    tagline: 'Soluzioni per il comfort residenziale e professionale.', image: 'beretta-centrale', secondary: 'climatizzazione',
     intro: 'La gamma Beretta riunisce riscaldamento, climatizzazione e produzione di acqua calda, con soluzioni per abitazioni e impianti professionali. Seguiamo le richieste commerciali mettendo in relazione la famiglia di prodotto con il contesto di utilizzo.',
     context: 'Impianto autonomo, centrale termica o ambiente commerciale: specificare il tipo di intervento permette di distinguere le esigenze di generazione, distribuzione e regolazione del comfort.',
     families: [
@@ -39,7 +39,7 @@ export const brands = z.array(brandSchema).length(9).parse([
   },
   {
     slug: 'sylber', name: 'Sylber', value: 'Sylber', category: 'Riscaldamento', area: 'riscaldamento',
-    tagline: 'Generazione del calore e acqua calda sanitaria.', image: 'impianto', secondary: 'riscaldamento',
+    tagline: 'Generazione del calore e acqua calda sanitaria.', image: 'sylber-acqua-calda', secondary: 'impianto',
     intro: 'Sylber propone una gamma dedicata al riscaldamento e all’acqua calda, dalle utenze residenziali agli impianti centralizzati. La nostra attività di rappresentanza accompagna la richiesta commerciale tra generatori, accumuli, terminali e complementi.',
     context: 'La richiesta può riguardare il solo generatore oppure più parti dell’impianto. Indicare gli elementi già presenti e la tipologia di utenza rende più preciso il confronto commerciale.',
     families: [
@@ -52,8 +52,8 @@ export const brands = z.array(brandSchema).length(9).parse([
     ],
   },
   {
-    slug: 'aux', name: 'AUX Air Conditioner', value: 'AUX', category: 'Climatizzazione', area: 'climatizzazione',
-    tagline: 'Climatizzazione per abitazioni e spazi commerciali.', image: 'climatizzazione', secondary: 'ventilazione',
+    slug: 'aux', name: 'AUX', value: 'AUX', category: 'Climatizzazione', area: 'climatizzazione',
+    tagline: 'Climatizzazione e pompe di calore.', image: 'climatizzazione', secondary: 'ventilazione',
     intro: 'La gamma italiana AUX comprende climatizzazione residenziale, commerciale leggero e sistemi per applicazioni commerciali, oltre alle pompe di calore. Raccogliamo le richieste per individuare la famiglia coerente con gli ambienti da servire.',
     context: 'Numero di locali, destinazione d’uso e preferenza tra unità a vista o canalizzate sono informazioni utili per una prima richiesta. La configurazione e il dimensionamento richiedono una verifica tecnica dedicata.',
     families: [
