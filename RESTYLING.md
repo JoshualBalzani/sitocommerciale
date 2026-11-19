@@ -36,3 +36,7 @@ Integrate quattro ambientazioni originali generate con imagegen, senza marchi o 
 ## Prova hero panoramica
 
 Sostituita la directory iniziale con una scena illustrativa originale che comprende radiatore, climatizzatore, ventilazione e rubinetteria. Velatura bianca CSS dietro al testo su desktop, immagine separata sotto al testo su mobile, quattro collegamenti compatti alle aree. Immagine WebP responsive prioritaria; prompt e file documentati in IMAGES.md. Suite ampliata a 38 verifiche.
+
+## Hero delle aree prodotto - 19 novembre 2026
+
+Composizione desktop con rapporto 55% testo e 45% fotografia, al netto dello spazio tra le colonne. Immagini nitide separate dal testo, stessa cornice con angoli discreti e didascalia. Ritagli dedicati per radiatore, climatizzatore e miscelatore; ingrandimento controllato del dettaglio della ventilazione, con srcset adeguato alla risoluzione effettiva. Su mobile il contenuto e i pulsanti precedono sempre la foto; proporzioni adattate al soggetto. Le immagini originali vengono riutilizzate senza nuove generazioni. Le hero di privacy, note legali e conferma rimangono essenziali.

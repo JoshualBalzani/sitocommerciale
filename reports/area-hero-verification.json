@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-19",
+  "page": "/ventilazione/",
+  "environment": "Local production preview, Chrome, Lighthouse 13.6.0 mobile emulation",
+  "automatedTests": 38,
+  "scores": {
+    "performance": 100,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100
+  },
+  "lcp": 1658.2301000000002,
+  "cls": 0
+}
