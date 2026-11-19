@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import { ChevronDown } from '@lucide/astro';
 import brand from '../assets/brand.png';
 import { company } from '../data/site';
 import { areas } from '../data/content';
@@ -13,7 +14,7 @@ const links = [
   <a class="brand" href="/"><Image src={brand} width={48} height={48} densities={[1,2]} format="webp" loading="eager" fetchpriority="high" alt="" /><span>Commerciale<strong>Clima Plus<span class="brand-dot">.</span></strong></span></a>
   <button class="navigation-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" hidden><span data-navigation-label>Menu</span><span class="navigation-icon" aria-hidden="true"></span></button>
   <nav id="primary-navigation" class="primary-navigation" aria-label="Navigazione principale">
-    <ul>{links.map(([label, href], index) => <li class={index === 0 ? 'navigation-solutions' : undefined}><a href={href}>{label}</a>{index === 0 && <details class="area-menu"><summary aria-label="Apri aree di prodotto"><span aria-hidden="true">⌄</span></summary><ul class="area-menu-list">{areas.map(area => <li><a href={`/${area.slug}/`} aria-current={Astro.url.pathname === `/${area.slug}/` ? 'page' : undefined}>{area.name}<span aria-hidden="true">↗</span></a></li>)}</ul></details>}</li>)}</ul>
+    <ul>{links.map(([label, href], index) => <li class={index === 0 ? 'navigation-solutions' : undefined}><a href={href}>{label}</a>{index === 0 && <details class="area-menu"><summary aria-label="Apri aree di prodotto"><ChevronDown size={16} stroke-width={1.75} aria-hidden="true" /></summary><ul class="area-menu-list">{areas.map(area => <li><a href={`/${area.slug}/`} aria-current={Astro.url.pathname === `/${area.slug}/` ? 'page' : undefined}>{area.name}<span aria-hidden="true">↗</span></a></li>)}</ul></details>}</li>)}</ul>
     <a class="button navigation-cta" href={Astro.url.pathname === '/' ? '#richiesta' : '/?tipo=Preventivo#richiesta'} data-request-type="Preventivo">Richiedi un preventivo</a>
   </nav>
 </div></header>
