@@ -71,7 +71,7 @@ test('primary navigation on desktop, mobile and inner pages',async({page},testIn
  await navigation.getByRole('link',{name:'Marchi',exact:true}).click();await expect(page).toHaveURL(/\/marchi\/$/);
  if(mobile){await expect(navigation).toBeHidden();}
  await page.goto('/climatizzazione/');if(mobile)await toggle.click();
- await navigation.getByRole('link',{name:'Prodotti',exact:true}).click();await expect(page).toHaveURL(/\/#prodotti$/);
+ await navigation.getByRole('link',{name:'Prodotti',exact:true}).click();await expect(page).toHaveURL(/\/catalogo\/$/);
  if(mobile){await page.evaluate(()=>scrollTo(0,0));await toggle.click();await page.setViewportSize({width:1280,height:900});await expect(navigation).toBeVisible();await expect(toggle).toBeHidden();await page.setViewportSize({width:390,height:844});await expect(navigation).toBeHidden();}
 });
 

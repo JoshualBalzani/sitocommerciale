@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 export const provinces = ['Forlì-Cesena', 'Ravenna', 'Rimini', 'Bologna'] as const;
 export const administrativeAreas = provinces.map(name => ({ '@type': 'AdministrativeArea', name: `Provincia di ${name}` }));
-const familySchema = z.object({ title: z.string().min(1), items: z.array(z.string().min(1)).min(1) });
+const familySchema = z.object({ title: z.string().min(1), items: z.array(z.string().min(1)).min(1), category: z.enum(['Riscaldamento','Climatizzazione','Aria e ventilazione','Termoidraulica']).optional() });
 const brandSchema = z.object({
   slug: z.string().regex(/^[a-z-]+$/), name: z.string().min(1), value: z.string().min(1),
   category: z.string().min(1), area: z.enum(['riscaldamento','climatizzazione','ventilazione','termoidraulica']),
@@ -32,7 +32,7 @@ export const brands = z.array(brandSchema).length(9).parse([
       { title: 'Caldaie residenziali', items: ['Caldaie murali a condensazione', 'Caldaie convenzionali', 'Caldaie a basamento'] },
       { title: 'Impianti professionali', items: ['Caldaie professionali', 'Soluzioni per centrali termiche'] },
       { title: 'Pompe di calore e sistemi ibridi', items: ['Refrigeratori e pompe di calore aria-acqua', 'Sistemi ibridi'] },
-      { title: 'Climatizzazione e terminali', items: ['Climatizzazione', 'Unità terminali per il comfort ambiente'] },
+      { title: 'Climatizzazione e terminali', category: 'Climatizzazione', items: ['Climatizzazione', 'Unità terminali per il comfort ambiente'] },
       { title: 'Acqua calda e solare', items: ['Scaldabagni a gas', 'Scaldacqua a pompa di calore', 'Solare termico'] },
       { title: 'Complementi di impianto', items: ['Regolazione', 'Accumulo e accessori di impianto'] },
     ],
@@ -84,10 +84,10 @@ export const brands = z.array(brandSchema).length(9).parse([
     families: [
       { title: 'Sistemi fumari metallici', items: ['Canne fumarie in acciaio inox e rame', 'Sistemi monoparete, doppia parete e coibentati', 'Condotti ovali e flessibili'] },
       { title: 'Condotti e accessori fumo', items: ['Canali per biomassa', 'Sistemi coassiali per condensazione', 'Terminali, comignoli e passaggi a tetto'] },
-      { title: 'Aria e collegamenti', items: ['Ventilazione e canalizzazione', 'Sistemi di collegamento per split'] },
-      { title: 'Distribuzione del calore', items: ['Radiatori e termoarredi', 'Moduli di gestione del calore', 'Bollitori e puffer'] },
-      { title: 'Energie alternative', items: ['Solare termico e fotovoltaico', 'Sistemi integrati e biomassa'] },
-      { title: 'Stufe e camini', items: ['Accessori per stufe e caminetti', 'Complementi di design'] },
+      { title: 'Aria e collegamenti', category: 'Aria e ventilazione', items: ['Ventilazione e canalizzazione', 'Sistemi di collegamento per split'] },
+      { title: 'Distribuzione del calore', category: 'Riscaldamento', items: ['Radiatori e termoarredi', 'Moduli di gestione del calore', 'Bollitori e puffer'] },
+      { title: 'Energie alternative', category: 'Riscaldamento', items: ['Solare termico e fotovoltaico', 'Sistemi integrati e biomassa'] },
+      { title: 'Stufe e camini', category: 'Riscaldamento', items: ['Accessori per stufe e caminetti', 'Complementi di design'] },
     ],
   },
   {
@@ -97,7 +97,7 @@ export const brands = z.array(brandSchema).length(9).parse([
     context: 'Materiale della tubazione, applicazione e funzione richiesta aiutano a distinguere raccordi, valvole e gruppi di distribuzione. Le caratteristiche di esercizio devono essere verificate nella documentazione tecnica.',
     families: [
       { title: 'Valvole e rubinetti', items: ['Valvole di ritegno e di fondo', 'Valvole a sfera e saracinesche', 'Rubinetti di erogazione, sottolavabo, incasso e lavatrice', 'Valvole e dispositivi di sicurezza gas'] },
-      { title: 'Riscaldamento e regolazione', items: ['Valvole termostatizzabili, manuali e detentori', 'Teste termostatiche e valvole bitubo', 'Servocomandi e valvole di zona', 'Termostati e cronotermostati'] },
+      { title: 'Riscaldamento e regolazione', category: 'Riscaldamento', items: ['Valvole termostatizzabili, manuali e detentori', 'Teste termostatiche e valvole bitubo', 'Servocomandi e valvole di zona', 'Termostati e cronotermostati'] },
       { title: 'Distribuzione', items: ['Collettori in acciaio inox e ottone', 'Gruppi di regolazione a punto fisso', 'Gruppi e accessori di distribuzione'] },
       { title: 'Raccordi', items: ['Raccordi per multistrato, PEX, polibutilene e rame', 'Raccordi a innesto rapido', 'Raccordi per polietilene', 'Raccordi meccanici e accessori'] },
       { title: 'Protezione e trattamento acqua', items: ['Riduttori di pressione e filtri', 'Dosatori di polifosfati e defangatori magnetici', 'Gruppi di riempimento e valvole di sicurezza', 'Valvole antigelo per pompe di calore e sfiati aria'] },
@@ -112,7 +112,7 @@ export const brands = z.array(brandSchema).length(9).parse([
     families: [
       { title: 'Sigillatura e adesione', items: ['Mastici, sigillanti, siliconi e stucchi', 'Adesivi e polimeri ibridi', 'Preparazione delle superfici e additivi per calcestruzzo'] },
       { title: 'Trattamento acqua', items: ['Addolcimento e filtrazione', 'Prodotti per impianti termici e refrigeranti', 'Trattamento e protezione dei circuiti'] },
-      { title: 'Climatizzazione e manutenzione', items: ['Prodotti per trattamento aria e condizionamento', 'Manutenzione civile e industriale'] },
+      { title: 'Climatizzazione e manutenzione', category: 'Climatizzazione', items: ['Prodotti per trattamento aria e condizionamento', 'Manutenzione civile e industriale'] },
       { title: 'Protezione e riparazione', items: ['Nastri anticorrosivi e isolanti', 'Sistemi termorestringenti', 'Collari di riparazione'] },
       { title: 'Solare termico', items: ['Tubazioni solari binate preisolate e accessori'] },
       { title: 'Pulizia e sanificazione', items: ['Detergenti e sanificanti', 'Disinfettanti, biocidi e prodotti biologici'] },
@@ -124,17 +124,18 @@ export const brands = z.array(brandSchema).length(9).parse([
     intro: 'Ideal Clima riunisce soluzioni per riscaldamento e raffrescamento radiante, ventilazione e trattamento del comfort ambiente. La nostra rappresentanza offre un contatto commerciale per le diverse parti del sistema, dalla distribuzione ai terminali.',
     context: 'Nuova costruzione e riqualificazione possono richiedere soluzioni differenti per ricambio d’aria, umidità e distribuzione del calore. Indicare gli ambienti e l’impianto previsto aiuta a organizzare la richiesta.',
     families: [
-      { title: 'Sistemi radianti', items: ['Riscaldamento e raffrescamento a pavimento', 'Sistemi radianti a soffitto', 'Tubi, pannelli e accessori'] },
-      { title: 'Distribuzione e regolazione', items: ['Collettori, distributori e cassette', 'Termoregolazione, sensori e controllo per zone'] },
+      { title: 'Sistemi radianti', category: 'Riscaldamento', items: ['Riscaldamento e raffrescamento a pavimento', 'Sistemi radianti a soffitto', 'Tubi, pannelli e accessori'] },
+      { title: 'Distribuzione e regolazione', category: 'Riscaldamento', items: ['Collettori, distributori e cassette', 'Termoregolazione, sensori e controllo per zone'] },
       { title: 'Ventilazione meccanica', items: ['VMC decentralizzata e canalizzata', 'Unità di recupero del calore', 'Condotti, silenziatori, collettori e plenum', 'Griglie e terminali di presa ed espulsione aria'] },
       { title: 'Trattamento del comfort', items: ['Deumidificatori per sistemi radianti', 'Comandi e accessori di ventilazione'] },
-      { title: 'Terminali e climatizzazione', items: ['Radiatori', 'Terminali idronici e idronici canalizzati', 'Climatizzatori senza unità esterna'] },
+      { title: 'Terminali e climatizzazione', category: 'Climatizzazione', items: ['Radiatori', 'Terminali idronici e idronici canalizzati', 'Climatizzatori senza unità esterna'] },
     ],
   },
 ]);
 export type Brand = z.infer<typeof brandSchema>;
 export function brandRequestUrl(brand: Brand, product?: string) {
-  const query = new URLSearchParams({ categoria: brand.category, marchio: brand.value });
+  const category = brand.families.find(family => family.title === product)?.category ?? brand.category;
+  const query = new URLSearchParams({ categoria: category, marchio: brand.value });
   if (product) query.set('prodotto', product);
   return `/?${query.toString()}#richiesta`;
 }

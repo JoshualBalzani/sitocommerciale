@@ -39,7 +39,7 @@ test('brand family links prefill a valid commercial request',async({page})=>{
 });
 test('sitemap includes all new canonical pages and directory links',async({page,request})=>{
   const response=await request.get('/sitemap.xml');const xml=await response.text();
-  expect((xml.match(/<loc>/g)??[]).length).toBe(18);
+  expect((xml.match(/<loc>/g)??[]).length).toBe(19);
   for(const slug of slugs)expect(xml).toContain(`/marchi/${slug}/</loc>`);
   expect(xml).toContain('/zone-servite/</loc>');
   await page.goto('/marchi/');await expect(page.locator('#rappresentanze .brand-directory-item')).toHaveCount(9);

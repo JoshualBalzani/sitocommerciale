@@ -1,5 +1,6 @@
 ---
 import RequestForm from "./RequestForm.astro";
+import { defaultRequestGuidance } from '../data/request-guidance';
 ---
 <section class="section request-section" id="richiesta" aria-labelledby="request-title"><div class="container request-layout"><div class="request-intro">
             <p class="eyebrow">RICHIESTA DI INFORMAZIONI E PREVENTIVI</p>
@@ -15,6 +16,7 @@ import RequestForm from "./RequestForm.astro";
               <li><span>02</span>Indica prodotto, marchio o esigenza</li>
               <li><span>03</span>Inserisci i recapiti di contatto</li>
             </ol>
+            <aside class="request-checklist" aria-labelledby="request-checklist-title"><h3 id="request-checklist-title">Per una richiesta completa</h3><ul><li>Comune o provincia dell’intervento.</li><li>Destinazione d’uso degli ambienti.</li><li>Nuovo impianto, sostituzione o integrazione.</li><li>Marchio, famiglia e quantità, se già noti.</li></ul><p id="request-context-hint" data-request-guidance>{defaultRequestGuidance}</p><p>Puoi descrivere l’esigenza anche senza conoscere un modello o un codice.</p></aside>
             <div class="request-help">
               <strong>Contatto telefonico</strong><a href="tel:+393496808840">349 680 8840 </a>
               <p>

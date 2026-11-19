@@ -14,5 +14,5 @@ export const company = {
 } as const;
 export const requestTypes = ['Informazioni', 'Preventivo', 'Disponibilità prodotto'] as const;
 export const requestCategories = ['Riscaldamento', 'Climatizzazione', 'Aria e ventilazione', 'Termoidraulica', 'Richiesta di orientamento'] as const;
-export const publicRoutes = ['/', '/riscaldamento/', '/climatizzazione/', '/ventilazione/', '/termoidraulica/', '/marchi/', ...['chaffoteaux','beretta','sylber','aux','fiore','la-termocamino','itap','facot','ideal-clima'].map(slug => `/marchi/${slug}/`), '/zone-servite/', '/privacy/', '/note-legali/'];
+export const publicRoutes = ['/', '/riscaldamento/', '/climatizzazione/', '/ventilazione/', '/termoidraulica/', '/catalogo/', '/marchi/', ...['chaffoteaux','beretta','sylber','aux','fiore','la-termocamino','itap','facot','ideal-clima'].map(slug => `/marchi/${slug}/`), '/zone-servite/', '/privacy/', '/note-legali/'];
 export const policy = "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://api.web3forms.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com; upgrade-insecure-requests";

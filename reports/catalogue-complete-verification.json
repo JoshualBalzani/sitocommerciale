@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-19",
+  "environment": "Local production preview, Chrome, Lighthouse mobile emulation",
+  "indexableUrls": 19,
+  "productFamilies": 49,
+  "brands": 9,
+  "applicationFilters": 7,
+  "automatedTestSuite": 74,
+  "focusedTestsAfterPagination": 8,
+  "additionalResponsiveChecks": 12,
+  "scores": {
+    "performance": 97,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100
+  },
+  "lcp": 912.9574,
+  "cls": 0.01587267003313573,
+  "checks": [
+    "Brand and application filters combine with multiword search and synonyms",
+    "12 results per increment, keyboard focus moves to newly revealed items",
+    "Filter URLs and request context survive navigation",
+    "All families readable without JavaScript",
+    "Illustrations linked to matching product family anchors",
+    "Category guidance changes without altering form fields or draft messages",
+    "No domain, DNS or HTTPS configuration changes"
+  ]
+}

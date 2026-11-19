@@ -7,6 +7,7 @@ import { administrativeAreas } from '../data/brands';
 import '../styles/global.css';
 import '../styles/design.css';
 import '../styles/brands.css';
+import '../styles/catalogue.css';
 interface Props { title: string; description: string; noindex?: boolean; bodyClass?: string; }
 const { title, description, noindex = false, bodyClass = '' } = Astro.props;
 const canonical = new URL(Astro.url.pathname === '/404/' ? '/404.html' : Astro.url.pathname, siteUrl).href;

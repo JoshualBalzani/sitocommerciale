@@ -1,6 +1,7 @@
 import { requestSchema } from '../lib/validation';
 import { company } from '../data/site';
 import { copyText } from './clipboard';
+import { requestGuidance, defaultRequestGuidance } from '../data/request-guidance';
 
 type Field = HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
 class DeliveryError extends Error { constructor(public readonly status: number) { super('Delivery not confirmed'); } }
@@ -32,6 +33,8 @@ function initializeRequest(form: HTMLFormElement) {
     const values = ['categoria', 'marchio', 'prodotto'].map(name => field(name)?.value.trim()).filter(Boolean);
     if (panel) panel.hidden = values.length === 0;
     if (summary) summary.textContent = values.join(' · ');
+    const hint = document.querySelector('[data-request-guidance]');
+    if (hint) hint.textContent = requestGuidance[field('categoria')?.value ?? ''] ?? defaultRequestGuidance;
   }
   form.querySelector('[data-clear-selection]')?.addEventListener('click', () => {
     for (const name of ['categoria', 'marchio', 'prodotto']) { const input = field(name); if (input) input.value = ''; }

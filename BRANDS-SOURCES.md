@@ -20,5 +20,13 @@ Verifica editoriale: 19 novembre 2026. Le pagine pubbliche descrivono famiglie g
 - Copertura dichiarata dal cliente: Forlì-Cesena, Ravenna, Rimini, Bologna per tutti i nove marchi. Unica sede: Viale Bologna 24, Forlì.
 - Attività di agenzia/rappresentanza commerciale. Nessuna dichiarazione di esclusiva, centro assistenza, installatore certificato o magazzino disponibile.
 - Le famiglie sono una panoramica generale; disponibilità, compatibilità e configurazione richiedono verifica dedicata. Aggiornare questa ricognizione quando il produttore modifica il catalogo.
-- Collegamenti interni a marchi, aree e modulo con parametri `categoria`, `marchio`, `prodotto`. Sitemap con 18 URL canonici, `areaServed` sulle quattro province e breadcrumb a tre livelli sui marchi.
+- Collegamenti interni a marchi, aree e modulo con parametri `categoria`, `marchio`, `prodotto`. Sitemap con 19 URL canonici, `areaServed` sulle quattro province e breadcrumb a tre livelli sui marchi.
 - Le immagini IA rappresentano ambientazioni e componenti generici; non documentano prodotti del marchio o lavori eseguiti. Didascalie visibili su ogni immagine.
+
+## Catalogo unificato
+
+Le 49 famiglie sono derivate da `src/data/brands.ts`, senza duplicare la gamma. `src/data/catalogue.ts` assegna sette ambiti applicativi di orientamento e valida la copertura di ogni famiglia. Una categoria specifica della famiglia, se presente, prevale sulla categoria principale del marchio nel modulo.
+
+Il catalogo mostra 12 voci alla volta con JavaScript, conserva i filtri nell’URL e resta integralmente consultabile senza script. Il confronto dei marchi riporta le stesse famiglie. Le immagini di approfondimento sono collegate ad ancore delle famiglie verificate in fase di build.
+
+HTTPS: nessuna modifica alla configurazione del dominio, come richiesto dal cliente in questo aggiornamento.

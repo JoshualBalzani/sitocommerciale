@@ -1,0 +1,17 @@
+---
+import { Image } from 'astro:assets';
+import { type Brand } from '../data/brands';
+import { brandImagery } from '../data/brand-imagery';
+import { brandIllustrations } from '../data/brand-illustrations';
+interface Props { brand: Brand; }
+const { brand } = Astro.props;
+const visual = brandImagery(brand.secondary);
+const context = brandIllustrations[brand.slug];
+if (!context) throw new Error(`Missing illustrated context: ${brand.slug}`);
+const links = context.families.map(title => {
+  const index = brand.families.findIndex(family => family.title === title);
+  if (index < 0) throw new Error(`Unknown illustrated family: ${brand.slug}/${title}`);
+  return { title, href: `#famiglia-${index+1}` };
+});
+---
+<div class="brand-range-visual"><figure class="brand-photo"><Image src={visual.image} alt={visual.alt} widths={[480,800,1200]} sizes="(max-width: 959px) calc(100vw - 40px), 42vw" format="webp" quality={80} loading="lazy" /><figcaption>{visual.caption && <span>{visual.caption} </span>}Immagine illustrativa generata con IA; non raffigura prodotti reali del marchio.</figcaption></figure><div><p class="eyebrow">Un’applicazione in primo piano</p><h3>{context.title}</h3><p>{context.text}</p><nav aria-label="Famiglie illustrate">{links.map(link => <a class="text-link" href={link.href}>{link.title}</a>)}</nav></div></div>

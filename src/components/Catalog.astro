@@ -1,11 +1,13 @@
 ---
 import { home } from '../data/content';
+import { catalogue } from '../data/catalogue';
 import { requestCategories } from '../data/site';
 import { Search, X, ArrowUpRight } from '@lucide/astro';
 const categories = requestCategories.slice(0,4);
 ---
 <section class="section" id="prodotti" aria-labelledby="catalog-title"><div class="container">
   <div class="section-heading"><div><p class="eyebrow">02 / Catalogo prodotti</p><h2 id="catalog-title">Trova la categoria.<br /><em>Prepara la richiesta.</em></h2></div><p>Cerca un prodotto o un’esigenza, esplora le categorie e seleziona il riferimento da inviarci. Non è necessario conoscere già il codice.</p></div>
+  <div class="catalogue-full-link"><div><strong>Tutte le gamme, in un unico catalogo.</strong><p>{catalogue.length} famiglie di prodotto dei nove marchi, filtrabili per marchio e applicazione.</p></div><a class="button" href="/catalogo/">Apri il catalogo completo</a></div>
   <div id="catalogo-completo">
     <div class="catalog-tools" data-catalog-tools hidden>
       <div class="catalog-search"><label for="catalog-search">Quale prodotto cerchi?</label><div class="catalog-search-field"><Search size={20} aria-hidden="true" /><input id="catalog-search" type="search" placeholder="Es. clima, rubinetti, VMC o un marchio…" autocomplete="off" aria-controls="catalog-grid" aria-describedby="catalog-search-help" /><button type="button" data-clear-catalog-search aria-label="Cancella la ricerca" hidden><X size={18} aria-hidden="true" /></button></div><p id="catalog-search-help">Puoi combinare più termini, anche in ordine diverso.</p></div>

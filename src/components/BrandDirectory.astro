@@ -1,7 +1,7 @@
 ---
 import { brands } from '../data/brands';
 import { ArrowUpRight } from '@lucide/astro';
-interface Props { exclude?: string; }
-const { exclude } = Astro.props;
+interface Props { exclude?: string; showFamilies?: boolean; }
+const { exclude, showFamilies = false } = Astro.props;
 ---
-<div class="brand-directory">{brands.filter(brand => brand.slug !== exclude).map(brand => <a href={`/marchi/${brand.slug}/`} class="brand-directory-item"><h3>{brand.name}</h3><p>{brand.tagline}</p><span>Esplora la gamma <ArrowUpRight size={16} aria-hidden="true" /></span></a>)}</div>
+<div class="brand-directory">{brands.filter(brand => brand.slug !== exclude).map(brand => <a href={`/marchi/${brand.slug}/`} class="brand-directory-item"><h3>{brand.name}</h3><p>{brand.tagline}</p>{showFamilies && <ul class="brand-directory-families" aria-label={`Gamme ${brand.name}`}>{brand.families.map(family => <li>{family.title}</li>)}</ul>}<span>Esplora la gamma <ArrowUpRight size={16} aria-hidden="true" /></span></a>)}</div>
