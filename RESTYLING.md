@@ -40,3 +40,7 @@ Sostituita la directory iniziale con una scena illustrativa originale che compre
 ## Hero delle aree prodotto - 19 novembre 2026
 
 Composizione desktop con rapporto 55% testo e 45% fotografia, al netto dello spazio tra le colonne. Immagini nitide separate dal testo, stessa cornice con angoli discreti e didascalia. Ritagli dedicati per radiatore, climatizzatore e miscelatore; ingrandimento controllato del dettaglio della ventilazione, con srcset adeguato alla risoluzione effettiva. Su mobile il contenuto e i pulsanti precedono sempre la foto; proporzioni adattate al soggetto. Le immagini originali vengono riutilizzate senza nuove generazioni. Le hero di privacy, note legali e conferma rimangono essenziali.
+
+## Materiali nella sezione interlocutori - 19 novembre 2026
+
+Una sola immagine illustrativa originale di raccordi, valvola e rubinetteria affianca l'introduzione della sezione interlocutori; su mobile viene dopo il testo. I tre percorsi per professionisti, aziende e privati restano sotto. Immagine WebP responsive lazy, con didascalia e testo alternativo. File e prompt in IMAGES.md.

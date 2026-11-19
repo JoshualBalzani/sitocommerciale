@@ -116,7 +116,7 @@ test('solutions have uniform cards and full-width mobile submenu',async({page},t
 
 test('generated area images load responsively with matching inner pages',async({page},testInfo)=>{
  await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/');await page.getByRole('button',{name:'Continua senza tracciamento',exact:true}).click();
- const images=page.locator('.area-photo img');await expect(images).toHaveCount(4);
+ const images=page.locator('.area-photo img,.audience-materials img');await expect(images).toHaveCount(5);
  for(const image of await images.all()){await image.scrollIntoViewIfNeeded();await expect.poll(()=>image.evaluate((element:HTMLImageElement)=>element.complete&&element.naturalWidth>0)).toBe(true);await expect(image).toHaveAttribute('srcset',/400w/);await expect(image).toHaveAttribute('loading','lazy');}
  for(const route of ['/riscaldamento/','/climatizzazione/','/ventilazione/','/termoidraulica/']){await page.goto(route);const image=page.locator('.area-hero-photo img');await expect(image).toBeVisible();await expect.poll(()=>image.evaluate((element:HTMLImageElement)=>element.complete&&element.naturalWidth>0)).toBe(true);await expect(image).toHaveAttribute('alt',/.+/);await expect(page.locator('.area-hero-photo figcaption')).toContainText('illustrativa');expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   const text=await page.locator('.area-hero-grid>div').boundingBox(),photo=await page.locator('.area-hero-photo').boundingBox();
